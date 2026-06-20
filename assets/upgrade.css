@@ -1,1 +1,22 @@
-/* Tier 1 - placeholder */
+/* Tier 2 - real improvements, no HTML changes */
+
+/* 1. bikin seluruh card author jadi clickable area */
+a[href*="about"], a[href*="blog"] { position: relative; }
+a[href*="about"]::after, a[href*="blog"]::after {
+  content: ""; position: absolute; inset: 0;
+}
+
+/* 2. perbaiki tombol quiz biar tidak kepotong */
+a[href*="tally.so"] {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(59,130,246,.3);
+  transition: transform .2s ease;
+}
+a[href*="tally.so"]:hover { transform: translateY(-2px); }
+
+/* 3. hover halus untuk card */
+.bg-white, .rounded-2xl {
+  transition: transform .2s, box-shadow .2s;
+}
+.bg-white:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,.08); }
