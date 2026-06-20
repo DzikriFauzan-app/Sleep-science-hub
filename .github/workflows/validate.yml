@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate schema
-        run: bash./.seo/validate.sh
+        run: bash ./.seo/validate.sh
