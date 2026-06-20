@@ -9,12 +9,7 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Audit live site
-        uses: treosh/lighthouse-ci-action@v11
+      - uses: actions/checkout@v4
+      - uses: treosh/lighthouse-ci-action@v11
         with:
-          urls: |
-            https://dzikrifauzan-app.github.io/Sleep-science-hub/
-            https://dzikrifauzan-app.github.io/Sleep-science-hub/blog/
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-          runs: 3
+          configPath: ./lighthouserc.json
