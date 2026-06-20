@@ -1,8 +1,9 @@
 name: SEO Validate
 on: [push]
 jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - run:./.seo/validate.sh
+ validate:
+ runs-on: ubuntu-latest
+ steps:
+ - uses: actions/checkout@v4
+ - name: Validate schema
+ run: bash./.seo/validate.sh
