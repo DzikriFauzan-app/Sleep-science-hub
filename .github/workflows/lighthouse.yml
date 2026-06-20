@@ -1,0 +1,20 @@
+name: Lighthouse SEO Audit
+
+on:
+  push:
+    branches: [gh-pages]
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Audit live site
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://dzikrifauzan-app.github.io/Sleep-science-hub/
+            https://dzikrifauzan-app.github.io/Sleep-science-hub/blog/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3
