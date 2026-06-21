@@ -14,9 +14,14 @@
   </url>
   <url>
     <loc>https://dzikrifauzan-app.github.io/Sleep-science-hub/about.html</loc>
-    <loc>https://dzikrifauzan-app.github.io/Sleep-science-hub/blog/glymphatic-system.html</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dzikrifauzan-app.github.io/Sleep-science-hub/blog/glymphatic-system.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
