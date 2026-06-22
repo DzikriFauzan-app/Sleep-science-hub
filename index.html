@@ -8,6 +8,9 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; frame-src https://*.tally.so https://tally.so; connect-src 'self' https://*.tally.so; form-action https://*.tally.so 'self'; frame-ancestors 'self'" />
   <title>Sleep Science Hub — Waking Up at 3 AM? The Real Reason You Can't Stay Asleep</title>
   <meta name="description" content="Irregular sleep patterns and circadian disruption affect millions. Discover the science behind middle-of-the-night waking and proven strategies to restore your natural sleep rhythm." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="author" content="Mark" />
   <link rel="canonical" href="https://dzikrifauzan-app.github.io/Sleep-science-hub/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dzikrifauzan-app.github.io/Sleep-science-hub/" />
@@ -235,19 +238,15 @@
       };
 
       const res = resultsMap[highestCat];
-
       setTimeout(() => {
         container.innerHTML = `
-          <div class="text-left text-slate-200">
-            <div class="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold tracking-wide text-brand mb-3" style="color: #38bdf8; background-color: rgba(56,189,248,0.1);">
+          <div class="text-left text-slate-200 space-y-5 p-1">
+            <div class="inline-flex items-center gap-2 rounded-full bg-brand/10 px-2.5 py-1 text-[10px] font-bold tracking-wide text-brand" style="color: #38bdf8; background-color: rgba(56,189,248,0.1);">
                ⚡️ MEDICAL AUDIT RESULTS
             </div>
-            <h3 class="text-base font-bold text-white tracking-tight mb-2">${res.title}</h3>
-            <p class="text-[11px] text-slate-300 leading-relaxed font-normal mb-6">${res.text}</p>
-            
-            <div class="h-6"></div>
-            
-            <div class="pt-2">
+            <h3 class="text-base font-bold text-white tracking-tight leading-snug">${res.title}</h3>
+            <p class="text-[12px] text-slate-300 leading-relaxed font-normal">${res.text}</p>
+            <div class="pt-4">
               <a href="${res.link}" target="_blank" rel="noopener noreferrer" class="block w-full text-center rounded-xl text-white font-bold text-[13px] px-4 py-3.5 shadow-xl transition-all hover:bg-sky-500" style="background-color: #0284c7; text-decoration: none; display: block; box-sizing: border-box;">
                 End My 3 AM Awakenings Now →
               </a>
