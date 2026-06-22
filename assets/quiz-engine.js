@@ -70,11 +70,12 @@ function renderQuestion() {
     const btn = document.createElement('button');
     btn.className = "w-full text-left rounded-xl bg-slate-800 border border-slate-700/60 p-4 text-sm font-medium text-slate-200 transition hover:bg-slate-700/60 hover:border-brand active:scale-[0.99] block focus:outline-none";
     btn.innerText = opt.t;
-    btn.onclick = () => {
+    // Patuhi aturan CSP: Gunakan addEventListener, dilarang memakai .onclick assignment langsung
+    btn.addEventListener('click', () => {
       scores[opt.cat] = (scores[opt.cat] || 0) + 1;
       currentIdx++;
       renderQuestion();
-    };
+    });
     container.appendChild(btn);
   });
 }
@@ -97,7 +98,6 @@ function evaluateAndRedirect() {
     }
   }
 
-  // Pengembalian Objek Kamus Data Otoritas Medis Yang Hilang
   const resultsMap = {
     cortisol: {
       title: "⚡️ Biomarker: Nocturnal Cortisol Surge",
@@ -146,10 +146,16 @@ function evaluateAndRedirect() {
   }, 1200);
 }
 
-// Strict CSP Compliant Event Binding
-document.addEventListener('DOMContentLoaded', () => {
+// Inisialisasi Event Listener berbasis state siklus dokumen (Anti-Freeze)
+function initQuizEngine() {
   const startBtn = document.getElementById('start-quiz-btn');
   if (startBtn) {
     startBtn.addEventListener('click', startQuiz);
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initQuizEngine);
+} else {
+  initQuizEngine();
+}
