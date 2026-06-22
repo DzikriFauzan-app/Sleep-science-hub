@@ -239,14 +239,14 @@
       // Tetap pertahankan warna latar belakang gelap kuis asli agar layout box stabil di layar ponsel
       setTimeout(() => {
         container.innerHTML = `
-          <div class="space-y-4 text-left text-slate-200">
+          <div class="space-y-6 text-left text-slate-200 py-2">
             <div class="inline-flex items-center gap-2 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold tracking-wide text-brand" style="color: #38bdf8; background-color: rgba(56,189,248,0.1);">
                ⚡️ MEDICAL AUDIT RESULTS
             </div>
-            <h3 class="text-xl font-extrabold text-white tracking-tight">${res.title}</h3>
-            <p class="text-sm text-slate-300 leading-relaxed font-normal">${res.text}</p>
-            <div class="pt-2">
-              <a href="${res.link}" target="_blank" rel="noopener noreferrer" class="block w-full text-center rounded-xl text-white font-extrabold text-[15px] px-6 py-4 shadow-xl transition-all" style="background-color: #0284c7; text-decoration: none;">
+            <h3 class="text-lg font-bold text-white tracking-tight">${res.title}</h3>
+            <p class="text-xs text-slate-300 leading-relaxed font-normal">${res.text}</p>
+            <div class="pt-5">
+              <a href="${res.link}" target="_blank" rel="noopener noreferrer" class="block w-full text-center rounded-xl text-white font-extrabold text-[14px] px-4 py-3 shadow-xl transition-all" style="background-color: #0284c7; text-decoration: none;">
                 End My 3 AM Awakenings Now →
               </a>
             </div>
