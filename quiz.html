@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="EJBkjJPe4JLIGWkTqEpKQIlcsQaiSlaKYJ82ZWfNnEs" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline';" />
+    <title>Personalized Circadian Assessment | Sleep Science Hub</title>
+    <link rel="canonical" href="https://dzikrifauzan-app.github.io/Sleep-science-hub/quiz.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/upgrade.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="bg-slate-950 font-sans antialiased text-slate-200 min-h-screen flex items-center justify-center px-4 py-12">
+
+<div class="w-full max-w-2xl rounded-2xl bg-slate-900 border border-slate-800 p-8 shadow-2xl" id="quiz-container">
+    <div id="quiz-intro" class="text-center space-y-4 py-6">
+      <div class="inline-flex items-center gap-2 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold tracking-wide text-brand" style="color: #38bdf8; bg-color: rgba(56,189,248,0.1);">
+         THREADS PROFILE REFERRAL ASSESSOR
+      </div>
+      <h1 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Isolate Your Sleep Blocker in 60 Seconds</h1>
+      <p class="text-slate-400 leading-relaxed max-w-lg mx-auto">Welcome Threads reader. This professional-grade clinical framework parses subcortical biomarker metrics to isolate your exact neurological fatigue bottleneck and deliver an immediate corrective prescription.</p>
+      <button onclick="startQuiz()" class="mt-4 w-full sm:w-auto rounded-xl bg-brand px-6 py-3.5 text-base font-semibold text-white shadow-lg transition hover:bg-brand-dark" style="background-color: #0284c7;">Start Diagnostic Audit →</button>
+    </div>
+
+    <div id="quiz-engine" class="hidden">
+      <div class="w-full bg-slate-800 h-1.5 rounded-full mb-6">
+        <div id="quiz-progress" class="bg-brand h-1.5 rounded-full transition-all duration-300" style="width: 20%; background-color: #0284c7;"></div>
+      </div>
+      <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2" id="quiz-counter">QUESTION 1 OF 5</div>
+      <h2 class="text-xl font-bold text-white mb-6" id="quiz-question">Loading question...</h2>
+      <div class="space-y-3" id="quiz-options"></div>
+    </div>
+</div>
+
+<script>
+    const questions = [
+      {
+        q: "What is your primary sleep disruption pattern?",
+        options: [
+          { t: "I lay awake for hours with a racing, overthinking mind.", cat: "cortisol" },
+          { t: "I fall asleep easily but wake up wide awake around 3 AM.", cat: "glymphatic" },
+          { t: "I cannot feel tired until long after midnight or 2 AM.", cat: "circadian" }
+        ]
+      },
+      {
+        q: "How do you manage your daily caffeine consumption?",
+        options: [
+          { t: "I drink coffee within 30 minutes of waking and crash hard by 2 PM.", cat: "adenosine" },
+          { t: "I drink caffeine late in the afternoon/evening to survive the day.", cat: "circadian" },
+          { t: "I rarely consume caffeine but still suffer from waking up exhausted.", cat: "glymphatic" }
+        ]
+      },
+      {
+        q: "What does your environment look like 60 minutes before bed?",
+        options: [
+          { t: "I am actively scrolling on my phone, tablet, or watching television.", cat: "circadian" },
+          { t: "I am finishing work, replying to emails under bright overhead lights.", cat: "cortisol" },
+          { t: "I dim the ambient lights but internal thoughts keep me alert.", cat: "cortisol" }
+        ]
+      },
+      {
+        q: "When does your physiological fatigue hit you the hardest?",
+        options: [
+          { t: "Right after lunch (1 PM - 3 PM) like a heavy physical wall.", cat: "adenosine" },
+          { t: "I am sluggish all day but get a sudden burst of energy past 10 PM.", cat: "circadian" },
+          { t: "I feel systematically heavy and brain-fogged immediately upon waking.", cat: "glymphatic" }
+        ]
+      },
+      {
+        q: "How does your body physically feel when you awaken prematurely at night?",
+        options: [
+          { t: "My heart is pounding slightly, and I feel completely wired or anxious.", cat: "cortisol" },
+          { t: "I feel physically warm, groggy, or experience a mild tension headache.", cat: "glymphatic" },
+          { t: "I feel exhausted but my eyes refuse to close back down in the dark.", cat: "rem" }
+        ]
+      }
+    ];
+
+    const resultsData = {
+      cortisol: {
+        title: "⚡️ Diagnosis: Nocturnal Cortisol Surge & Subcortical Hyperarousal",
+        p1: "Your assessment data demonstrates that your premature awakenings are driven by a severe uncoupling of your sympathetic nervous system. Instead of maintaining a calm, low-arousal state throughout the night, your adrenal axis triggers an unprovoked spike in cortisol—the primary stress hormone—long before dawn. This chemical anomaly signals your locus coeruleus to dump norepinephrine into the frontocortical pathways, immediately pulling you out of restorative slow-wave sleep.",
+        p2: "This state of hyperarousal is compounded by late-day cognitive workloads or emotional stress, which elevates your core body temperature and locks your sleep switch in an active, unstable loop. Because your ventrolateral preoptic nucleus (VLPO) cannot release enough inhibitory GABA to overcome this noradrenergic wave, your brain treats the quiet bedroom environment as an active survival landscape, creating a cycle of high alertness in the dark.",
+        p3: "To completely shut down this sleep disruption, you must introduce high-potency, clinically clean compounds that directly target your G-protein coupled receptors to suppress nocturnal cortisol spikes. We recommend implementing an emergency sirkadian mitigation protocol utilizing the molecular elements found inside Yu Sleep. This specialized blend safely calms your overactive neural pathways, restores core body temperature regulation, and locks your sleep switch into deep, uninterrupted recovery states.",
+        link: "https://getyusleep.com/vsl/?affiliate=butetnadia&tid=quiz_threads_cortisol"
+      },
+      glymphatic: {
+        title: "🧠 Diagnosis: Glymphatic Fluid Stagnation & Metabolic Waste Retention",
+        p1: "Your answers reveal that your 3 AM awakenings correlate directly with an interruption in your brain's glia-mediated waste clearance mechanism, known as the glymphatic system. During deep Stage 3 NREM sleep, astrocytic aquaporin-4 (AQP4) channels facilitate a rapid influx of cerebrospinal fluid to flush out metabolic waste, including beta-amyloid plaques. When this system stalls due to inflammation or poor hydration positioning, fluid pressure shifts and wakes you up.",
+        p2: "This stagnation acts as a metabolic block, causing your brain to trigger a survival awakening to restore normal fluid homeostasis. The grogginess, head tension, and physical stiffness you feel upon waking are classic signs that your brain tissue did not complete its overnight purification cycle, forcing you to start the day under a heavy blanket of neural exhaust.",
+        p3: "Reversing this glymphatic block requires supporting the structural depth of your slow-wave sleep phases, which is the only time this brain wash mechanism can activate. The targeted natural compounds inside the Yu Sleep formulation work directly to prolong your slow-wave delta power. By supplying your neural matrix with the optimal raw elements needed for structural sirkadian repair, it accelerates waste clearance and ensures you wake up clean, sharp, and physically refreshed.",
+        link: "https://getyusleep.com/vsl/?affiliate=butetnadia&tid=quiz_threads_glymphatic"
+      },
+      circadian: {
+        title: "⏰ Diagnosis: Circadian Phase Delay & Light-Induced Melatonin Suppression",
+        p1: "Your assessment confirms a profound circadian phase delay driven by light pollution impacting your ipRGC retinal cells. By exposing your visual cortex to high-density blue light from digital displays or bright overhead globes within 60 minutes of bedtime, you send a false daylight signal to your suprachiasmatic nucleus. This immediately halts the natural pineal synthesis of melatonin, pushing your internal clock hours behind schedule.",
+        p2: "Because your biological clock is delayed, your body does not drop its core temperature or lower its blood pressure at the correct time. Even if you force yourself to sleep out of sheer exhaustion, your sleep architecture remains shallow, fragmented, and vulnerable to frequent micro-awakenings because your master clock is actively fighting to stay awake.",
+        p3: "To pull your biological clock back into alignment and eliminate late-night alertness, you must reset your master sirkadian pacemaker. Alongside a strict blue-light curfew, you can rapidly restore your natural melatonin pathways by providing your brain with the precise nutritional precursors found inside Yu Sleep. This clinical-grade formulation supplies the exact co-factors needed to re-establish your sirkadian timing, allowing you to drift off naturally and stay asleep all night long.",
+        link: "https://getyusleep.com/vsl/?affiliate=butetnadia&tid=quiz_threads_circadian"
+      },
+      adenosine: {
+        title: "☕️ Diagnosis: Adenosine Receptor Saturation & Caffeine Recovery Blockade",
+        p1: "Your profile demonstrates a classic failure in homeostatic sleep pressure management, rooted in adenosine receptor saturation. Throughout your waking hours, your brain builds up adenosine molecules to gauge structural fatigue. By consuming high doses of caffeine immediately upon waking or late into the afternoon, you competitively block your A1 and A2A receptors, masking your true exhaustion while the adenosine backlog grows behind a chemical dam.",
+        p2: "When your liver clears the remaining caffeine mid-day or during early sleep, this massive backlog of adenosine floods your receptors all at once, triggering an intense metabolic crash. This crash forces your body into an erratic, emergency adrenal response, spiking your adrenaline levels in the middle of the night and pulling you out of deep sleep into a state of wired exhaustion.",
+        p3: "Fixing this purinergic breakdown requires stabilizing your cell membranes and supporting natural, gradual adenosine clearance curves. Rather than relying on more caffeine, you can smooth out your energy levels and clear your receptors by utilizing the advanced nutritional support inside Yu Sleep. This science-backed formulation calms frayed receptors, stabilizes cellular energy metabolism, and prevents the neurological spikes that cause midnight awakenings.",
+        link: "https://getyusleep.com/vsl/?affiliate=butetnadia&tid=quiz_threads_adenosine"
+      },
+      rem: {
+        title: "🌌 Diagnosis: Fragmented REM Sleep Architecture & Autonomic Imbalance",
+        p1: "Your assessment indicates that your sleep disruptions stem from an instability within your brain's REM (Rapid Eye Movement) sleep regulation network. The REM phase is controlled by a delicate subcortical flip-flop switch that balances cholinergic excitation with monoaminergic inhibition. When your autonomic nervous system is imbalanced, this switch fails, causing you to wake up abruptly right as your brain attempts to enter dream sleep.",
+        p2: "Because you are missing out on high-quality REM phases, your brain cannot properly sort emotional memories or clear out cognitive stress. This deficit leaves your dream-state switches unstable, leading to vivid, alert micro-awakenings in the dark where your eyes refuse to stay shut even though your body is physically exhausted.",
+        p3: "Stabilizing your REM boundaries requires protecting the entire structural balance of your overnight sleep cycles. The advanced botanical and mineral complexes inside Yu Sleep provide targeted support to calm your autonomic nervous system and stabilize your subcortical switches. This professional-grade support ensures smooth transitions between non-REM and REM phases, protecting your sleep architecture from sudden, unwanted awakenings.",
+        link: "https://getyusleep.com/vsl/?affiliate=butetnadia&tid=quiz_threads_rem"
+      }
+    };
+
+    let currentIdx = 0;
+    let scores = { cortisol: 0, glymphatic: 0, circadian: 0, adenosine: 0, rem: 0 };
+
+    function startQuiz() {
+      document.getElementById('quiz-intro').classList.add('hidden');
+      document.getElementById('quiz-engine').classList.remove('hidden');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      if (currentIdx >= questions.length) {
+        showPsychologicalResult();
+        return;
+      }
+      
+      const qObj = questions[currentIdx];
+      document.getElementById('quiz-counter').innerText = `QUESTION ${currentIdx + 1} OF ${questions.length}`;
+      document.getElementById('quiz-question').innerText = qObj.q;
+      
+      const pct = ((currentIdx + 1) / questions.length) * 100;
+      document.getElementById('quiz-progress').style.width = `${pct}%`;
+      
+      const container = document.getElementById('quiz-options');
+      container.innerHTML = '';
+      
+      qObj.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = "w-full text-left rounded-xl bg-slate-800 border border-slate-700/60 p-4 text-sm font-medium text-slate-200 transition hover:bg-slate-700/60 hover:border-brand active:scale-[0.99] block focus:outline-none";
+        btn.innerText = opt.t;
+        btn.onclick = () => {
+          scores[opt.cat] = (scores[opt.cat] || 0) + 1;
+          currentIdx++;
+          renderQuestion();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function showPsychologicalResult() {
+      const container = document.getElementById('quiz-container');
+      container.innerHTML = `
+        <div class="text-center py-6">
+          <svg class="animate-spin h-8 w-8 text-brand mx-auto mb-4" fill="none" viewBox="0 0 24 24" style="color: #0284c7;"><circle class="opacity-25" cx="12" cy="12" r="9" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+          <h3 class="text-lg font-bold text-white">Compiling Neurochemical Survey Profiles...</h3>
+          <p class="text-slate-400 text-sm mt-1">Isolating subcortical sleep metrics and hormonal pathways via Threads Referral Endpoint.</p>
+        </div>
+      `;
+      
+      let highestCat = 'cortisol';
+      let maxScore = -1;
+      for (const cat in scores) {
+        if (scores[cat] > maxScore) {
+          maxScore = scores[cat];
+          highestCat = cat;
+        }
+      }
+      
+      const res = resultsData[highestCat];
+      
+      setTimeout(() => {
+        container.className = "w-full max-w-2xl rounded-2xl bg-white p-8 shadow-2xl text-slate-800 border border-slate-200";
+        container.innerHTML = `
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 rounded-full bg-red-50 px-3 py-1 text-xs font-bold tracking-wide text-red-600 border border-red-100">
+               ⚠️ BIOMARKER AUDIT DISPATCH
+            </div>
+            <h2 class="text-2xl font-black text-slate-900 leading-tight">${res.title}</h2>
+            <p class="text-sm text-slate-600 leading-relaxed font-medium">${res.p1}</p>
+            <p class="text-sm text-slate-600 leading-relaxed">${res.p2}</p>
+            <p class="text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100 font-medium">${res.p3}</p>
+            <div class="pt-4">
+              <a href="${res.link}" target="_blank" rel="noopener noreferrer" class="block w-full text-center rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-[16px] px-6 py-4 shadow-xl transition-all">
+                Resolve My Sirkadian Disruption via Yu Sleep Now →
+              </a>
+              <span class="block text-center text-[11px] text-slate-400 mt-2 font-medium">Secured redirection link encrypted via certified clinical tracking node</span>
+            </div>
+          </div>
+        `;
+      }, 1500);
+    }
+</script>
+</body>
+</html>
