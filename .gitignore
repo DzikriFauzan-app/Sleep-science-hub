@@ -1,0 +1,8 @@
+.seo/output-ld.json
+index.html.bak
+baseline-tier0.hash
+baseline-tier1.hash
+.hash-index.lock
+system.state
+.DS_Store
+*.log
