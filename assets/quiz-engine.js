@@ -116,3 +116,10 @@ const questions = [
         `;
       }, 1200);
     }
+// Strict CSP Compliant Event Binding System
+document.addEventListener('DOMContentLoaded', () => {
+    const startBtn = document.getElementById('start-quiz-btn');
+    if (startBtn) {
+        startBtn.addEventListener('click', startQuiz);
+    }
+});
