@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const optionsWrapper = container.querySelector(".sleep-quiz-options");
   const auditCountElement = container.querySelector(".sleep-quiz-audit-count");
 
-  // FIX: Dynamic math equation based on target date instructions (150 base + 50 per day)
+  // SAFETY FIX: Dynamic audit counter calculations preserved (150 base + 50 per day since June 20, 2026)
   if (auditCountElement) {
     const baseAudits = 150;
     const startDate = new Date("2026-06-20");
@@ -95,14 +95,42 @@ document.addEventListener("DOMContentLoaded", function () {
     questionText.textContent = "Your Custom Sleep Maintenance Breakdown Is Ready";
     optionsWrapper.textContent = "";
 
+    // 1. Safe Info Block Creation (Zero XSS vulnerabilities)
     const infoBlock = document.createElement("p");
     infoBlock.className = "text-xs text-slate-400 leading-relaxed bg-slate-950 p-4 rounded-xl border border-slate-800";
     infoBlock.style.padding = "1rem";
     infoBlock.style.backgroundColor = "#090f1e";
     infoBlock.style.border = "1px solid #1e293b";
     infoBlock.style.borderRadius = "0.75rem";
-    infoBlock.textContent = "Based on your selections, your early arousals suggest an interaction between everyday environmental cues and internal chemical timing mechanisms. Please scroll down to access the corresponding targeted adjustment protocols.";
+    infoBlock.style.marginBottom = "1rem";
+    infoBlock.textContent = "Based on your selections, your middle-of-the-night awakenings are highly linked to unstable physiological timing loops. We have prepared a prioritized tracking protocol to assist your nighttime sleep architecture stabilization.";
     
+    // 2. Dynamic tracking ID (TID) isolation for exact channel attribution tracking
+    let dynamicTid = "quiz_general";
+    if (window.location.href.includes("adenosine")) {
+      dynamicTid = "quiz_adenosine";
+    } else if (window.location.href.includes("hypoglycemia")) {
+      dynamicTid = "quiz_hypoglycemia";
+    }
+
+    // 3. FIX: High-Converting Direct-Response Affiliate Link Injection Module
+    const affiliateCTA = document.createElement("a");
+    affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=${dynamicTid}`;
+    affiliateCTA.target = "_blank";
+    affiliateCTA.rel = "nofollow sponsored noopener noreferrer";
+    affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99]";
+    affiliateCTA.style.display = "block";
+    affiliateCTA.style.textDecoration = "none";
+    affiliateCTA.style.padding = "1rem";
+    affiliateCTA.style.backgroundColor = "#22c55e";
+    affiliateCTA.style.color = "#ffffff";
+    affiliateCTA.style.fontWeight = "700";
+    affiliateCTA.style.borderRadius = "0.75rem";
+    affiliateCTA.style.textAlign = "center";
+    affiliateCTA.style.boxShadow = "0 10px 15px -3px rgba(34,197,94,0.3)";
+    affiliateCTA.textContent = "Access Your Personalized Sleep Reset Protocol →";
+
     optionsWrapper.appendChild(infoBlock);
+    optionsWrapper.appendChild(affiliateCTA);
   }
 });
