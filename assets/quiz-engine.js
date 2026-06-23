@@ -1,13 +1,23 @@
 /**
- * Sleep Science Hub — Enterprise-Grade Interactive Diagnostic Engine
- * Implements Multi-Selector Fallbacks, Graceful Degradation, and Deterministic Scoring.
+ * Sleep Science Hub — Direct-Response Affiliate Inference Engine
+ * Built-in Monetization Layer designed for maximum CTR and conversion optimization.
  */
 document.addEventListener('DOMContentLoaded', () => {
+
   // ==========================================
-  // 1. DUAL-SELECTOR LAYER & DEFENSIVE INITIALIZATION
+  // 1. MONETIZATION CONFIG LAYER (TEMPAT PASTE LINK AFILIASI ANDA)
   // ==========================================
-  
-  // Critical Elements: Jika salah satu elemen ini hilang, kuis wajib interupsi secara aman
+  const AFFILIATE_LINKS = {
+    cortisol: "https://YOUR-AFFILIATE-LINK.com/cortisol-blocker-ashwagandha", // Contoh: Produk Cortisol Blocker / Ashwagandha Premium
+    adenosine: "https://YOUR-AFFILIATE-LINK.com/magnesium-l-threonate",      // Contoh: Magnesium L-Threonate untuk saturasi reseptor deep sleep
+    orexin: "https://YOUR-AFFILIATE-LINK.com/l-theanine-gaba-stabilizer",    // Contoh: Penstabil neuropeptida GABA / L-Theanine
+    glymphatic: "https://YOUR-AFFILIATE-LINK.com/ergonomic-lateral-pillow",  // Contoh: Bantal Lateral Ergonomis / Kacamata Blue-Blocker
+    hypoglycemia: "https://YOUR-AFFILIATE-LINK.com/blood-sugar-sleep-complex" // Contoh: Suplemen penstabil glukosa malam hari
+  };
+
+  // ==========================================
+  // 2. DUAL-SELECTOR LAYER & DEFENSIVE INITIALIZATION
+  // ==========================================
   const startBtn = document.querySelector('.sleep-quiz-start-btn') || document.getElementById('start-quiz-btn');
   const quizIntro = document.querySelector('.sleep-quiz-intro') || document.getElementById('quiz-intro');
   const quizEngine = document.querySelector('.sleep-quiz-engine') || document.getElementById('quiz-engine');
@@ -16,16 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizContainer = document.querySelector('.sleep-quiz-container') || document.getElementById('quiz-container');
 
   if (!startBtn || !quizIntro || !quizEngine || !quizQuestion || !quizOptions) {
-    console.warn('Quiz Engine: Critical DOM elements missing. Execution halted gracefully to prevent runtime crash.');
+    console.warn('Quiz Engine: Critical DOM elements missing. Execution halted safely.');
     return;
   }
 
-  // Non-Critical Elements (Poin 2.1): Kehilangannya tidak akan menghentikan fungsionalitas kuis
   const quizProgress = document.querySelector('.sleep-quiz-progress') || document.getElementById('quiz-progress');
   const quizCounter = document.querySelector('.sleep-quiz-counter') || document.getElementById('quiz-counter');
 
   // ==========================================
-  // 2. CLINICAL TAXONOMY METRIC DATABASE
+  // 3. CLINICAL TAXONOMY METRIC DATABASE
   // ==========================================
   const quizQuestions = [
     {
@@ -75,27 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // State Monitoring
   let currentQuestionIndex = 0;
   let scores = { cortisol: 0, adenosine: 0, orexin: 0, hypoglycemia: 0, glymphatic: 0 };
 
-  // ==========================================
-  // 3. INTERACTIVE STATE CONTROLLER
-  // ==========================================
+  // Trigger Event Kuis
   startBtn.addEventListener('click', (e) => {
     e.preventDefault();
     quizIntro.classList.add('hidden');
-    quizIntro.style.display = 'none'; // Hardcoded protection bypasses invalid layout constraints
+    quizIntro.style.display = 'none';
     quizEngine.classList.remove('hidden');
     quizEngine.style.display = 'block';
     renderQuestion();
   });
 
-  // ==========================================
-  // 4. MEMORY-SAFE RENDERING SYSTEM (Poin 2.2)
-  // ==========================================
+  // Memory-Safe Rendering Loop
   function renderQuestion() {
-    // Kebal Memory Leak: Menghapus children secara bersih tanpa innerHTML overwrite garbage collection
     if (typeof quizOptions.replaceChildren === 'function') {
       quizOptions.replaceChildren();
     } else {
@@ -105,11 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    
-    // Update Teks Kuis (Safe Node Update)
     quizQuestion.textContent = currentQuestion.question;
     
-    // Pembaruan Elemen Non-Critical Secara Defensif (Poin 2.1)
     if (quizCounter) {
       quizCounter.textContent = `QUESTION ${currentQuestionIndex + 1} OF ${quizQuestions.length}`;
     }
@@ -119,12 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
       quizProgress.style.width = `${progressPercentage}%`;
     }
 
-    // Pembuatan Komponen Opsi Jawaban Menggunakan DOM Node Allocation Murni
     currentQuestion.answers.forEach(answer => {
       const button = document.createElement('button');
       button.textContent = answer.text;
-      
-      // Inject Premium Styling Rules
       button.className = "w-full text-left rounded-xl border border-slate-800 bg-slate-900/60 p-4 text-xs font-medium text-slate-200 transition-all hover:border-sky-500 hover:bg-slate-800/80 hover:text-white active:scale-[0.99]";
       button.style.width = "100%";
       button.style.textAlign = "left";
@@ -138,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
       button.style.marginBottom = "0.75rem";
       button.style.display = "block";
 
-      // Event Listener Lifecycle
       button.addEventListener('click', () => {
         scores[answer.type]++;
         currentQuestionIndex++;
@@ -155,75 +151,68 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 5. DETERMINISTIC SCORING ENGINE (Poin 2.4)
+  // 4. MONETIZATION INFERENCE EVALUATION ENGINE
   // ==========================================
   function evaluateQuizResults() {
-    // Matriks Urutan Prioritas Deterministik Mengantisipasi Kasus Skor Seri/Kembar
     const tieBreakerPriority = ['cortisol', 'glymphatic', 'adenosine', 'orexin', 'hypoglycemia'];
     
     let dominantBlocker = tieBreakerPriority.reduce((currentMax, type) => {
       if (!currentMax) return type;
       if (scores[type] > scores[currentMax]) return type;
-      // Jika nilai sama, kunci ke urutan hierarki array terdepan (Kortisol / Glimfatik)
       return currentMax;
     }, null);
     
-    let title = "";
-    let description = "";
-    let targetLink = "";
-    let linkText = "";
+    let headline = "";
+    let pitchDetails = "";
+    let ctaText = "";
+    // Menarik link langsung dari Monetization Config Layer di atas secara real-time
+    let directAffiliateUrl = AFFILIKS_REDIRECT_GATEWAY(dominantBlocker);
 
-    switch(dominantBlocker) {
-      case "cortisol":
-        title = "Subcortical HPA-Axis Cortisol Surge";
-        description = "Your midnight awakenings correlate closely with an inverted circadian cortisol curve. Sustained evening stress or light exposure triggers premature adrenal output, prompting central noradrenergic arrays to fire defensive wake signals during early sleep cycles.";
-        targetLink = "blog/why-3am-wake.html";
-        linkText = "Read Cortisol Inversion Matrix Protocol &rarr;";
-        break;
-      case "adenosine":
-        title = "Purinergic Adenosine Receptor Saturation";
-        description = "Your primary sleep boundary breakdown involves homeostatic sleep pressure fragmentation. Prolonged competitive blocks from late-afternoon caffeine trigger a structural up-regulation of sensitive receptors, altering the threshold of the sleep-wake flip-flop switch.";
-        targetLink = "blog/adenosine-sleep-pressure.html";
-        linkText = "Read Purinergic Sleep Pressure Guide &rarr;";
-        break;
-      case "orexin":
-        title = "Hypothalamic Orexin System Instability";
-        description = "Your configuration points toward a micro-circuit calibration failure inside the lateral hypothalamus. Uncoordinated late-night bursts of orexin neuropeptides directly excite monoaminergic alerting centers, overriding the sleep-promoting centers of the VLPO.";
-        targetLink = "blog/orexin-wake-stabilizer.html";
-        linkText = "Read Hypothalamic Flip-Flop Regulation Node &rarr;";
-        break;
-      case "glymphatic":
-        title = "Astroglial Interstitial Fluid Stagnation";
-        description = "Your baseline data maps closely to metabolic waste accumulation within extracellular matrix paths. Fragmented slow-wave sleep prevents astrocytic aquaporin-4 channels from performing convective clearance wave resets, creating local tissue irritation.";
-        targetLink = "blog/glymphatic-system.html";
-        linkText = "Read Glymphatic Fluid Clearance Path Paper &rarr;";
-        break;
-      default:
-        title = "Nocturnal Glycogen-Glucose Hypoglycemia";
-        description = "Your energetic curve points toward premature liver glycogen depletion. When circulating blood glucose levels drop at night, the central nervous system triggers a defensive surge of adrenaline to pull emergency sugar, causing sharp awakenings.";
-        targetLink = "blog/why-3am-wake.html";
-        linkText = "Read Liver Glycogen Maintenance Protocol &rarr;";
+    function AFFILIKS_REDIRECT_GATEWAY(blocker) {
+      return AFFILIATE_LINKS[blocker] || AFFILIATE_LINKS['hypoglycemia'];
     }
 
-    // Resolving Relative Paths Across Deep Directories
-    const isSubfolder = window.location.pathname.includes('/blog/');
-    const safePath = isSubfolder ? `../${targetLink}` : targetLink;
+    // Copywriting Agresif Direct-Response untuk Memaksimalkan Klik Pembelian Produk
+    switch(dominantBlocker) {
+      case "cortisol":
+        headline = "Adrenal Stress Overload Identified";
+        pitchDetails = "Your 3 AM waking is driven by a critical neuroendocrine inversion. Your body is prematurely flooding your subcortical system with high-stress cortisol spikes. To block these midnight adrenaline alerts, clinical research recommends immediate supplementation with double-standardized Ashwagandha KSM-66 and Phosphatidylserine to force your adrenal axis to down-regulate before sleep.";
+        ctaText = "Get the Verified Cortisol-Blocker Solution &rarr;";
+        break;
+      case "adenosine":
+        headline = "Purinergic Receptor Saturation Discovered";
+        pitchDetails = "Your homeostatic sleep drive has collapsed due to a severe purinergic receptor up-regulation, highly common in individuals consuming caffeine past noon. Natural adenosine is locked out of its gates, breaking your sleep architecture. To bypass this blockade and maintain heavy slow-wave cycles all night, clinical science requires high-absorption Magnesium L-Threonate to safely cross the blood-brain barrier.";
+        ctaText = "Secure High-Absorption Magnesium L-Threonate &rarr;";
+        break;
+      case "orexin":
+        headline = "Hypothalamic Wake-Switch Instability";
+        pitchDetails = "Your results confirm a micro-circuit calibration failure inside your lateral hypothalamus. Your brain's orexin system is misfiring, releasing unwanted wake-active peptides that completely override your sleep cycles. To manually lock this switch into a stable sleep state, clinical taxonomy points to the immediate usage of cross-linked GABA and pure L-Theanine compounds.";
+        ctaText = "Claim the Hypothalamic Stabilizer Protocol &rarr;";
+        break;
+      case "glymphatic":
+        headline = "Metabolic Cerebrospinal Waste Stagnation";
+        pitchDetails = "Your diagnostic vectors point directly to fluid pooling inside your extracellular brain tissue. Because your slow-wave cycles are shallow, your astrocytic aquaporin-4 channels cannot clear toxic protein debris, triggering a defensive survival awakening. Along with immediate side-sleeping, clinical parameters require specialized deep sleep botanical formulations to maximize convective fluid currents.";
+        ctaText = "Get the Clinical Glymphatic Reset Complex &rarr;";
+        break;
+      default:
+        headline = "Nocturnal Glycogen Crisis Detected";
+        pitchDetails = "Your liver is running out of active glycogen stores during the third sleep cycle, triggering a severe metabolic drop. To protect your neurons from a perceived starvation emergency, your autonomic system triggers a rapid adrenaline surge that snaps you wide awake. To insulate your midnight glucose framework, you must implement a calibrated slow-release evening glucose stabilizer.";
+        ctaText = "Secure the Slow-Release Glucose Complex &rarr;";
+    }
 
-    // Rendering Final Content Node Without Ruining Event Target States
-    quizEngine.style.padding = "1rem 0";
-    
-    // Create elements cleanly to prevent memory leak
+    // Clear and allocate memory tree cleanly
     const resultWrapper = document.createElement('div');
     resultWrapper.style.textAlign = "center";
     
+    // Injecting Conversion Optimized UI Element Nodes
     resultWrapper.innerHTML = `
-      <div style="display: inline-block; background-color: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); color: #38bdf8; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 1rem;">
-        🔍 DIAGNOSTIC ISOLATION COMPLETE
+      <div style="display: inline-block; background-color: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); color: #f87171; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 1rem;">
+        🚨 CRITICAL SLEEP BLOCKER ISOLATED
       </div>
-      <h3 style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem; letter-spacing: -0.025em;">${title}</h3>
-      <p style="font-size: 0.75rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem; text-align: left;">${description}</p>
-      <a href="${safePath}" style="display: block; text-align: center; width: 100%; border-radius: 0.75rem; background-color: #0284c7; padding: 1rem; font-size: 0.75rem; font-weight: 700; color: #ffffff; text-decoration: none; transition: background-color 0.2s;">
-        ${linkText}
+      <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem; letter-spacing: -0.025em;">${headline}</h3>
+      <p style="font-size: 0.78rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem; text-align: left;">${pitchDetails}</p>
+      <a href="${directAffiliateUrl}" target="_blank" rel="noopener noreferrer" style="display: block; text-align: center; width: 100%; border-radius: 0.75rem; background-color: #22c55e; padding: 1.1rem; font-size: 0.8rem; font-weight: 800; color: #ffffff; text-decoration: none; box-shadow: 0 10px 15px -3px rgba(34,197,94,0.3); transition: all 0.2s;" onmouseover="this.style.backgroundColor='#16a34a'" onmouseout="this.style.backgroundColor='#22c55e'">
+        ${ctaText}
       </a>
     `;
 
