@@ -9,6 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const counterText = container.querySelector(".sleep-quiz-counter");
   const questionText = container.querySelector(".sleep-quiz-question");
   const optionsWrapper = container.querySelector(".sleep-quiz-options");
+  const auditCountElement = container.querySelector(".sleep-quiz-audit-count");
+
+  // FIX: Dynamic math equation based on target date instructions (150 base + 50 per day)
+  if (auditCountElement) {
+    const baseAudits = 150;
+    const startDate = new Date("2026-06-20");
+    const today = new Date();
+    const timeDiff = Math.abs(today - startDate);
+    const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const dynamicAudits = baseAudits + (daysDiff * 50);
+    auditCountElement.textContent = dynamicAudits.toLocaleString("en-US");
+  }
 
   const questions = [
     {
@@ -46,34 +58,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const currentData = questions[currentStep];
-    
-    // Update text metadata cleanly without innerHTML hazards
     counterText.textContent = `QUESTION ${currentStep + 1} OF ${questions.length}`;
     questionText.textContent = currentData.q;
     
-    // Manage progress metrics
     const progressPercent = ((currentStep + 1) / questions.length) * 100;
     progressBar.style.width = `${progressPercent}%`;
-
-    // Flush options safely
     optionsWrapper.textContent = "";
 
-    // Build items with native DOM elements to deny DOM injection vectors
     currentData.o.forEach((optionText, idx) => {
       const button = document.createElement("button");
       button.type = "button";
-      button.className = "w-full text-left rounded-xl border border-slate-800 bg-slate-900/80 px-4 py-3 text.xs font-medium text-slate-300 transition hover:border-sky-500/50 hover:bg-slate-900 hover:text-white";
+      button.className = "w-full text-left rounded-xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-xs font-medium text-slate-300 transition hover:border-sky-500/50 hover:bg-slate-900 hover:text-white";
+      button.style.display = "block";
+      button.style.width = "100%";
+      button.style.marginBottom = "0.5rem";
+      button.style.padding = "0.75rem 1rem";
+      button.style.backgroundColor = "rgba(15, 23, 42, 0.8)";
+      button.style.border = "1px solid #1e293b";
+      button.style.borderRadius = "0.75rem";
+      button.style.color = "#94a3b8";
+      button.style.cursor = "pointer";
       button.textContent = optionText;
-      button.setAttribute("data-index", idx);
       optionsWrapper.appendChild(button);
     });
   }
 
-  // Optimized event delegation to block memory leaks
   optionsWrapper.addEventListener("click", function (e) {
     const targetButton = e.target.closest("button");
     if (!targetButton) return;
-
     currentStep++;
     renderQuestion();
   });
@@ -85,6 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const infoBlock = document.createElement("p");
     infoBlock.className = "text-xs text-slate-400 leading-relaxed bg-slate-950 p-4 rounded-xl border border-slate-800";
+    infoBlock.style.padding = "1rem";
+    infoBlock.style.backgroundColor = "#090f1e";
+    infoBlock.style.border = "1px solid #1e293b";
+    infoBlock.style.borderRadius = "0.75rem";
     infoBlock.textContent = "Based on your selections, your early arousals suggest an interaction between everyday environmental cues and internal chemical timing mechanisms. Please scroll down to access the corresponding targeted adjustment protocols.";
     
     optionsWrapper.appendChild(infoBlock);
