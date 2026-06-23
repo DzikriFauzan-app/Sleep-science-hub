@@ -1,9 +1,12 @@
 /**
  * Sleep Science Hub — Production-Grade Affiliate Funnel Engine
- * Built-in 1-Line Click Telemetry Analytics, Tailwind Override, and Zero innerHTML Protection.
+ * Implements Simulated Organic Growth Matrix, Global Local Storage Offset, and Hardened XSS Protection.
  */
 (() => {
   function initializeAffiliateQuizEngine() {
+    // ==========================================
+    // 1. MONETIZATION CONFIG LAYER (VSL DIRECT-RESPONSE)
+    // ==========================================
     const BASE_AFFILIATE_URL = "https://getyusleep.com/vsl/?affiliate=butetnadia";
     
     const AFFILIATE_LINKS = {
@@ -14,6 +17,41 @@
       hypoglycemia: `${BASE_AFFILIATE_URL}&tid=hypoglycemia`
     };
 
+    // ==========================================
+    // 2. SIMULATED ORGANIC GROWTH MATRIX LOGIC
+    // ==========================================
+    const BASE_COUNT = 4812; // Angka dasar awal
+    const START_DATE = new Date("2026-06-01T00:00:00+07:00").getTime(); // Titik waktu dasar awal (1 Juni 2026)
+    const AUDITS_PER_DAY = 142; // Estimasi rata-rata pertumbuhan audit organik per hari (~6 audit per jam)
+
+    function calculateCurrentAudits() {
+      const msElapsed = Date.now() - START_DATE;
+      const daysElapsed = Math.max(0, msElapsed / (1000 * 60 * 60 * 24));
+      const simulatedGrowth = Math.floor(daysElapsed * AUDITS_PER_DAY);
+      
+      // Ambil nilai akumulasi klik personal pengguna yang tersimpan di browser
+      const localClicksOffset = parseInt(localStorage.getItem('global_quiz_clicks_offset') || 0);
+      
+      return BASE_COUNT + simulatedGrowth + localClicksOffset;
+    }
+
+    function updateSocialProofUI() {
+      const totalAudits = calculateCurrentAudits();
+      const formattedNumber = totalAudits.toLocaleString('en-US'); // Mengubah angka menjadi format ribuan ("5,124")
+      
+      // Cari seluruh elemen render angka lintas halaman utama dan artikel
+      const countElements = document.querySelectorAll('.sleep-quiz-audit-count');
+      countElements.forEach(el => {
+        el.textContent = formattedNumber;
+      });
+    }
+
+    // Jalankan pembaruan angka langsung saat komponen berhasil termuat di layar
+    updateSocialProofUI();
+
+    // ==========================================
+    // 3. DOM DEFENSIVE INITIALIZATION LAYER
+    // ==========================================
     const startBtn = document.querySelector('.sleep-quiz-start-btn, #start-quiz-btn');
     const quizIntro = document.querySelector('.sleep-quiz-intro, #quiz-intro');
     const quizEngine = document.querySelector('.sleep-quiz-engine, #quiz-engine');
@@ -21,13 +59,16 @@
     const quizOptions = document.querySelector('.sleep-quiz-options, #quiz-options');
 
     if (!startBtn || !quizIntro || !quizEngine || !quizQuestion || !quizOptions) {
-      console.warn('Quiz Engine: Required DOM nodes missing. Initialization bypassed.');
+      console.warn('Quiz Engine: Required DOM nodes missing on this page layout. Pre-rendering setup bypassed.');
       return;
     }
 
     const quizProgress = document.querySelector('.sleep-quiz-progress, #quiz-progress');
     const quizCounter = document.querySelector('.sleep-quiz-counter, #quiz-counter');
 
+    // ==========================================
+    // 4. CLINICAL TAXONOMY METRIC DATABASE
+    // ==========================================
     const quizQuestions = [
       {
         question: "What best describes your physiological state upon snapping awake at 3 AM?",
@@ -79,12 +120,22 @@
     let currentQuestionIndex = 0;
     let scores = { cortisol: 0, adenosine: 0, orexin: 0, hypoglycemia: 0, glymphatic: 0 };
 
+    // ==========================================
+    // 5. LIFECYCLE CONTROLLER WITH REAL-TIME INCREMENTOR
+    // ==========================================
     startBtn.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // OPTIMASI: 1-Line Click Telemetry Analytics (Melacak Jumlah Konversi Home -> Quiz Lewat Console/RAM)
+      // Ambil offset lama, naikkan +1 secara permanen ke local memory lintas artikel
+      const currentOffset = parseInt(localStorage.getItem('global_quiz_clicks_offset') || 0);
+      localStorage.setItem('global_quiz_clicks_offset', currentOffset + 1);
+      
+      // Perbarui UI visual secara instan sebelum container intro menghilang
+      updateSocialProofUI();
+
+      // Telemetry klik internal tetap dipertahankan
       localStorage.setItem('funnel_home_to_quiz_clicks', (parseInt(localStorage.getItem('funnel_home_to_quiz_clicks') || 0) + 1));
-      console.log(`[Telemetry] Home to Quiz Click Count: ${localStorage.getItem('funnel_home_to_quiz_clicks')}`);
+      console.log(`[Telemetry] Click Track Saved. Total local clicks: ${localStorage.getItem('global_quiz_clicks_offset')}`);
 
       quizIntro.classList.add('hidden');
       quizIntro.style.setProperty('display', 'none', 'important');
@@ -95,6 +146,9 @@
       renderQuestion();
     });
 
+    // ==========================================
+    // 6. MEMORY-SAFE QUESTION RENDERING LOOP
+    // ==========================================
     function renderQuestion() {
       if (typeof quizOptions.replaceChildren === 'function') {
         quizOptions.replaceChildren();
@@ -147,6 +201,9 @@
       });
     }
 
+    // ==========================================
+    // 7. INFERENCE & COMPLIANT RECOGNITION REGIME
+    // ==========================================
     function evaluateQuizResults() {
       const maxScore = Math.max(...Object.values(scores));
       const candidates = Object.keys(scores).filter(key => scores[key] === maxScore);
@@ -259,6 +316,9 @@
     }
   }
 
+  // ==========================================
+  // 8. HYDRATION SAFE EXECUTION CONTROL
+  // ==========================================
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeAffiliateQuizEngine);
   } else {
