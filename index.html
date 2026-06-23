@@ -9,7 +9,7 @@
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0f172a" />
   <meta name="author" content="Mark Sleep Researcher" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; connect-src 'self'; frame-ancestors 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://cdn.tailwindcss.com; connect-src 'self'; frame-ancestors 'self'" />
   <title>Sleep Science Hub — Waking Up at 3 AM? The Real Reason You Can't Stay Asleep</title>
   <link rel="canonical" href="https://dzikrifauzan-app.github.io/Sleep-science-hub/" />
 
@@ -172,19 +172,19 @@
             <span>✓ 60-Second Diagnostic Audit</span>
           </div>
 
-          <div class="w-full max-w-xl rounded-2xl bg-slate-900 border border-slate-800 p-6 sm:p-8 shadow-2xl text-left" id="quiz-container">
-            <div id="quiz-intro" class="text-center sm:text-left">
+          <div class="w-full max-w-xl rounded-2xl bg-slate-900 border border-slate-800 p-6 sm:p-8 shadow-2xl text-left sleep-quiz-container">
+            <div class="text-center sm:text-left sleep-quiz-intro">
               <h2 class="text-lg font-bold text-white tracking-tight">Isolate Your Subcortical Sleep Blocker</h2>
               <p class="mt-2 text-slate-400 text-xs leading-relaxed">This algorithm mirrors clinical sleep medicine parameters to isolate whether your midnight waking is driven by cortisol surges, fluid stagnation, or adenosine backlog clearance.</p>
-              <button id="start-quiz-btn" class="mt-6 w-full rounded-xl bg-sky-600 px-6 py-4 text-sm font-bold text-white shadow-xl transition-all hover:bg-sky-500 active:scale-[0.98]" style="background-color: #0284c7; border: none; cursor: pointer;">Start Diagnostic Audit &rarr;</button>
+              <button class="mt-6 w-full rounded-xl bg-sky-600 px-6 py-4 text-sm font-bold text-white shadow-xl transition-all hover:bg-sky-500 active:scale-[0.98] sleep-quiz-start-btn" style="background-color: #0284c7; border: none; cursor: pointer;">Start Diagnostic Audit &rarr;</button>
             </div>
-            <div id="quiz-engine" class="hidden">
+            <div class="hidden sleep-quiz-engine">
               <div class="w-full bg-slate-800 h-1.5 rounded-full mb-6">
-                <div id="quiz-progress" class="h-1.5 rounded-full transition-all duration-300" style="width: 20%; background-color: #0284c7;"></div>
+                <div class="h-1.5 rounded-full transition-all duration-300 sleep-quiz-progress" style="width: 20%; background-color: #0284c7;"></div>
               </div>
-              <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2" id="quiz-counter">QUESTION 1 OF 5</div>
-              <h3 class="text-base font-bold text-white mb-6" id="quiz-question">Loading question...</h3>
-              <div class="space-y-3" id="quiz-options"></div>
+              <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 sleep-quiz-counter">QUESTION 1 OF 5</div>
+              <h3 class="text-base font-bold text-white mb-6 sleep-quiz-question">Loading question...</h3>
+              <div class="space-y-3 sleep-quiz-options"></div>
             </div>
           </div>
 
@@ -210,7 +210,7 @@
             <p class="mt-2 text-slate-400 text-sm leading-relaxed">Waking up wide awake at 3 AM is frequently associated with an uncoordinated shift in autonomic nerve activity, a premature rise in nocturnal cortisol secretion, or localized metabolic perturbations within subcortical pathways.</p>
           </div>
           <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-            <h3 class="text-base font-bold text-white">Can a blocked glymphatic system cause midnight awakenings?</h3>
+            <h3 class="text-base font-bold text-white">Can a blocked glymphatic system cause middle-of-the-night awakenings?</h3>
             <p class="mt-2 text-slate-400 text-sm leading-relaxed">Hypothetically, fluid stagnation and the accumulation of toxic metabolic byproducts within extracellular spaces due to poor slow-wave sleep could act as local tissue irritants, prompting subcortical arousal arrays to fire wake signals.</p>
           </div>
           <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
@@ -227,6 +227,6 @@
     <p>&copy; 2026 Sleep Science Hub. All rights reserved. Reviewed by Mark Sleep Researcher.</p>
   </footer>
 
-  <script src="assets/quiz-engine.js"></script>
+  <script defer src="assets/quiz-engine.js"></script>
 </body>
 </html>
