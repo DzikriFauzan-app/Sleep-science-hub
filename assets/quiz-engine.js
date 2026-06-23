@@ -1,6 +1,6 @@
 /**
  * Sleep Science Hub — Production-Grade Affiliate Funnel Engine
- * Implements Hydration-Safe Invalidation, Defensive DOM Mapping, and YMYL Health Copy Compliance.
+ * Built-in Hydration Protection, Tailwind Specificity Override, and High-Converting YMYL Copy.
  */
 (() => {
   function initializeAffiliateQuizEngine() {
@@ -18,7 +18,7 @@
     };
 
     // ==========================================
-    // 2. CRITICAL DOM MATCHING & SEPARATION LAYER
+    // 2. DOM DEFENSIVE INITIALIZATION LAYER
     // ==========================================
     const startBtn = document.querySelector('.sleep-quiz-start-btn, #start-quiz-btn');
     const quizIntro = document.querySelector('.sleep-quiz-intro, #quiz-intro');
@@ -26,13 +26,12 @@
     const quizQuestion = document.querySelector('.sleep-quiz-question, #quiz-question');
     const quizOptions = document.querySelector('.sleep-quiz-options, #quiz-options');
 
-    // Fail Gracefully: Jika halaman tidak memuat elemen kuis inti, hentikan eksekusi tanpa crash
+    // Fail Safely: Jika halaman tidak memiliki modul kuis, matikan eksekusi secara damai tanpa merusak JS global
     if (!startBtn || !quizIntro || !quizEngine || !quizQuestion || !quizOptions) {
-      console.warn('Quiz Engine: Critical interface layouts missing on this node. Execution safely bypassed.');
+      console.warn('Quiz Engine: Required DOM nodes not found on this page structure. Initialization bypassed.');
       return;
     }
 
-    // Non-Critical Elements: Kegagalannya tidak akan menghentikan fungsionalitas kuis utama
     const quizProgress = document.querySelector('.sleep-quiz-progress, #quiz-progress');
     const quizCounter = document.querySelector('.sleep-quiz-counter, #quiz-counter');
 
@@ -91,12 +90,12 @@
     let scores = { cortisol: 0, adenosine: 0, orexin: 0, hypoglycemia: 0, glymphatic: 0 };
 
     // ==========================================
-    // 4. INTERACTIVE LIFECYCLE CONTROLLER
+    // 4. LIFECYCLE CONTROLLER (ANTI-TAILWIND CONFLICT)
     // ==========================================
     startBtn.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // Eliminasi Konflik Spesifisitas Tailwind 'hidden' Melalui Class Removal & Inline Override
+      // Menggunakan setProperty 'important' untuk menghancurkan kelas utilitas .hidden milik Tailwind
       quizIntro.classList.add('hidden');
       quizIntro.style.setProperty('display', 'none', 'important');
       
@@ -107,7 +106,7 @@
     });
 
     // ==========================================
-    // 5. MEMORY-SAFE QUESTION RENDERING LOOP
+    // 5. MEMORY-SAFE DOM RE-RENDER LOOPS
     // ==========================================
     function renderQuestion() {
       if (typeof quizOptions.replaceChildren === 'function') {
@@ -133,6 +132,8 @@
       currentQuestion.answers.forEach(answer => {
         const button = document.createElement('button');
         button.textContent = answer.text;
+        
+        // Menggabungkan kelas premium Tailwind dengan jaminan visual inline CSS fallback
         button.className = "w-full text-left rounded-xl border border-slate-800 bg-slate-900/60 p-4 text-xs font-medium text-slate-200 transition-all hover:border-sky-500 hover:bg-slate-800/80 hover:text-white active:scale-[0.99]";
         button.style.width = "100%";
         button.style.textAlign = "left";
@@ -162,7 +163,7 @@
     }
 
     // ==========================================
-    // 6. INFERENCE & COMPLIANT MONETIZATION ENGINE
+    // 6. HIGH-CONVERTING INFERENCE RESOLUTION
     // ==========================================
     function evaluateQuizResults() {
       const maxScore = Math.max(...Object.values(scores));
@@ -181,7 +182,7 @@
       let pitchText = "";
       let buttonText = "";
 
-      // YMYL Compliance Alignment (Mengubah Klaim Absolut Menjadi Teks Korelatif Yang Aman Dari Penalti Google)
+      // Copywriting Direct-Response Premium yang Mengarahkan Pembaca Ke Keputusan Pembelian VSL
       switch(dominantBlocker) {
         case "cortisol":
           headlineText = "Circadian Cortisol Shift Pattern Identified";
@@ -209,7 +210,7 @@
           buttonText = "Secure the Slow-Release Glucose Complex &rarr;";
       }
 
-      // Hardened Node Construction (Zero innerHTML for absolute XSS Safety)
+      // 100% Hardened DOM Tree Assembly (Zero innerHTML untuk Mencegah XSS)
       const resultWrapper = document.createElement('div');
       resultWrapper.style.textAlign = "center";
 
@@ -266,7 +267,7 @@
 
       resultWrapper.appendChild(alertBadge);
       resultWrapper.appendChild(heading);
-      resultWrapper.appendChild(resultWrapper.appendChild(bodyParagraph));
+      resultWrapper.appendChild(bodyParagraph);
       resultWrapper.appendChild(affiliateAnchor);
 
       if (typeof quizEngine.replaceChildren === 'function') {
@@ -279,9 +280,8 @@
   }
 
   // ==========================================
-  // 7. HYDRATION PROTECTION INITIALIZER
+  // 7. HYDRATION SAFE EXECUTION CONTROL
   // ==========================================
-  // Menjamin skrip segera dijalankan meskipun event DOMContentLoaded sudah terlewati
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeAffiliateQuizEngine);
   } else {
