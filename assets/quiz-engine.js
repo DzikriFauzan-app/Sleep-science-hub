@@ -1,12 +1,9 @@
 /**
  * Sleep Science Hub — Production-Grade Affiliate Funnel Engine
- * Built-in Hydration Protection, Tailwind Specificity Override, and High-Converting YMYL Copy.
+ * Built-in 1-Line Click Telemetry Analytics, Tailwind Override, and Zero innerHTML Protection.
  */
 (() => {
   function initializeAffiliateQuizEngine() {
-    // ==========================================
-    // 1. MONETIZATION CONFIG LAYER (VSL DIRECT-RESPONSE)
-    // ==========================================
     const BASE_AFFILIATE_URL = "https://getyusleep.com/vsl/?affiliate=butetnadia";
     
     const AFFILIATE_LINKS = {
@@ -17,27 +14,20 @@
       hypoglycemia: `${BASE_AFFILIATE_URL}&tid=hypoglycemia`
     };
 
-    // ==========================================
-    // 2. DOM DEFENSIVE INITIALIZATION LAYER
-    // ==========================================
     const startBtn = document.querySelector('.sleep-quiz-start-btn, #start-quiz-btn');
     const quizIntro = document.querySelector('.sleep-quiz-intro, #quiz-intro');
     const quizEngine = document.querySelector('.sleep-quiz-engine, #quiz-engine');
     const quizQuestion = document.querySelector('.sleep-quiz-question, #quiz-question');
     const quizOptions = document.querySelector('.sleep-quiz-options, #quiz-options');
 
-    // Fail Safely: Jika halaman tidak memiliki modul kuis, matikan eksekusi secara damai tanpa merusak JS global
     if (!startBtn || !quizIntro || !quizEngine || !quizQuestion || !quizOptions) {
-      console.warn('Quiz Engine: Required DOM nodes not found on this page structure. Initialization bypassed.');
+      console.warn('Quiz Engine: Required DOM nodes missing. Initialization bypassed.');
       return;
     }
 
     const quizProgress = document.querySelector('.sleep-quiz-progress, #quiz-progress');
     const quizCounter = document.querySelector('.sleep-quiz-counter, #quiz-counter');
 
-    // ==========================================
-    // 3. CLINICAL TAXONOMY METRIC DATABASE
-    // ==========================================
     const quizQuestions = [
       {
         question: "What best describes your physiological state upon snapping awake at 3 AM?",
@@ -89,13 +79,13 @@
     let currentQuestionIndex = 0;
     let scores = { cortisol: 0, adenosine: 0, orexin: 0, hypoglycemia: 0, glymphatic: 0 };
 
-    // ==========================================
-    // 4. LIFECYCLE CONTROLLER (ANTI-TAILWIND CONFLICT)
-    // ==========================================
     startBtn.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // Menggunakan setProperty 'important' untuk menghancurkan kelas utilitas .hidden milik Tailwind
+      // OPTIMASI: 1-Line Click Telemetry Analytics (Melacak Jumlah Konversi Home -> Quiz Lewat Console/RAM)
+      localStorage.setItem('funnel_home_to_quiz_clicks', (parseInt(localStorage.getItem('funnel_home_to_quiz_clicks') || 0) + 1));
+      console.log(`[Telemetry] Home to Quiz Click Count: ${localStorage.getItem('funnel_home_to_quiz_clicks')}`);
+
       quizIntro.classList.add('hidden');
       quizIntro.style.setProperty('display', 'none', 'important');
       
@@ -105,9 +95,6 @@
       renderQuestion();
     });
 
-    // ==========================================
-    // 5. MEMORY-SAFE DOM RE-RENDER LOOPS
-    // ==========================================
     function renderQuestion() {
       if (typeof quizOptions.replaceChildren === 'function') {
         quizOptions.replaceChildren();
@@ -132,8 +119,6 @@
       currentQuestion.answers.forEach(answer => {
         const button = document.createElement('button');
         button.textContent = answer.text;
-        
-        // Menggabungkan kelas premium Tailwind dengan jaminan visual inline CSS fallback
         button.className = "w-full text-left rounded-xl border border-slate-800 bg-slate-900/60 p-4 text-xs font-medium text-slate-200 transition-all hover:border-sky-500 hover:bg-slate-800/80 hover:text-white active:scale-[0.99]";
         button.style.width = "100%";
         button.style.textAlign = "left";
@@ -162,9 +147,6 @@
       });
     }
 
-    // ==========================================
-    // 6. HIGH-CONVERTING INFERENCE RESOLUTION
-    // ==========================================
     function evaluateQuizResults() {
       const maxScore = Math.max(...Object.values(scores));
       const candidates = Object.keys(scores).filter(key => scores[key] === maxScore);
@@ -182,7 +164,6 @@
       let pitchText = "";
       let buttonText = "";
 
-      // Copywriting Direct-Response Premium yang Mengarahkan Pembaca Ke Keputusan Pembelian VSL
       switch(dominantBlocker) {
         case "cortisol":
           headlineText = "Circadian Cortisol Shift Pattern Identified";
@@ -210,7 +191,6 @@
           buttonText = "Secure the Slow-Release Glucose Complex &rarr;";
       }
 
-      // 100% Hardened DOM Tree Assembly (Zero innerHTML untuk Mencegah XSS)
       const resultWrapper = document.createElement('div');
       resultWrapper.style.textAlign = "center";
 
@@ -279,9 +259,6 @@
     }
   }
 
-  // ==========================================
-  // 7. HYDRATION SAFE EXECUTION CONTROL
-  // ==========================================
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeAffiliateQuizEngine);
   } else {
