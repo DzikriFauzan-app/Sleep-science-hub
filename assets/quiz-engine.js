@@ -1,25 +1,32 @@
 /**
- * Sleep Science Hub — Premium Native Quiz Engine
- * Robust Defensive DOM Architecture to prevent cross-page runtime crashes.
+ * Sleep Science Hub — Enterprise-Grade Interactive Diagnostic Engine
+ * Implements Multi-Selector Fallbacks, Graceful Degradation, and Deterministic Scoring.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Pemuatan Elemen Secara Defensif (Mencegah Error Null di Halaman Berbeda)
-  const startBtn = document.getElementById('start-quiz-btn');
-  const quizIntro = document.getElementById('quiz-intro');
-  const quizEngine = document.getElementById('quiz-engine');
-  const quizProgress = document.getElementById('quiz-progress');
-  const quizCounter = document.getElementById('quiz-counter');
-  const quizQuestion = document.getElementById('quiz-question');
-  const quizOptions = document.getElementById('quiz-options');
-  const quizContainer = document.getElementById('quiz-container');
+  // ==========================================
+  // 1. DUAL-SELECTOR LAYER & DEFENSIVE INITIALIZATION
+  // ==========================================
+  
+  // Critical Elements: Jika salah satu elemen ini hilang, kuis wajib interupsi secara aman
+  const startBtn = document.querySelector('.sleep-quiz-start-btn') || document.getElementById('start-quiz-btn');
+  const quizIntro = document.querySelector('.sleep-quiz-intro') || document.getElementById('quiz-intro');
+  const quizEngine = document.querySelector('.sleep-quiz-engine') || document.getElementById('quiz-engine');
+  const quizQuestion = document.querySelector('.sleep-quiz-question') || document.getElementById('quiz-question');
+  const quizOptions = document.querySelector('.sleep-quiz-options') || document.getElementById('quiz-options');
+  const quizContainer = document.querySelector('.sleep-quiz-container') || document.getElementById('quiz-container');
 
-  // Hentikan eksekusi script jika elemen kuis tidak ditemukan di halaman ini
-  if (!startBtn || !quizIntro || !quizEngine || !quizProgress || !quizCounter || !quizQuestion || !quizOptions || !quizContainer) {
-    console.warn('Quiz component elements not fully found on this page layout. Initialization safely bypassed.');
+  if (!startBtn || !quizIntro || !quizEngine || !quizQuestion || !quizOptions) {
+    console.warn('Quiz Engine: Critical DOM elements missing. Execution halted gracefully to prevent runtime crash.');
     return;
   }
 
-  // 2. Bank Data Soal Klinis Berbasis Parameter Medis
+  // Non-Critical Elements (Poin 2.1): Kehilangannya tidak akan menghentikan fungsionalitas kuis
+  const quizProgress = document.querySelector('.sleep-quiz-progress') || document.getElementById('quiz-progress');
+  const quizCounter = document.querySelector('.sleep-quiz-counter') || document.getElementById('quiz-counter');
+
+  // ==========================================
+  // 2. CLINICAL TAXONOMY METRIC DATABASE
+  // ==========================================
   const quizQuestions = [
     {
       question: "What best describes your physiological state upon snapping awake at 3 AM?",
@@ -60,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       question: "Which of these experimental recovery protocols provides the most immediate relief?",
       answers: [
-        { text: "Cooling down the room, standing up, or performing slow diaphragmatic breathing.", type: "cortisol" },
+        { text: "Cooling down the room, standing up, or performing slow diagonals.", type: "cortisol" },
         { text: "Shifting to a strict side-sleeping (lateral) posture and expanding evening fasts.", type: "glymphatic" },
         { text: "Enforcing a firm 10-hour caffeine cutoff window before my targeted bedtime.", type: "adenosine" },
         { text: "Consuming a small sip of water or stabilizing my evening glucose baseline.", type: "hypoglycemia" }
@@ -68,42 +75,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // 3. State Management Kuis
+  // State Monitoring
   let currentQuestionIndex = 0;
   let scores = { cortisol: 0, adenosine: 0, orexin: 0, hypoglycemia: 0, glymphatic: 0 };
 
-  // 4. Trigger Event Inisiasi Kuis
+  // ==========================================
+  // 3. INTERACTIVE STATE CONTROLLER
+  // ==========================================
   startBtn.addEventListener('click', (e) => {
     e.preventDefault();
     quizIntro.classList.add('hidden');
-    // Menghapus inline-style bawaan Tailwind jika ada yang menginterupsi kelas hidden
-    quizIntro.style.display = 'none';
+    quizIntro.style.display = 'none'; // Hardcoded protection bypasses invalid layout constraints
     quizEngine.classList.remove('hidden');
     quizEngine.style.display = 'block';
     renderQuestion();
   });
 
-  // 5. Fungsi Render Pertanyaan Dinamis
+  // ==========================================
+  // 4. MEMORY-SAFE RENDERING SYSTEM (Poin 2.2)
+  // ==========================================
   function renderQuestion() {
-    // Bersihkan opsi jawaban dari pertanyaan sebelumnya
-    quizOptions.innerHTML = '';
+    // Kebal Memory Leak: Menghapus children secara bersih tanpa innerHTML overwrite garbage collection
+    if (typeof quizOptions.replaceChildren === 'function') {
+      quizOptions.replaceChildren();
+    } else {
+      while (quizOptions.firstChild) {
+        quizOptions.removeChild(quizOptions.firstChild);
+      }
+    }
     
     const currentQuestion = quizQuestions[currentQuestionIndex];
     
-    // Update Indikator Teks Konteks Kuis
-    quizCounter.textContent = `QUESTION ${currentQuestionIndex + 1} OF ${quizQuestions.length}`;
+    // Update Teks Kuis (Safe Node Update)
     quizQuestion.textContent = currentQuestion.question;
     
-    // Update Visual Progress Bar Indikator Kedalaman Audit
-    const progressPercentage = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
-    quizProgress.style.width = `${progressPercentage}%`;
+    // Pembaruan Elemen Non-Critical Secara Defensif (Poin 2.1)
+    if (quizCounter) {
+      quizCounter.textContent = `QUESTION ${currentQuestionIndex + 1} OF ${quizQuestions.length}`;
+    }
+    
+    if (quizProgress) {
+      const progressPercentage = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+      quizProgress.style.width = `${progressPercentage}%`;
+    }
 
-    // Bangun Tombol Pilihan Jawaban Secara Dinamis Dengan Desain Premium Terisolasi
+    // Pembuatan Komponen Opsi Jawaban Menggunakan DOM Node Allocation Murni
     currentQuestion.answers.forEach(answer => {
       const button = document.createElement('button');
       button.textContent = answer.text;
       
-      // Suntikkan kelas Tailwind dan Fallback Inline Style demi kebal dari proteksi CSP browser
+      // Inject Premium Styling Rules
       button.className = "w-full text-left rounded-xl border border-slate-800 bg-slate-900/60 p-4 text-xs font-medium text-slate-200 transition-all hover:border-sky-500 hover:bg-slate-800/80 hover:text-white active:scale-[0.99]";
       button.style.width = "100%";
       button.style.textAlign = "left";
@@ -117,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       button.style.marginBottom = "0.75rem";
       button.style.display = "block";
 
-      // Event Handler Seleksi Jawaban
+      // Event Listener Lifecycle
       button.addEventListener('click', () => {
         scores[answer.type]++;
         currentQuestionIndex++;
@@ -133,10 +154,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Alur Evaluasi dan Rendering Hasil Diagnostik Medis Lokal
+  // ==========================================
+  // 5. DETERMINISTIC SCORING ENGINE (Poin 2.4)
+  // ==========================================
   function evaluateQuizResults() {
-    // Cari parameter stress blocker dengan skor tertinggi
-    let dominantBlocker = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    // Matriks Urutan Prioritas Deterministik Mengantisipasi Kasus Skor Seri/Kembar
+    const tieBreakerPriority = ['cortisol', 'glymphatic', 'adenosine', 'orexin', 'hypoglycemia'];
+    
+    let dominantBlocker = tieBreakerPriority.reduce((currentMax, type) => {
+      if (!currentMax) return type;
+      if (scores[type] > scores[currentMax]) return type;
+      // Jika nilai sama, kunci ke urutan hierarki array terdepan (Kortisol / Glimfatik)
+      return currentMax;
+    }, null);
     
     let title = "";
     let description = "";
@@ -146,51 +176,62 @@ document.addEventListener('DOMContentLoaded', () => {
     switch(dominantBlocker) {
       case "cortisol":
         title = "Subcortical HPA-Axis Cortisol Surge";
-        description = "Your midnight awakenings are heavily correlated with an inverted circadian cortisol curve. Evening psychogenic stress or artificial light exposure triggers premature adrenal activity, forcing the locus coeruleus into active noradrenergic output during late-night sleep cycles.";
+        description = "Your midnight awakenings correlate closely with an inverted circadian cortisol curve. Sustained evening stress or light exposure triggers premature adrenal output, prompting central noradrenergic arrays to fire defensive wake signals during early sleep cycles.";
         targetLink = "blog/why-3am-wake.html";
         linkText = "Read Cortisol Inversion Matrix Protocol &rarr;";
         break;
       case "adenosine":
         title = "Purinergic Adenosine Receptor Saturation";
-        description = "Your primary sleep barrier involves homeostatic sleep pressure fragmentation. Prolonged chemical blockades from late-afternoon xanthine or caffeine use cause a compensatory up-regulation of sensitive receptors, destabilizing your sleep-wake flip-flop switch.";
+        description = "Your primary sleep boundary breakdown involves homeostatic sleep pressure fragmentation. Prolonged competitive blocks from late-afternoon caffeine trigger a structural up-regulation of sensitive receptors, altering the threshold of the sleep-wake flip-flop switch.";
         targetLink = "blog/adenosine-sleep-pressure.html";
         linkText = "Read Purinergic Sleep Pressure Guide &rarr;";
         break;
       case "orexin":
         title = "Hypothalamic Orexin System Instability";
-        description = "Your results indicate a micro-circuit calibration failure inside the lateral hypothalamus. Uncoordinated nocturnal bursts of orexin peptides directly excite monoaminergic arousal centers, overriding the sleep-promoting centers of the VLPO.";
+        description = "Your configuration points toward a micro-circuit calibration failure inside the lateral hypothalamus. Uncoordinated late-night bursts of orexin neuropeptides directly excite monoaminergic alerting centers, overriding the sleep-promoting centers of the VLPO.";
         targetLink = "blog/orexin-wake-stabilizer.html";
         linkText = "Read Hypothalamic Flip-Flop Regulation Node &rarr;";
         break;
       case "glymphatic":
         title = "Astroglial Interstitial Fluid Stagnation";
-        description = "Your baseline pattern tracks closely with metabolic solute waste accumulation. Missing crucial deep slow-wave NREM windows prevents astrocytic aquaporin-4 channels from flushing brain matrix debris, creating localized structural irritation.";
+        description = "Your baseline data maps closely to metabolic waste accumulation within extracellular matrix paths. Fragmented slow-wave sleep prevents astrocytic aquaporin-4 channels from performing convective clearance wave resets, creating local tissue irritation.";
         targetLink = "blog/glymphatic-system.html";
         linkText = "Read Glymphatic Fluid Clearance Path Paper &rarr;";
         break;
       default:
         title = "Nocturnal Glycogen-Glucose Hypoglycemia";
-        description = "Your metabolic hourglass points toward premature liver glycogen depletion. When circulating blood glucose drops at night, the brain triggers a defensive surge of adrenaline to pull emergency sugar reserves, snapping you wide awake.";
+        description = "Your energetic curve points toward premature liver glycogen depletion. When circulating blood glucose levels drop at night, the central nervous system triggers a defensive surge of adrenaline to pull emergency sugar, causing sharp awakenings.";
         targetLink = "blog/why-3am-wake.html";
         linkText = "Read Liver Glycogen Maintenance Protocol &rarr;";
     }
 
-    // Deteksi kedalaman folder relatif untuk menjamin kecocokan path internal navigasi link
+    // Resolving Relative Paths Across Deep Directories
     const isSubfolder = window.location.pathname.includes('/blog/');
     const safePath = isSubfolder ? `../${targetLink}` : targetLink;
 
-    // Render Hasil Diagnostik Akhir Secara Anggun Ke Dalam Kontainer Kuis Gelap
-    quizEngine.innerHTML = `
-      <div style="text-align: center; padding: 1rem 0;">
-        <div style="display: inline-block; background-color: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); color: #38bdf8; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 1rem;">
-          🔍 DIAGNOSTIC ISOLATION COMPLETE
-        </div>
-        <h3 style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem; tracking: -0.025em;">${title}</h3>
-        <p style="font-size: 0.75rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem; text-align: left;">${description}</p>
-        <a href="${safePath}" style="display: block; text-align: center; width: 100%; border-radius: 0.75rem; background-color: #0284c7; padding: 1rem; font-size: 0.75rem; font-weight: 700; color: #ffffff; text-decoration: none; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#0077b6'" onmouseout="this.style.backgroundColor='#0284c7'">
-          ${linkText}
-        </a>
+    // Rendering Final Content Node Without Ruining Event Target States
+    quizEngine.style.padding = "1rem 0";
+    
+    // Create elements cleanly to prevent memory leak
+    const resultWrapper = document.createElement('div');
+    resultWrapper.style.textAlign = "center";
+    
+    resultWrapper.innerHTML = `
+      <div style="display: inline-block; background-color: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); color: #38bdf8; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 1rem;">
+        🔍 DIAGNOSTIC ISOLATION COMPLETE
       </div>
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem; letter-spacing: -0.025em;">${title}</h3>
+      <p style="font-size: 0.75rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem; text-align: left;">${description}</p>
+      <a href="${safePath}" style="display: block; text-align: center; width: 100%; border-radius: 0.75rem; background-color: #0284c7; padding: 1rem; font-size: 0.75rem; font-weight: 700; color: #ffffff; text-decoration: none; transition: background-color 0.2s;">
+        ${linkText}
+      </a>
     `;
+
+    if (typeof quizEngine.replaceChildren === 'function') {
+      quizEngine.replaceChildren(resultWrapper);
+    } else {
+      quizEngine.innerHTML = '';
+      quizEngine.appendChild(resultWrapper);
+    }
   }
 });
