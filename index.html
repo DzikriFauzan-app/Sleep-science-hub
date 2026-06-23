@@ -9,7 +9,8 @@
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0f172a" />
   <meta name="author" content="Mark" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; frame-ancestors 'self'" />
+  <!-- CSP Fixed: Mengizinkan CDN Tailwind dan Google Fonts secara legal tanpa unsafe-inline script -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://cdn.tailwindcss.com; connect-src 'self'; frame-ancestors 'self'" />
   <title>Sleep Science Hub — Waking Up at 3 AM? The Real Reason You Can't Stay Asleep</title>
   <link rel="canonical" href="https://dzikrifauzan-app.github.io/Sleep-science-hub/" />
   
@@ -21,39 +22,38 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sleep Science Hub — Waking Up at 3 AM? The Real Reason You Can't Stay Asleep" />
-  <meta name="twitter:description" content="Irregular sleep patterns and circadian disruption affect millions." />
-  <meta name="twitter:image" content="https://dzikrifauzan-app.github.io/Sleep-science-hub/assets/clock-3am.webp" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="stylesheet" href="assets/upgrade.css" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Inline Fallback CSS: Menjamin latar belakang langsung gelap gulita sebelum Tailwind termuat sempurna -->
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090f1e !important; color: #ffffff; }
+  </style>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#website","url":"https://dzikrifauzan-app.github.io/Sleep-science-hub/","name":"Sleep Science Hub","publisher":{"@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#organization"}},{"@type":"Organization","@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#organization","name":"Sleep Science Hub","url":"https://dzikrifauzan-app.github.io/Sleep-science-hub/","logo":{"@type":"ImageObject","url":"https://dzikrifauzan-app.github.io/Sleep-science-hub/assets/logo.png"}},{"@type":"MedicalWebPage","@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#webpage","url":"https://dzikrifauzan-app.github.io/Sleep-science-hub/","name":"Sleep Science Hub — Waking Up at 3 AM? The Real Reason You Can't Stay Asleep","description":"Irregular sleep patterns and circadian disruption affect millions.","isPartOf":{"@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#website"},"about":{"@type":"MedicalCondition","name":"Circadian Rhythm Sleep-Wake Disorders","alternateName":"Insomnia"},"medicalSpecialty":"Sleep Medicine","reviewedBy":{"@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#reviewer"}},{"@type":"FAQPage","@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#faq","mainEntity":[{"@type":"Question","name":"Why do I wake up wide awake at 3 AM?","acceptedAnswer":{"@type":"Answer","text":"Waking up at 3 AM is primarily triggered by nocturnal cortisol spikes or glymphatic stagnation."}}]},{"@type":"Person","@id":"https://dzikrifauzan-app.github.io/Sleep-science-hub/#reviewer","name":"Mark","jobTitle":"Sleep Science Researcher","sameAs":["https://www.threads.com/@marksleepreview"],"url":"https://dzikrifauzan-app.github.io/Sleep-science-hub/about.html","image":"https://dzikrifauzan-app.github.io/Sleep-science-hub/assets/mark.webp"}]}</script>
 </head>
-<body class="bg-slate-950 font-sans text-body antialiased selection:bg-brand selection:text-white">
+<body class="antialiased selection:bg-sky-500 selection:text-white">
 
-  <header class="absolute top-0 left-0 w-full z-50 bg-transparent">
-    <div class="mx-auto flex max-w-content items-center justify-between px-6 py-5">
+  <header class="absolute top-0 left-0 w-full z-50">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
       <a href="index.html" class="text-xl font-extrabold tracking-tight text-white">Sleep Science Hub</a>
       <nav aria-label="Main Navigation" class="flex items-center gap-6 text-sm font-medium text-slate-200">
-        <a href="index.html" class="border-b-2 border-brand pb-1 text-white">Home</a>
+        <a href="index.html" class="border-b-2 border-sky-500 pb-1 text-white">Home</a>
         <a href="blog/index.html" class="transition hover:text-white">Blog Hub</a>
         <a href="about.html" class="transition hover:text-white">About</a>
-        <a href="https://tally.so/r/eqyZYE" target="_blank" rel="noopener noreferrer" class="transition hover:text-white">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="relative pt-36 pb-24 px-6 min-h-screen flex items-center justify-center" style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.93), rgba(9, 15, 30, 0.97)), url('assets/clock-3am.webp'); background-size: cover; background-position: center;">
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+    <section class="relative pt-36 pb-24 px-6 min-h-screen flex flex-col items-center justify-center bg-slate-950" style="background-image: linear-gradient(to bottom, rgba(9, 15, 30, 0.93), rgba(15, 23, 42, 0.97)), url('assets/clock-3am.webp'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90"></div>
       
-      <div class="relative mx-auto max-w-3xl w-full text-center z-10 space-y-8">
-        <div class="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold tracking-wide text-brand border border-sky-500/20" style="color: #38bdf8;">
+      <div class="relative mx-auto max-w-3xl w-full text-center z-10 space-y-8 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold tracking-wide border border-sky-500/20 text-sky-400">
           ⚡️ ADVANCED MOLECULAR SLEEP ARCHITECTURE
         </div>
         
@@ -68,33 +68,35 @@
           <span>✓ 60-Second Diagnostic Audit</span>
         </div>
 
-        <div class="mx-auto max-w-xl rounded-2xl bg-slate-900/90 border border-slate-800/80 p-6 sm:p-8 shadow-2xl backdrop-blur-md text-left" id="quiz-container">
+        <!-- Premium Native Quiz Interface Box -->
+        <div class="w-full max-w-xl rounded-2xl bg-slate-900/90 border border-slate-800/80 p-6 sm:p-8 shadow-2xl backdrop-blur-md text-left" id="quiz-container">
           <div id="quiz-intro" class="text-center sm:text-left">
             <h2 class="text-lg font-bold text-white tracking-tight">Isolate Your Subcortical Sleep Blocker</h2>
             <p class="mt-2 text-slate-400 text-xs leading-relaxed">This algorithm mirrors clinical sleep medicine parameters to isolate whether your midnight waking is driven by cortisol surges, fluid stagnation, or adenosine backlog clearance.</p>
-            <button id="start-quiz-btn" class="mt-6 w-full rounded-xl bg-brand px-6 py-4 text-sm font-bold text-white shadow-xl transition-all hover:bg-sky-500 active:scale-[0.98]" style="background-color: #0284c7;">Start Diagnostic Audit &rarr;</button>
+            <button id="start-quiz-btn" class="mt-6 w-full rounded-xl bg-sky-600 px-6 py-4 text-sm font-bold text-white shadow-xl transition-all hover:bg-sky-500 active:scale-[0.98]" style="background-color: #0284c7;">Start Diagnostic Audit &rarr;</button>
           </div>
           <div id="quiz-engine" class="hidden">
             <div class="w-full bg-slate-800 h-1.5 rounded-full mb-6">
-              <div id="quiz-progress" class="bg-brand h-1.5 rounded-full transition-all duration-300" style="width: 20%; background-color: #0284c7;"></div>
+              <div id="quiz-progress" class="h-1.5 rounded-full transition-all duration-300" style="width: 20%; background-color: #0284c7;"></div>
             </div>
             <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2" id="quiz-counter">QUESTION 1 OF 5</div>
             <h3 class="text-base font-bold text-white mb-6" id="quiz-question">Loading question...</h3>
             <div class="space-y-3" id="quiz-options"></div>
           </div>
         </div>
-        
+
         <!-- Minimalist Discovery Nodes for Balanced Conversion Architecture -->
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 max-w-xl mx-auto text-left w-full">
+        <div class="grid gap-4 sm:grid-cols-2 max-w-xl mx-auto text-left w-full">
           <a href="blog/index.html" class="group block rounded-xl border border-slate-800/80 bg-slate-900/40 p-4 transition-all hover:border-sky-500/60 hover:bg-slate-900/90 shadow-lg" style="text-decoration: none;">
-            <span class="font-bold text-white text-sm block mb-1 group-hover:text-brand transition">📚 Clinical Research Library</span>
+            <span class="font-bold text-white text-sm block mb-1 group-hover:text-sky-400 transition">📚 Clinical Research Library</span>
             <span class="text-slate-400 text-[11px] leading-normal block">Access peer-reviewed breakdowns of glymphatic kinetics and purinergic accumulation.</span>
           </a>
           <a href="about.html" class="group block rounded-xl border border-slate-800/80 bg-slate-900/40 p-4 transition-all hover:border-sky-500/60 hover:bg-slate-900/90 shadow-lg" style="text-decoration: none;">
-            <span class="font-bold text-white text-sm block mb-1 group-hover:text-brand transition">🔍 Verifiable Methodology</span>
+            <span class="font-bold text-white text-sm block mb-1 group-hover:text-sky-400 transition">🔍 Verifiable Methodology</span>
             <span class="text-slate-400 text-[11px] leading-normal block">Verify independent E-E-A-T credentials, scientific data transparency, and author disclosures.</span>
           </a>
         </div>
+
       </div>
     </section>
   </main>
