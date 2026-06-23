@@ -1,6 +1,7 @@
 /**
  * Sleep Science Hub — Production-Grade Affiliate Funnel Engine
- * Implements Simulated Organic Growth Matrix, Global Local Storage Offset, and Hardened XSS Protection.
+ * Calibrated to start at 50 audits on June 23, 2026 with a natural growth of 150/day.
+ * Zero innerHTML, Defensiveness, and Tie-Break Optimization Intact.
  */
 (() => {
   function initializeAffiliateQuizEngine() {
@@ -18,18 +19,18 @@
     };
 
     // ==========================================
-    // 2. SIMULATED ORGANIC GROWTH MATRIX LOGIC
+    // 2. CALIBRATED ORGANIC GROWTH MATRIX LOGIC
     // ==========================================
-    const BASE_COUNT = 4812; // Angka dasar awal
-    const START_DATE = new Date("2026-06-01T00:00:00+07:00").getTime(); // Titik waktu dasar awal (1 Juni 2026)
-    const AUDITS_PER_DAY = 142; // Estimasi rata-rata pertumbuhan audit organik per hari (~6 audit per jam)
+    const BASE_COUNT = 50; // Angka awal disetel ke 50 klik sesuai instruksi Anda
+    const START_DATE = new Date("2026-06-23T00:00:00+07:00").getTime(); // Dimulai tepat hari ini (23 Juni 2026)
+    const AUDITS_PER_DAY = 150; // Kecepatan pertumbuhan dikunci ke 150 per hari (~6.25 klik per jam)
 
     function calculateCurrentAudits() {
       const msElapsed = Date.now() - START_DATE;
       const daysElapsed = Math.max(0, msElapsed / (1000 * 60 * 60 * 24));
       const simulatedGrowth = Math.floor(daysElapsed * AUDITS_PER_DAY);
       
-      // Ambil nilai akumulasi klik personal pengguna yang tersimpan di browser
+      // Menggabungkan akumulasi klik personal dari memori lokal browser
       const localClicksOffset = parseInt(localStorage.getItem('global_quiz_clicks_offset') || 0);
       
       return BASE_COUNT + simulatedGrowth + localClicksOffset;
@@ -37,16 +38,15 @@
 
     function updateSocialProofUI() {
       const totalAudits = calculateCurrentAudits();
-      const formattedNumber = totalAudits.toLocaleString('en-US'); // Mengubah angka menjadi format ribuan ("5,124")
+      const formattedNumber = totalAudits.toLocaleString('en-US'); // Format ribuan tetap rapi
       
-      // Cari seluruh elemen render angka lintas halaman utama dan artikel
       const countElements = document.querySelectorAll('.sleep-quiz-audit-count');
       countElements.forEach(el => {
         el.textContent = formattedNumber;
       });
     }
 
-    // Jalankan pembaruan angka langsung saat komponen berhasil termuat di layar
+    // Eksekusi render angka pertama saat skrip dimuat
     updateSocialProofUI();
 
     // ==========================================
@@ -59,7 +59,7 @@
     const quizOptions = document.querySelector('.sleep-quiz-options, #quiz-options');
 
     if (!startBtn || !quizIntro || !quizEngine || !quizQuestion || !quizOptions) {
-      console.warn('Quiz Engine: Required DOM nodes missing on this page layout. Pre-rendering setup bypassed.');
+      console.warn('Quiz Engine: Required DOM nodes missing. Initialization safely bypassed.');
       return;
     }
 
@@ -126,16 +126,14 @@
     startBtn.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // Ambil offset lama, naikkan +1 secara permanen ke local memory lintas artikel
+      // Naikkan offset internal +1 secara aman ke memori peramban
       const currentOffset = parseInt(localStorage.getItem('global_quiz_clicks_offset') || 0);
       localStorage.setItem('global_quiz_clicks_offset', currentOffset + 1);
       
-      // Perbarui UI visual secara instan sebelum container intro menghilang
+      // Update antarmuka visual secara real-time sebelum halaman kuis meluncur
       updateSocialProofUI();
 
-      // Telemetry klik internal tetap dipertahankan
       localStorage.setItem('funnel_home_to_quiz_clicks', (parseInt(localStorage.getItem('funnel_home_to_quiz_clicks') || 0) + 1));
-      console.log(`[Telemetry] Click Track Saved. Total local clicks: ${localStorage.getItem('global_quiz_clicks_offset')}`);
 
       quizIntro.classList.add('hidden');
       quizIntro.style.setProperty('display', 'none', 'important');
