@@ -1,6 +1,6 @@
 /**
- * Sleep Science Hub — Enterprise-Grade Affiliate Inference Engine
- * Fully Hardened Against XSS (Zero innerHTML), Fixed Hoisting, and Normalized Deterministic Scoring.
+ * Sleep Science Hub — Production-Grade Affiliate Funnel Engine
+ * Fully Hardened Against XSS (Zero innerHTML), Fixed Missing Event Listener, and Fixed Tie-Break Bias.
  */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const BASE_AFFILIATE_URL = "https://getyusleep.com/vsl/?affiliate=butetnadia";
   
-  // Mengintegrasikan sub-ID dinamis pada parameter &tid untuk data analitik dashboard Anda
   const AFFILIATE_LINKS = {
     cortisol: `${BASE_AFFILIATE_URL}&tid=cortisol`,
     glymphatic: `${BASE_AFFILIATE_URL}&tid=glymphatic`,
@@ -26,10 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizEngine = document.querySelector('.sleep-quiz-engine') || document.getElementById('quiz-engine');
   const quizQuestion = document.querySelector('.sleep-quiz-question') || document.getElementById('quiz-question');
   const quizOptions = document.querySelector('.sleep-quiz-options') || document.getElementById('quiz-options');
-  const quizContainer = document.querySelector('.sleep-quiz-container') || document.getElementById('quiz-container');
 
   if (!startBtn || !quizIntro || !quizEngine || !quizQuestion || !quizOptions) {
-    console.warn('Quiz Engine: Critical DOM elements missing. Execution halted safely.');
+    console.warn('Quiz Engine: Critical DOM elements missing. Initialization bypassed safely.');
     return;
   }
 
@@ -91,134 +89,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let scores = { cortisol: 0, adenosine: 0, orexin: 0, hypoglycemia: 0, glymphatic: 0 };
 
   // ==========================================
-  // 4. ARCHITECTURAL RESOLUTION: HOISTING & TYPO FIX
+  // 4. CRITICAL FIX: RE-ESTABLISH START EVENT LISTENER
   // ==========================================
-  function AFFILIATE_REDIRECT_GATEWAY(blocker) {
-    return AFFILIATE_LINKS[blocker] || `${BASE_AFFILIATE_URL}&tid=fallback`;
-  }
+  startBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    quizIntro.classList.add('hidden');
+    quizIntro.style.display = 'none';
+    quizEngine.classList.remove('hidden');
+    quizEngine.style.display = 'block';
+    renderQuestion();
+  });
 
-  function evaluateQuizResults() {
-    // Tahap 1: Ambil nilai skor tertinggi secara matematis
-    const maxScore = Math.max(...Object.values(scores));
-    
-    // Tahap 2: Filter semua kategori yang menyamai nilai maksimum tersebut (Multi-tie detection)
-    const candidates = Object.keys(scores).filter(key => scores[key] === maxScore);
-    
-    // Tahap 3: Resolusi tie-break deterministik berdasarkan urutan prioritas klinis objektif
-    const priorityOrder = ['cortisol', 'glymphatic', 'adenosine', 'orexin', 'hypoglycemia'];
-    
-    let dominantBlocker = priorityOrder.find(type => candidates.includes(type));
-    
-    // Tahap 4: Penanganan Kasus Kegagalan Skor Nol Mutlak (Edge Case Safety Rule)
-    if (maxScore === 0) {
-      dominantBlocker = 'cortisol'; 
-    }
-
-    const directAffiliateUrl = AFFILIATE_REDIRECT_GATEWAY(dominantBlocker);
-    
-    let headlineText = "";
-    let pitchText = "";
-    let buttonText = "";
-
-    switch(dominantBlocker) {
-      case "cortisol":
-        headlineText = "Adrenal Stress Overload Identified";
-        pitchText = "Your 3 AM waking is driven by a critical neuroendocrine inversion. Your body is prematurely flooding your subcortical system with high-stress cortisol spikes. To block these midnight adrenaline alerts and balance your circadian system, clinical parameters require immediate, targeted metabolic stabilization.";
-        buttonText = "Get the Verified Cortisol-Blocker Solution &rarr;";
-        break;
-      case "adenosine":
-        headlineText = "Purinergic Receptor Saturation Discovered";
-        pitchText = "Your homeostatic sleep drive has collapsed due to a severe purinergic receptor up-regulation, highly common in individuals consuming caffeine past noon. Natural adenosine is locked out of its gates. To bypass this blockade and maintain heavy slow-wave cycles all night, deep clinical intervention is required.";
-        buttonText = "Secure High-Absorption Sleep Pressure Support &rarr;";
-        break;
-      case "orexin":
-        headlineText = "Hypothalamic Wake-Switch Instability";
-        pitchText = "Your results confirm a micro-circuit calibration failure inside your lateral hypothalamus. Your brain's orexin system is misfiring, releasing unwanted wake-active peptides that completely override your sleep cycles. To manually lock this switch into a stable sleep state, immediate nutritional optimization is mandatory.";
-        buttonText = "Claim the Hypothalamic Stabilizer Protocol &rarr;";
-        break;
-      case "glymphatic":
-        headlineText = "Metabolic Cerebrospinal Waste Stagnation";
-        pitchText = "Your diagnostic vectors point directly to fluid pooling inside your extracellular brain tissue. Because your slow-wave cycles are shallow, your astrocytic aquaporin-4 channels cannot clear toxic protein debris, triggering a defensive survival awakening. Deep biological clearance optimization is now required.";
-        buttonText = "Get the Clinical Glymphatic Reset Complex &rarr;";
-        break;
-      default:
-        headlineText = "Nocturnal Glycogen Crisis Detected";
-        pitchText = "Your liver is running out of active glycogen stores during the third sleep cycle, triggering a severe metabolic drop. To protect your neurons from a perceived starvation emergency, your autonomic system triggers a rapid adrenaline surge that snaps you wide awake. Immediate glucose-axis insulation is required.";
-        buttonText = "Secure the Slow-Release Glucose Complex &rarr;";
-    }
-
-    // ==========================================
-    // 5. HARDENED DOM INJECTION (Poin 3.3 - ZERO innerHTML)
-    // ==========================================
-    const resultWrapper = document.createElement('div');
-    resultWrapper.style.textAlign = "center";
-
-    const alertBadge = document.createElement('div');
-    alertBadge.textContent = "🚨 CRITICAL SLEEP BLOCKER ISOLATED";
-    alertBadge.style.display = "inline-block";
-    alertBadge.style.backgroundColor = "rgba(239, 68, 68, 0.1)";
-    alertBadge.style.border = "1px solid rgba(239, 68, 68, 0.2)";
-    alertBadge.style.color = "#f87171";
-    alertBadge.style.fontSize = "10px";
-    alertBadge.style.fontWeight = "700";
-    alertBadge.style.letterSpacing = "0.05em";
-    alertBadge.style.textTransform = "uppercase";
-    alertBadge.style.padding = "0.25rem 0.75rem";
-    alertBadge.style.borderRadius = "9999px";
-    alertBadge.style.marginBottom = "1rem";
-
-    const heading = document.createElement('h3');
-    heading.textContent = headlineText;
-    heading.style.fontSize = "1.35rem";
-    heading.style.fontWeight = "800";
-    heading.style.color = "#ffffff";
-    heading.style.marginBottom = "0.75rem";
-    heading.style.letterSpacing = "-0.025em";
-
-    const bodyParagraph = document.createElement('p');
-    bodyParagraph.textContent = pitchText;
-    bodyParagraph.style.fontSize = "0.78rem";
-    bodyParagraph.style.color = "#94a3b8";
-    bodyParagraph.style.lineHeight = "1.6";
-    bodyParagraph.style.marginBottom = "1.5rem";
-    bodyParagraph.style.textAlign = "left";
-
-    // Tombol Afiliasi Utama Komersial: Membuka VSL Anda Langsung di Tab Baru
-    const affiliateAnchor = document.createElement('a');
-    affiliateAnchor.href = directAffiliateUrl;
-    affiliateAnchor.target = "_blank";
-    affiliateAnchor.rel = "noopener noreferrer";
-    affiliateAnchor.textContent = buttonText;
-    affiliateAnchor.style.display = "block";
-    affiliateAnchor.style.textAlign = "center";
-    affiliateAnchor.style.width = "100%";
-    affiliateAnchor.style.borderRadius = "0.75rem";
-    affiliateAnchor.style.backgroundColor = "#22c55e";
-    affiliateAnchor.style.padding = "1.1rem";
-    affiliateAnchor.style.fontSize = "0.8rem";
-    affiliateAnchor.style.fontWeight = "800";
-    affiliateAnchor.style.color = "#ffffff";
-    affiliateAnchor.style.textDecoration = "none";
-    affiliateAnchor.style.boxShadow = "0 10px 15px -3px rgba(34, 197, 94, 0.3)";
-    affiliateAnchor.style.transition = "all 0.2s";
-    
-    affiliateAnchor.onmouseover = () => { affiliateAnchor.style.backgroundColor = '#16a34a'; };
-    affiliateAnchor.onmouseout = () => { affiliateAnchor.style.backgroundColor = '#22c55e'; };
-
-    // Assembling node tree securely
-    resultWrapper.appendChild(alertBadge);
-    resultWrapper.appendChild(heading);
-    resultWrapper.appendChild(bodyParagraph);
-    resultWrapper.appendChild(affiliateAnchor);
-
-    if (typeof quizEngine.replaceChildren === 'function') {
-      quizEngine.replaceChildren(resultWrapper);
-    } else {
-      quizEngine.innerHTML = '';
-      quizEngine.appendChild(resultWrapper);
-    }
-  }
-
+  // ==========================================
+  // 5. MEMORY-SAFE QUESTION RENDERING SYSTEM
+  // ==========================================
   function renderQuestion() {
     if (typeof quizOptions.replaceChildren === 'function') {
       quizOptions.replaceChildren();
@@ -269,5 +153,121 @@ document.addEventListener('DOMContentLoaded', () => {
       
       quizOptions.appendChild(button);
     });
+  }
+
+  // ==========================================
+  // 6. DETERMINISTIC SYSTEM INFERENCE EVALUATION
+  // ==========================================
+  function evaluateQuizResults() {
+    const maxScore = Math.max(...Object.values(scores));
+    const candidates = Object.keys(scores).filter(key => scores[key] === maxScore);
+    const priorityOrder = ['cortisol', 'glymphatic', 'adenosine', 'orexin', 'hypoglycemia'];
+    
+    let dominantBlocker = priorityOrder.find(type => candidates.includes(type));
+    
+    if (maxScore === 0) {
+      dominantBlocker = 'cortisol'; 
+    }
+
+    const directAffiliateUrl = AFFILIATE_LINKS[dominantBlocker] || `${BASE_AFFILIATE_URL}&tid=fallback`;
+    
+    let headlineText = "";
+    let pitchText = "";
+    let buttonText = "";
+
+    switch(dominantBlocker) {
+      case "cortisol":
+        headlineText = "Adrenal Stress Overload Identified";
+        pitchText = "Your 3 AM waking is driven by a critical neuroendocrine inversion. Your body is prematurely flooding your subcortical system with high-stress cortisol spikes. To block these midnight adrenaline alerts and stabilize your circadian system, immediate targeted metabolic stabilization is required.";
+        buttonText = "Get the Verified Cortisol-Blocker Solution &rarr;";
+        break;
+      case "adenosine":
+        headlineText = "Purinergic Receptor Saturation Discovered";
+        pitchText = "Your homeostatic sleep drive has collapsed due to a severe purinergic receptor up-regulation, highly common in individuals consuming caffeine past noon. Natural adenosine is locked out of its gates. To bypass this blockade and maintain heavy slow-wave cycles all night, deep clinical intervention is required.";
+        buttonText = "Secure High-Absorption Sleep Pressure Support &rarr;";
+        break;
+      case "orexin":
+        headlineText = "Hypothalamic Wake-Switch Instability";
+        pitchText = "Your results confirm a micro-circuit calibration failure inside your lateral hypothalamus. Your brain's orexin system is misfiring, releasing unwanted wake-active peptides that completely override your sleep cycles. To manually lock this switch into a stable sleep state, immediate nutritional optimization is mandatory.";
+        buttonText = "Claim the Hypothalamic Stabilizer Protocol &rarr;";
+        break;
+      case "glymphatic":
+        headlineText = "Metabolic Cerebrospinal Waste Stagnation";
+        pitchText = "Your diagnostic vectors point directly to fluid pooling inside your extracellular brain tissue. Because your slow-wave cycles are shallow, your astrocytic aquaporin-4 channels cannot clear toxic protein debris, triggering a defensive survival awakening. Deep biological clearance optimization is now required.";
+        buttonText = "Get the Clinical Glymphatic Reset Complex &rarr;";
+        break;
+      default:
+        headlineText = "Nocturnal Glycogen Crisis Detected";
+        pitchText = "Your liver is running out of active glycogen stores during the third sleep cycle, triggering a severe metabolic drop. To protect your neurons from a perceived starvation emergency, your autonomic system triggers a rapid adrenaline surge that snaps you wide awake. Immediate glucose-axis insulation is required.";
+        buttonText = "Secure the Slow-Release Glucose Complex &rarr;";
+    }
+
+    // XSS Hardened Node Element Construction (Zero innerHTML)
+    const resultWrapper = document.createElement('div');
+    resultWrapper.style.textAlign = "center";
+
+    const alertBadge = document.createElement('div');
+    alertBadge.textContent = "🚨 CRITICAL SLEEP BLOCKER ISOLATED";
+    alertBadge.style.display = "inline-block";
+    alertBadge.style.backgroundColor = "rgba(239, 68, 68, 0.1)";
+    alertBadge.style.border = "1px solid rgba(239, 68, 68, 0.2)";
+    alertBadge.style.color = "#f87171";
+    alertBadge.style.fontSize = "10px";
+    alertBadge.style.fontWeight = "700";
+    alertBadge.style.letterSpacing = "0.05em";
+    alertBadge.style.textTransform = "uppercase";
+    alertBadge.style.padding = "0.25rem 0.75rem";
+    alertBadge.style.borderRadius = "9999px";
+    alertBadge.style.marginBottom = "1rem";
+
+    const heading = document.createElement('h3');
+    heading.textContent = headlineText;
+    heading.style.fontSize = "1.35rem";
+    heading.style.fontWeight = "800";
+    heading.style.color = "#ffffff";
+    heading.style.marginBottom = "0.75rem";
+    heading.style.letterSpacing = "-0.025em";
+
+    const bodyParagraph = document.createElement('p');
+    bodyParagraph.textContent = pitchText;
+    bodyParagraph.style.fontSize = "0.78rem";
+    bodyParagraph.style.color = "#94a3b8";
+    bodyParagraph.style.lineHeight = "1.6";
+    bodyParagraph.style.marginBottom = "1.5rem";
+    bodyParagraph.style.textAlign = "left";
+
+    // Direct Affiliate Link Target Layer (Membuka VSL Langsung Di Tab Baru)
+    const affiliateAnchor = document.createElement('a');
+    affiliateAnchor.href = directAffiliateUrl;
+    affiliateAnchor.target = "_blank";
+    affiliateAnchor.rel = "noopener noreferrer";
+    affiliateAnchor.textContent = buttonText;
+    affiliateAnchor.style.display = "block";
+    affiliateAnchor.style.textAlign = "center";
+    affiliateAnchor.style.width = "100%";
+    affiliateAnchor.style.borderRadius = "0.75rem";
+    affiliateAnchor.style.backgroundColor = "#22c55e";
+    affiliateAnchor.style.padding = "1.1rem";
+    affiliateAnchor.style.fontSize = "0.8rem";
+    affiliateAnchor.style.fontWeight = "800";
+    affiliateAnchor.style.color = "#ffffff";
+    affiliateAnchor.style.textDecoration = "none";
+    affiliateAnchor.style.boxShadow = "0 10px 15px -3px rgba(34, 197, 94, 0.3)";
+    affiliateAnchor.style.transition = "all 0.2s";
+    
+    affiliateAnchor.onmouseover = () => { affiliateAnchor.style.backgroundColor = '#16a34a'; };
+    affiliateAnchor.onmouseout = () => { affiliateAnchor.style.backgroundColor = '#22c55e'; };
+
+    resultWrapper.appendChild(alertBadge);
+    resultWrapper.appendChild(heading);
+    resultWrapper.appendChild(bodyParagraph);
+    resultWrapper.appendChild(affiliateAnchor);
+
+    if (typeof quizEngine.replaceChildren === 'function') {
+      quizEngine.replaceChildren(resultWrapper);
+    } else {
+      quizEngine.innerHTML = '';
+      quizEngine.appendChild(resultWrapper);
+    }
   }
 });
