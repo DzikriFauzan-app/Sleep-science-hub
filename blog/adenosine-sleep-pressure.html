@@ -10,20 +10,17 @@
   <meta name="theme-color" content="#0f172a" />
   <meta name="author" content="Mark D, Sleep Science Analyst" />
   
-  <!-- Content Security Policy Framework: Strict Self-Execution Constraints -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; frame-ancestors 'self'" />
+  <!-- CSP Patch: Separated script-src-elem to guarantee secure JSON-LD structural indexing without breaking self boundaries -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; script-src 'self'; script-src-elem 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'self'" />
   
   <title>The Purinergic Sleep Drive: How Adenosine and Caffeine Govern Midnight Rest Continuity | Sleep Science Hub</title>
   <link rel="canonical" href="https://dzikrifauzan-app.github.io/Sleep-science-hub/blog/adenosine-sleep-pressure.html" />
-
-  <!-- Performance Resource Hints Matrix -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
-  <!-- Open Graph Protocol & Advanced Image SEO Dimensions -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://dzikrifauzan-app.github.io/Sleep-science-hub/blog/adenosine-sleep-pressure.html" />
   <meta property="og:title" content="The Purinergic Sleep Drive: Adenosine and Caffeine Dynamics | Sleep Science Hub" />
@@ -35,19 +32,16 @@
   <meta property="article:published_time" content="2026-01-15T08:00:00+07:00" />
   <meta property="article:modified_time" content="2026-06-24T18:30:00+07:00" />
   <meta property="article:author" content="Mark D, Sleep Science Analyst" />
-
-  <!-- Twitter Card Interface -->
+  
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Deconstructing Homeostatic Sleep Pressure Patterns" />
   <meta name="twitter:description" content="Analyze how late-day caffeine clearance lags alter subcortical sleep gates and cause early morning awakenings." />
   <meta name="twitter:image" content="https://dzikrifauzan-app.github.io/Sleep-science-hub/assets/clock-3am.webp" />
   
-  <!-- Production Local Stylesheets Links -->
   <link rel="stylesheet" href="../assets/styles.css" />
   <link rel="stylesheet" href="../assets/upgrade.css" />
   <link rel="stylesheet" href="../assets/article.css" />
-
-  <!-- FIXED: Removed fictional Berkeley alumniOf block to secure absolute YMYL compliance -->
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -120,7 +114,7 @@
             "name": "Can afternoon caffeine intake cause you to wake up at 3 AM?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, caffeine has an extended metabolic half-life. If significant amounts remain in your system near midnight, its gradual clearance can cause an abrupt unblocking of receptors, causing a sudden spike in chemical tracking cascades that may pull you into full alertness during lighter sleep phases."
+              "text": "Yes, caffeine has an extended metabolic half-life. If significant amounts remain in your system near midnight, its gradual clearance can cause an abrupt unblocking of receptors, which some researchers believe may contribute to sudden alertness during lighter sleep phases."
             }
           }
         ]
@@ -139,9 +133,7 @@
   </script>
 </head>
 <body class="antialiased bg-slate-950 text-slate-300 font-sans">
-
   <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-sky-500 z-50 transition-all duration-100"></div>
-
   <header class="w-full bg-slate-900/80 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
     <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
       <a href="../index.html" class="text-xl font-extrabold tracking-tight text-white">Sleep Science Hub</a>
@@ -152,30 +144,19 @@
       </nav>
     </div>
   </header>
-
   <main id="main-content" class="mx-auto max-w-4xl px-6 py-12">
     <div class="mb-6">
-      <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 transition" style="text-decoration: none;">
-        &larr; Return to Blog Index
-      </a>
+      <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 transition" style="text-decoration: none;"> &larr; Return to Blog Index </a>
     </div>
-
     <article class="bg-slate-900/40 border border-slate-800 p-6 sm:p-10 rounded-2xl shadow-xl">
       <header class="mb-6 pb-6 border-b border-white/5">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-          <div class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-            ☕ PURINERGIC DRIVE MATRIX
-          </div>
-          <div class="text-slate-500 text-xs font-medium flex items-center gap-1.5">
-            ⏱️ <span>15 min read</span>
-          </div>
+          <div class="inline-block bg-sky-500/10 border border-sky-500/20 text-sky-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"> ☕ PURINERGIC DRIVE MATRIX </div>
+          <div class="text-slate-500 text-xs font-medium flex items-center gap-1.5"> ⏱️ <span>15 min read</span> </div>
         </div>
-        <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4 sleep-article-headline">
-          The Purinergic Sleep Drive: How Adenosine and Caffeine Govern Midnight Rest Continuity
-        </h1>
+        <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4 sleep-article-headline"> The Purinergic Sleep Drive: How Adenosine and Caffeine Govern Midnight Rest Continuity </h1>
         <p class="text-xs text-slate-400 font-medium">Reviewed by Mark D, Sleep Science Analyst • Updated June 24, 2026</p>
       </header>
-
       <nav aria-label="Table of Contents" class="mb-8 p-5 rounded-xl bg-slate-950 border border-slate-800/80 text-xs max-w-md">
         <p class="font-bold text-white uppercase tracking-wider mb-3 text-[10px] text-sky-400">Table of Contents</p>
         <ul class="space-y-2.5 font-medium text-slate-400">
@@ -187,77 +168,36 @@
           <li><a href="#references" class="hover:text-white transition block">• 6. Scientific Literature Citations</a></li>
         </ul>
       </nav>
-
-      <div class="mb-8 p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-400 leading-relaxed">
-        <strong>Educational Disclosure:</strong> Medical content reviewed against public sleep medicine literature for general educational tracking purposes. Observations suggest that evening macro-nutrient choices and everyday stress distribution can correlate with night-time arousals. This content is structured for informational use and may list select supportive product options through commercial partner links to help maintain site data infrastructure.
-      </div>
-
+      <div class="mb-8 p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-400 leading-relaxed"> <strong>Educational Disclosure:</strong> Medical content reviewed against public sleep medicine literature for general educational tracking purposes. Observations suggest that evening macro-nutrient choices and everyday stress distribution can correlate with night-time arousals. This content is structured for informational use and may list select supportive product options through commercial partner links to help maintain site data infrastructure. </div>
       <div class="prose max-w-none">
-        
         <h2 id="section-1">1. Understanding Your Internal Hourglass: The Rise of Process S</h2>
-        <p class="sleep-article-lead-p">
-          It is a familiar baseline sensation that most adults experience toward the end of a long working day: a heavy, comforting pressure behind your eyelids, a gradual slowing of your thoughts, and a natural physical desire to sit down and rest. In classic neurobiology frameworks, this creeping physical weight is not an accidental byproduct of boredom or simple muscle fatigue. Instead, it represents the operation of an incredibly precise internal tracking mechanism known as your **homeostatic sleep drive**, or **Process S**.
-        </p>
-        <p>
-          Your body relies on two primary forces to manage your daily periods of waking focus and nightly recovery. While your internal biological clock—the circadian rhythm or Process C—fluctuates on a strict 24-hour cycle based on environmental light inputs, your homeostatic sleep drive functions exactly like an internal chemical hourglass. The moment your eyes open in the morning, the countdown begins. For every single hour you remain awake, your brain tracking systems actively log your metabolic expenditure, gradually building up an undeniable physical demand for rest that reaches its peak right before bedtime.
-        </p>
-        <p>
-          When this homeostatic hourglass runs smoothly, it builds a massive wave of sleep pressure that locks your subcortical gateways tight during the first half of the night, anchoring your mind inside deep, restorative slow-wave sleep phases. However, in our modern environment, many individuals accidentally interfere with this chemical build-up. When we introduce stimulants, alter our daily waking schedules, or mismanage our evening routines, we do not just mask the feeling of being tired; we disrupt the underlying chemical foundation that allows our brain centers to maintain unbroken rest boundaries throughout the entire night.
-        </p>
-
+        <p class="sleep-article-lead-p"> It is a familiar baseline sensation that most adults experience toward the end of a long working day: a heavy, comforting pressure behind your eyelids, a gradual slowing of your thoughts, and a natural physical desire to sit down and rest. In classic neurobiology frameworks, this creeping physical weight is not an accidental byproduct of boredom or simple muscle fatigue. Instead, it represents the operation of an incredibly precise internal tracking mechanism known as your **homeostatic sleep drive**, or **Process S**. </p>
+        <p> Your body relies on two primary forces to manage your daily periods of waking focus and nightly recovery. While your internal biological clock—the circadian rhythm or Process C—fluctuates on a strict 24-hour cycle based on environmental light inputs, your homeostatic sleep drive functions exactly like an internal chemical hourglass. The moment your eyes open in the morning, the countdown begins. For every single hour you remain awake, your brain tracking systems actively log your metabolic expenditure, gradually building up an undeniable physical demand for rest that reaches its peak right before bedtime. </p>
+        <p> When this homeostatic hourglass runs smoothly, it builds a massive wave of sleep pressure that locks your subcortical gateways tight during the first half of the night, anchoring your mind inside deep, restorative slow-wave sleep phases. However, in our modern environment, many individuals accidentally interfere with this chemical build-up. When we introduce stimulants, alter our daily waking schedules, or mismanage our evening routines, we do not just mask the feeling of being tired; we disrupt the underlying chemical foundation that allows our brain centers to maintain unbroken rest boundaries throughout the entire night. </p>
+        
         <h2 id="section-2">2. Cellular Energy Mechanics: Adenosine Accumulation in the Dark</h2>
-        <p>
-          At the deepest cellular level, the physical currency of your sleep pressure is a purinergic nucleotide byproduct called **adenosine**. To understand how this molecule builds up in your brain tissue throughout the day, we have to look closely at how your active neurons generate daily energy. Every time your brain processes a visual input, calculates a financial spreadsheet, or coordinates a motor movement, it burns through its primary chemical fuel supply: **adenosine triphosphate (ATP)**.
-        </p>
-        <p>
-          As your brain cells utilize ATP to power their daily work, they strip away its phosphate groupings, converting the high-energy fuel first into ADP, then AMP, and eventually leaving behind a core, low-energy byproduct known simply as adenosine. This molecule is then moved out of the cells and begins to pool inside the surrounding extracellular matrices of your brain. The longer you stay awake, and the harder your mind works, the higher the concentration of extracellular adenosine grows, functioning as a direct chemical record of your daily metabolic history.
-        </p>
-        <p>
-          To signal your central nervous system that its daily energy battery is running low, circulating adenosine binds to specialized purinergic receptors—specifically the **A1** and **A2A** receptor types—located across your cerebral cortex and arousal centers. When adenosine locks into the inhibitory A1 receptors, it gently slows down the firing rate of wake-active neurons, reducing the output of stimulating neurotransmitters like acetylcholine, norepinephrine, and serotonin. Concurrently, when it binds to the excitatory A2A receptors, it activates your brain's primary sleep-promoting hub, the ventrolateral preoptic nucleus (VLPO). This elegant dual action gradually dampens your external sensory focus, preparing your physical systems to slide into deep, uninterrupted rest.
-        </p>
-
+        <p> At the deepest cellular level, the physical currency of your sleep pressure is a purinergic nucleotide byproduct called **adenosine**. To understand how this molecule builds up in your brain tissue throughout the day, we have to look closely at how your active neurons generate daily energy. Every time your brain processes a visual input, calculates a financial spreadsheet, or coordinates a motor movement, it burns through its primary chemical fuel supply: **adenosine triphosphate (ATP)**. </p>
+        <p> As your brain cells utilize ATP to power their daily work, they strip away its phosphate groupings, converting the high-energy fuel first into ADP, then AMP, and eventually leaving behind a core, low-energy byproduct known simply as adenosine. This molecule is then moved out of the cells and begins to pool inside the surrounding extracellular matrices of your brain. The longer you stay awake, and the harder your mind works, the higher the concentration of extracellular adenosine grows, functioning as a direct chemical record of your daily metabolic history. </p>
+        <p> To signal your central nervous system that its daily energy battery is running low, circulating adenosine binds to specialized purinergic receptors—specifically the **A1** and **A2A** receptor types—located across your cerebral cortex and arousal centers. When adenosine locks into the inhibitory A1 receptors, it gently slows down the firing rate of wake-active neurons, reducing the output of stimulating neurotransmitters like acetylcholine, norepinephrine, and serotonin. Concurrently, when it binds to the excitatory A2A receptors, it activates your brain's primary sleep-promoting hub, the ventrolateral preoptic nucleus (VLPO). This elegant dual action gradually dampens your external sensory focus, preparing your physical systems to slide into deep, uninterrupted rest. </p>
+        
         <h2 id="section-3">3. The Caffeine Blockade: Competitive Receptor Antagonism</h2>
-        <p>
-          When you consume a cup of hot coffee, an energy drink, or a strong tea to push through a late-afternoon productivity dip, you introduce a powerful chemical force into this purinergic timing matrix. The primary active molecule inside these beverages—**caffeine**—possesses an internal molecular shape that looks almost identical to your body's natural adenosine molecules. This structural similarity allows caffeine to travel through your bloodstream, cross your blood-brain barrier effortlessly, and engage in a process known as **competitive receptor antagonism**.
-        </p>
-        <p>
-          Because of its matching molecular layout, caffeine locks directly into your brain's vacant A1 and A2A receptors, effectively blocking your natural adenosine molecules from binding to their target sites. However, because caffeine lacks the necessary chemical structure to actually activate these sleep-promoting channels, it acts like a silent placeholder. It prevents your nervous system from reading its true metabolic history, keeping your alertness pathways running at full speed and masking the baseline sensation of being physically exhausted.
-        </p>
-        <p>
-          The critical tracking variable that many individuals overlook is that while caffeine blocks your receptors, it does absolutely nothing to stop your brain from continuing to generate new adenosine in the background. As you work late into the evening fueled by an afternoon espresso, your hard-working neurons continue to burn ATP, piling up a massive backlog of unattached adenosine inside your extracellular fluid. Your internal sleep hourglass does not stop running; its chemical weight simply pools behind the structural barrier created by the caffeine blockade, waiting for the defensive wall to clear.
-        </p>
-
+        <p> When you consume a cup of hot coffee, an energy drink, or a strong tea to push through a late-afternoon productivity dip, you introduce a powerful chemical force into this purinergic timing matrix. The primary active molecule inside these beverages—**caffeine**—possesses an internal molecular shape that looks almost identical to your body's natural adenosine molecules. This structural similarity allows caffeine to travel through your bloodstream, cross your blood-brain barrier effortlessly, and engage in a process known as **competitive receptor antagonism**. </p>
+        <p> Because of its matching molecular layout, caffeine locks directly into your brain's vacant A1 and A2A receptors, effectively blocking your natural adenosine molecules from binding to their target sites. However, because caffeine lacks the necessary chemical structure to actually activate these sleep-promoting channels, it acts like a silent placeholder. It prevents your nervous system from reading its true metabolic history, keeping your alertness pathways running at full speed and masking the baseline sensation of being physically exhausted. </p>
+        <p> The critical tracking variable that many individuals overlook is that while caffeine blocks your receptors, it does absolutely nothing to stop your brain from continuing to generate new adenosine in the background. As you work late into the evening fueled by an afternoon espresso, your hard-working neurons continue to burn ATP, piling up a massive backlog of unattached adenosine inside your extracellular fluid. Your internal sleep hourglass does not stop running; its chemical weight simply pools behind the structural barrier created by the caffeine blockade, waiting for the defensive wall to clear. </p>
+        
         <h2 id="section-4">4. The 3 AM Crash Point: How Late Clearance Destabilizes Rest</h2>
-        <p>
-          Public sleep medicine literature tracks a common chronological issue regarding how our bodies break down this stimulant over time. Caffeine has an extended metabolic half-life that typically averages between five to seven hours in healthy adults, a clearance curve evaluated in classic pharmacological trials. If you consume a double shot of espresso at 4:00 PM to survive a late-day meeting, a significant concentration of active caffeine can still remain attached to your cerebral receptors when you turn off your bedroom lights at 11:00 PM.
-        </p>
-        <p>
-          This remaining chemical presence frequently drops your initial sleep depth. While your homeostatic sleep drive may eventually grow heavy enough to force your eyes shut, the presence of caffeine prevents your brain from establishing the synchronized, low-frequency delta waves required to hold your deep Stage 3 NREM rest lock. Your sleep architecture remains artificially light, running much closer to the surface of conscious awareness during the first two sleep cycles.
-        </p>
-        <p>
-          As your liver’s metabolic pathways gradually clear the remaining caffeine molecules out of your system around the 3:00 AM window, the competitive blockade suddenly dissolves. This clearance triggers an immediate, unhindered flood where the massive backlog of pooled extracellular adenosine rushes all at once into your vacant A1 and A2A receptors. This rapid chemical shift, investigated in receptor tracking indexes, can cause an abrupt change in your internal brain signaling parameters. 
-        </p>
-        <p>
-          When this sudden purinergic surge occurs during a lighter REM sleep wave, your subconscious monitoring systems can interpret the rapid drop in neural alertness as a potential regulatory error. To protect its neural circuits from an uncoordinated transition, your brain can initiate a sudden defensive awakening. The hypothalamus fires an urgent signal down your adrenal axis, prompting a sharp spike of cortisol and adrenaline to balance your system. You snap wide awake at 3 AM with an active mind, a physical feeling of alertness, and an inability to return to sleep, caught in the downstream loop of a delayed chemical clearance.
-        </p>
-
+        <p> Public sleep medicine literature tracks a common chronological issue regarding how our bodies break down this stimulant over time. Caffeine has an extended metabolic half-life that averages around five hours in healthy adults, though individual clearance can range from roughly 1.5 to 9.5 hours depending on genetics, liver function, and other factors, a variability documented in classic pharmacological trials. If you consume a double shot of espresso at 4:00 PM to survive a late-day meeting, a significant concentration of active caffeine can still remain attached to your cerebral receptors when you turn off your bedroom lights at 11:00 PM. </p>
+        <p> This remaining chemical presence frequently drops your initial sleep depth. While your homeostatic sleep drive may eventually grow heavy enough to force your eyes shut, the presence of caffeine prevents your brain from establishing the synchronized, low-frequency delta waves required to hold your deep Stage 3 NREM rest lock. Your sleep architecture remains artificially light, running much closer to the surface of conscious awareness during the first two sleep cycles. </p>
+        <p> As your liver’s metabolic pathways gradually clear the remaining caffeine molecules out of your system around the 3:00 AM window, the competitive blockade suddenly dissolves. This clearance triggers an immediate, unhindered flood where the massive backlog of pooled extracellular adenosine rushes all at once into your vacant A1 and A2A receptors. This rapid chemical shift, investigated in receptor tracking indexes, can cause an abrupt change in your internal brain signaling parameters. </p>
+        <p> Some sleep researchers hypothesize that when this purinergic shift occurs during a lighter REM sleep wave, it may contribute to the kind of abrupt awakening associated with a cortisol and adrenaline spike from the hypothalamic-adrenal axis. While the precise causal chain is still an active area of study, the practical pattern is well documented: many people who wake abruptly around 3 AM report an active mind, a physical feeling of alertness, and difficulty returning to sleep, often following an afternoon or evening marked by delayed caffeine clearance. </p>
+        
         <h2 id="section-5">5. Practical Guidelines to Protect Your Purinergic Sleep Windows</h2>
-        <p>
-          To support your natural homeostatic sleep drive and protect your overnight rest continuity, sleep hygiene guidelines suggest several practical, everyday adjustments designed to keep your purinergic timing mechanisms running smoothly:
-        </p>
-        <ul>
-          <li><strong>Enforce a Strict 10-Hour Caffeine Fasting Window:</strong> Aim to complete your final cup of coffee, energy drink, or caffeinated tea at least ten hours before your planned bedtime. This gives your liver a clean operational window to clear the competitive molecules out of your system, ensuring your receptors are unblocked and ready to anchor deep delta sleep waves the moment your head hits the pillow.</li>
-          <li><strong>Anchor Your Morning Movement:</strong> Engage in 15 to 20 minutes of light physical movement or steady exercise early in the day. This healthy daytime activity accelerates your cellular ATP turnover, helping ensure your system builds up a robust, heavy wave of natural adenosine sleep pressure by late evening.</li>
-          <li><strong>Implement a Low-Stimulation Wind-Down:</strong> Transition your environment into a quiet, low-stimulation sanctuary two hours before sleep. Dimming bright overhead lights and avoiding intense work files helps keep your baseline adrenaline levels low, allowing your brain's sleep centers to read your purinergic sleep drive accurately.</li>
-          <li><strong>Maintain a Consistent Waking Baseline:</strong> Aim to open your eyes at the exact same hour every morning, even on weekends. This consistent anchor point ensures your internal chemical hourglass starts counting down from the same baseline every day, supporting natural rest continuity.</li>
-        </ul>
-
-        <!-- RESTORED: Absolute Original HTML Target Layout to Match Your Existing Script Structure Exactly -->
+        <p> To support your natural homeostatic sleep drive and protect your overnight rest continuity, sleep hygiene guidelines suggest several practical, everyday adjustments designed to keep your purinergic timing mechanisms running smoothly: </p>
+        <ul> <li><strong>Enforce a Strict 10-Hour Caffeine Fasting Window:</strong> Aim to complete your final cup of coffee, energy drink, or caffeinated tea at least ten hours before your planned bedtime. This gives your liver a clean operational window to clear the competitive molecules out of your system, ensuring your receptors are unblocked and ready to anchor deep delta sleep waves the moment your head hits the pillow.</li> <li><strong>Anchor Your Morning Movement:</strong> Engage in 15 to 20 minutes of light physical movement or steady exercise early in the day. This healthy daytime activity accelerates your cellular ATP turnover, helping ensure your system builds up a robust, heavy wave of natural adenosine sleep pressure by late evening.</li> <li><strong>Implement a Low-Stimulation Wind-Down:</strong> Transition your environment into a quiet, low-stimulation sanctuary two hours before sleep. Dimming bright overhead lights and avoiding intense work files helps keep your baseline adrenaline levels low, allowing your brain's sleep centers to read your purinergic sleep drive accurately.</li> <li><strong>Maintain a Consistent Waking Baseline:</strong> Aim to open your eyes at the exact same hour every morning, even on weekends. This consistent anchor point ensures your internal chemical hourglass starts counting down from the same baseline every day, supporting natural rest continuity.</li> </ul>
+        
         <div class="my-12 rounded-2xl bg-slate-950 border border-slate-800 p-6 sm:p-8 shadow-2xl text-white text-left" id="quiz-container">
           <div id="quiz-intro">
-            <div class="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold tracking-wide border border-sky-500/20" style="color: #38bdf8; background-color: rgba(56,189,248,0.1);">
-              ⚡️ CLINICAL ASSESSMENT
-            </div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold tracking-wide border border-sky-500/20" style="color: #38bdf8; background-color: rgba(56,189,248,0.1);"> ⚡️ CLINICAL ASSESSMENT </div>
             <h2 class="mt-4 text-xl font-bold tracking-tight text-white">Isolate Your Sleep Blocker in 60 Seconds</h2>
             <p class="mt-2 text-slate-400 text-xs leading-relaxed">This localized diagnostic algorithm analyzes your exact neurochemical or circadian rhythm bottleneck right here on this page without redirection or external iframe dependency.</p>
             <button id="start-quiz-btn" class="mt-5 w-full sm:w-auto rounded-xl px-6 py-3.5 text-xs font-bold text-white shadow-lg transition hover:bg-sky-500" style="background-color: #0284c7; border: none; cursor: pointer;">Start Diagnostic Audit →</button>
@@ -271,24 +211,14 @@
             <div class="space-y-3" id="quiz-options"></div>
           </div>
         </div>
-
-        <!-- COMPLIANT SOLUTIONS DISCLOSURE BLOCK WITH ATTRIBUTIONS -->
+        
         <div class="my-12 bg-gradient-to-br from-slate-950 to-emerald-950/40 border border-emerald-500/20 rounded-2xl p-6 sm:p-8 shadow-xl text-left">
-          <div class="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-4">
-            🎯 RECOMMENDED EDUCATIONAL RESOURCE
-          </div>
-          <h3 class="text-xl font-bold text-white tracking-tight mb-2">
-            Support Your Nighttime Sleep Maintenance and Anchor Your Circadian Boundaries
-          </h3>
-          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-            For individuals aiming to stabilize their overnight energy curves after years of late food routines or afternoon coffee use, certain dietary adjustments and sleep-supporting nutrients may help support rest continuity, although individual outcomes vary. Reviewing natural, slow-release options can help preserve a consistent sleep drive throughout your evening cycles.
-          </p>
-          <a href="https://getyusleep.com/glp/?affiliate=butetnadia&tid=adenosine_article" target="_blank" rel="nofollow sponsored noopener noreferrer" class="display-block w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99]" style="display:block; text-decoration:none; background-color:#22c55e; box-shadow: 0 10px 15px -3px rgba(34,197,94,0.3);">
-            Access the Slow-Release Midnight Stabilization Protocol &rarr;
-          </a>
+          <div class="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-4"> 🎯 RECOMMENDED EDUCATIONAL RESOURCE </div>
+          <h3 class="text-xl font-bold text-white tracking-tight mb-2"> Support Your Nighttime Sleep Maintenance and Anchor Your Circadian Boundaries </h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> For individuals aiming to stabilize their overnight energy curves after years of late food routines or afternoon coffee use, certain dietary adjustments and sleep-supporting nutrients may help support rest continuity, although individual outcomes vary. Reviewing natural, slow-release options can help preserve a consistent sleep drive throughout your evening cycles. </p>
+          <a href="https://getyusleep.com/glp/?affiliate=butetnadia&tid=adenosine_article" target="_blank" rel="nofollow sponsored noopener noreferrer" class="display-block w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99]" style="display:block; text-decoration:none; background-color:#22c55e; box-shadow: 0 10px 15px -3px rgba(34,197,94,0.3);"> Access the Slow-Release Midnight Stabilization Protocol &rarr; </a>
         </div>
-
-        <!-- E-E-A-T Scientific References Index -->
+        
         <section id="references" class="mt-12 border-t border-white/5 pt-6 text-xs text-slate-400">
           <h2 class="text-white font-bold text-sm tracking-tight mb-3 uppercase tracking-wider text-[11px] text-sky-400">Scientific References & Literature Citations</h2>
           <ul class="space-y-2 list-none pl-0">
@@ -298,34 +228,21 @@
             <li>• <strong>Walker, M. P.</strong> (2017). <em>Why We Sleep: Unlocking the Power of Sleep and Dreams</em>. Scribner Publishing, New York. Analysis on purinergic receptor accumulation boundaries.</li>
           </ul>
         </section>
-
-        <!-- BERT-Optimized Internal Linking Cluster Grid -->
+        
         <section class="mt-8 border-t border-white/5 pt-6 text-left">
           <h4 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-4">BERT-Optimized Sleep Physiology Nodes</h4>
           <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-3 text-xs">
-            <a href="glymphatic-system.html" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-4 transition hover:border-sky-500/50" style="text-decoration: none;">
-              <span class="font-bold text-white block mb-1">🧠 Astroglial Fluid Clearance Path</span>
-              <span class="text-slate-400 block mt-1">Analyze localized metabolic waste purification and aquaporin-4 channel mechanics.</span>
-            </a>
-            <a href="adenosine-sleep-pressure.html" class="block rounded-xl border border-sky-500/30 bg-slate-900/50 p-4 transition hover:border-sky-500/50" style="text-decoration: none;">
-              <span class="font-bold text-white block mb-1">☕ Purinergic Sleep Pressure Cascade</span>
-              <span class="text-slate-400 block mt-1">Deconstruct homeostatic sleep-drive accumulation metrics and caffeine competitive receptor antagonism.</span>
-            </a>
-            <a href="orexin-wake-stabilizer.html" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-4 transition hover:border-sky-500/50" style="text-decoration: none;">
-              <span class="font-bold text-white block mb-1">🌌 Hypothalamic Flip-Flop Regulation</span>
-              <span class="text-slate-400 block mt-1">Isolate lateral hypothalamic neuropeptide configurations that modulate central nervous system wake stabilization.</span>
-            </a>
+            <a href="glymphatic-system.html" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-4 transition hover:border-sky-500/50" style="text-decoration: none;"> <span class="font-bold text-white block mb-1">🧠 Astroglial Fluid Clearance Path</span> <span class="text-slate-400 block mt-1">Analyze localized metabolic waste purification and aquaporin-4 channel mechanics.</span> </a>
+            <a href="adenosine-sleep-pressure.html" class="block rounded-xl border border-sky-500/30 bg-slate-900/50 p-4 transition hover:border-sky-500/50" style="text-decoration: none;"> <span class="font-bold text-white block mb-1">☕ Purinergic Sleep Pressure Cascade</span> <span class="text-slate-400 block mt-1">Deconstruct homeostatic sleep-drive accumulation metrics and caffeine competitive receptor antagonism.</span> </a>
+            <a href="orexin-wake-stabilizer.html" class="block rounded-xl border border-slate-800 bg-slate-900/50 p-4 transition hover:border-sky-500/50" style="text-decoration: none;"> <span class="font-bold text-white block mb-1">🌌 Hypothalamic Flip-Flop Regulation</span> <span class="text-slate-400 block mt-1">Isolate lateral hypothalamic neuropeptide configurations that modulate central nervous system wake stabilization.</span> </a>
           </div>
         </section>
-
       </div>
     </article>
   </main>
-
   <footer class="bg-slate-950 text-slate-500 text-[11px] py-8 border-t border-white/5 text-center">
     <p>&copy; 2026 Sleep Science Hub. All rights reserved. Reviewed by Mark D, Sleep Science Analyst.</p>
   </footer>
-
   <script defer src="../assets/progress.js"></script>
   <script defer src="../assets/quiz-engine.js"></script>
 </body>
