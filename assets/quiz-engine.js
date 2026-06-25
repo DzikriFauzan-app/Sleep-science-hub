@@ -164,10 +164,10 @@ document.addEventListener("DOMContentLoaded", function () {
         default: "Primary: Purinergic Sleep Pressure Clearance Failure. Your sleep switch drops baseline hold metrics prematurely during lighter cycles due to late-afternoon stimulant chemical exposure."
       },
       metabolic: {
-        purinergic: "Primary: Hepatic Glycogen Depletion paired with Secondary: Caffeine Clearance Lag. Pre-bed high-glycemic snacks lock you into an insulin trap, causing a blood sugar drop that forces an emergency adrenaline surge.",
+        purinergic: "Primary: Hepatic Glycogen Depletion paired with Secondary: Caffeine Clearance Lag. Pre-bed high-glycemic snacks lock you into an insulin trap, associated with a blood sugar shift that can trigger a compensatory adrenaline response.",
         cortisol: "Primary: Nocturnal Hypoglycemic Crisis combined with Secondary: HPA-Axis Stress Overdrive. Low liver energy stores cause an emergency sugar-rescue sequence, forcing adrenaline and cortisol to spike you wide awake.",
         circadian: "Primary: Metabolic Insulin Shifts mixed with Secondary: Melatonin Phase Mismatch. Unstable glucose curves conflict with your core body temperature drop, destabilizing sleep gate maintenance parameters.",
-        glymphatic: "Primary: Glucose Curve Crashing with Secondary: Convective Glymphatic Stagnation. Overnight bioenergetic starvation causes early arousal, disrupting your brain's natural purification cycles.",
+        glymphatic: "Primary: Glucose Curve Crashing with Secondary: Convective Glymphatic Stagnation. Overnight bioenergetic shifts frequently correlate with early arousal patterns, disrupting your brain's natural purification cycles.",
         default: "Primary: Nocturnal Glycogen Starvation Crisis. Your liver backup energy battery runs dry mid-sleep, causing a counter-regulatory stress hormone surge that terminates deep rest instantly."
       },
       cortisol: {
