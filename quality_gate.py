@@ -7,10 +7,13 @@ Exit code 0 = pass. Exit code 1 = fail (commit should be blocked).
 import sys
 import re
 import os
+import json
+import hashlib
+
+CACHE_FILE = ".citation_verification_cache.json"
 
 # ============================================================
-# HARD-BANNED PATTERNS — these caused real compliance/FTC risk
-# before and must never reappear. Case-insensitive.
+# HARD-BANNED PATTERNS
 # ============================================================
 BANNED_PATTERNS = [
     (r"G-protein coupled receptors", "Drug-mechanism claim attached to a supplement (GPCR targeting). Reword to 'natural relaxation response' style language."),
@@ -27,16 +30,11 @@ BANNED_PATTERNS = [
     (r"Sleep Science Researcher", "Old author persona variant — unify to 'Mark, Sleep Research Writer'."),
     (r"Mark Sullivan", "Old author persona variant — unify to 'Mark, Sleep Research Writer'."),
     (r"\bMark Sleep Researcher\b", "Old author persona variant (no comma) — unify to 'Mark, Sleep Research Writer'."),
+    (r"within less than a minute", "Fabricated precision timing claim with no source."),
 ]
 
-# Words that previously appeared due to an autocomplete/typo bug
-# (cortisol -> corporate). Flagged for manual read, not auto-failed,
-# since "corporate" has legitimate uses (e.g. "corporate compliance").
 SUSPICIOUS_TYPO_WORDS = ["corporate"]
 
-# ============================================================
-# REQUIRED STRUCTURAL ELEMENTS — every article must have these
-# ============================================================
 REQUIRED_SNIPPETS = {
     'rel="canonical"': "Missing canonical link tag.",
     '<meta property="og:title"': "Missing Open Graph og:title tag.",
@@ -53,8 +51,6 @@ REQUIRED_SNIPPETS = {
     'rel="nofollow sponsored noopener noreferrer"': "Affiliate link is missing required rel attributes.",
 }
 
-# Quiz widget must use these exact classes to match assets/quiz-engine.js
-# selectors — otherwise the button will render but do nothing on click.
 REQUIRED_QUIZ_CLASSES = [
     "sleep-quiz-container", "sleep-quiz-intro", "sleep-quiz-start-btn",
     "sleep-quiz-engine", "sleep-quiz-progress", "sleep-quiz-counter",
@@ -64,7 +60,27 @@ REQUIRED_QUIZ_CLASSES = [
 REQUIRED_AUDIT_COUNT = "1,204"
 
 
-def check_file(filepath, citations_verified=False):
+def load_cache():
+    if os.path.exists(CACHE_FILE):
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def save_cache(cache):
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, indent=2)
+
+
+def get_citations_hash(content):
+    """Hash just the citation list content, so unrelated edits elsewhere
+    in the article don't invalidate a prior citation verification."""
+    citation_lines = re.findall(r"<li>•\s*<strong>.*?</strong>.*?</li>", content)
+    joined = "\n".join(citation_lines)
+    return hashlib.sha256(joined.encode("utf-8")).hexdigest()
+
+
+def check_file(filepath, mark_verified=False):
     if not os.path.exists(filepath):
         print(f"❌ FILE NOT FOUND: {filepath}")
         return False
@@ -75,46 +91,48 @@ def check_file(filepath, citations_verified=False):
     failures = []
     warnings = []
 
-    # 1. Banned patterns
     for pattern, reason in BANNED_PATTERNS:
         if re.search(pattern, content, re.IGNORECASE):
             failures.append(f"BANNED PHRASE found matching /{pattern}/ — {reason}")
 
-    # 2. Required structural elements
     for snippet, reason in REQUIRED_SNIPPETS.items():
         if snippet not in content:
             failures.append(f"MISSING REQUIRED ELEMENT: '{snippet}' — {reason}")
 
-    # 3. Quiz widget wiring
     if "sleep-quiz-container" in content or "quiz-container" in content:
         for cls in REQUIRED_QUIZ_CLASSES:
             if cls not in content:
                 failures.append(f"QUIZ WIDGET BROKEN: missing class '{cls}' — quiz-engine.js won't find this element, button will not work.")
 
-    # 4. Audit counter consistency
     if "sleep-quiz-audit-count" in content and REQUIRED_AUDIT_COUNT not in content:
         failures.append(f"INCONSISTENT AUDIT COUNTER: expected '{REQUIRED_AUDIT_COUNT}' somewhere near the quiz widget.")
 
-    # 5. Typo bug watch (warning only, not a hard fail)
     for word in SUSPICIOUS_TYPO_WORDS:
         for line_no, line in enumerate(content.splitlines(), 1):
             if re.search(rf"\b{word}\b", line, re.IGNORECASE):
                 warnings.append(f"Line {line_no}: contains '{word}' — verify this isn't the cortisol/corporate autocomplete bug:\n      {line.strip()[:120]}")
 
-    # 6. Citation manual-verification gate
+    # ---- Citation cache check ----
     citation_lines = re.findall(r"<li>•\s*<strong>.*?</strong>.*?</li>", content)
     if citation_lines:
-        if not citations_verified:
-            failures.append(
-                f"CITATION CHECK REQUIRED: found {len(citation_lines)} citation(s). "
-                "These must be manually verified as real papers (correct title/journal/DOI) "
-                "before this passes. Ask Claude to web-search-verify each one, then re-run "
-                "this script with --citations-verified."
-            )
-        else:
-            warnings.append(f"{len(citation_lines)} citation(s) marked as manually verified (--citations-verified flag used).")
+        cache = load_cache()
+        current_hash = get_citations_hash(content)
+        cached_hash = cache.get(filepath)
 
-    # ---- Report ----
+        if mark_verified:
+            cache[filepath] = current_hash
+            save_cache(cache)
+            warnings.append(f"{len(citation_lines)} citation(s) verified and CACHED for {filepath} (hash recorded).")
+        elif cached_hash == current_hash:
+            warnings.append(f"{len(citation_lines)} citation(s) match a previously verified cache entry — skipping re-verification.")
+        else:
+            failures.append(
+                f"CITATION CHECK REQUIRED: found {len(citation_lines)} citation(s), and none match the verification "
+                f"cache (citations are new or have changed since last verification). "
+                "Ask Claude to web-search-verify each one, then re-run "
+                "this script with --citations-verified to cache the result permanently."
+            )
+
     print(f"\n{'='*60}")
     print(f"QUALITY GATE REPORT: {filepath}")
     print(f"{'='*60}")
@@ -140,12 +158,12 @@ if __name__ == "__main__":
         print("Usage: python3 quality_gate.py <file1.html> [file2.html ...] [--citations-verified]")
         sys.exit(1)
 
-    citations_verified = "--citations-verified" in sys.argv
+    mark_verified = "--citations-verified" in sys.argv
     files = [a for a in sys.argv[1:] if not a.startswith("--")]
 
     all_passed = True
     for filepath in files:
-        if not check_file(filepath, citations_verified):
+        if not check_file(filepath, mark_verified):
             all_passed = False
 
     sys.exit(0 if all_passed else 1)
