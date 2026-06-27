@@ -46,7 +46,7 @@ REQUIRED_SNIPPETS = {
     "Mark, Sleep Research Writer": "Missing or inconsistent author byline (must say 'Mark, Sleep Research Writer').",
     "Educational Disclosure": "Missing the Educational Disclosure block used on every other article.",
     "Table of Contents": "Missing Table of Contents nav block.",
-    "Related Reads": "Missing the 'Related Reads' internal linking section.",
+
     "Scientific References": "Missing the Scientific References / Citations section.",
     'rel="nofollow sponsored noopener noreferrer"': "Affiliate link is missing required rel attributes.",
 }
@@ -98,6 +98,16 @@ def check_file(filepath, mark_verified=False):
     for snippet, reason in REQUIRED_SNIPPETS.items():
         if snippet not in content:
             failures.append(f"MISSING REQUIRED ELEMENT: '{snippet}' — {reason}")
+
+    # Internal linking section heading varies across articles ("Related Reads"
+    # on newer articles, "Continue Reading Sleep Physiology Research" on
+    # older ones) — accept either variant.
+    internal_link_headings = ["Related Reads", "Continue Reading Sleep Physiology Research"]
+    if not any(h in content for h in internal_link_headings):
+        failures.append(
+            "MISSING REQUIRED ELEMENT: internal linking section — "
+            f"expected one of {internal_link_headings}."
+        )
 
     if "sleep-quiz-container" in content or "quiz-container" in content:
         for cls in REQUIRED_QUIZ_CLASSES:
