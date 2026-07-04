@@ -25,7 +25,7 @@ BANNED_PATTERNS = [
     (r"corrective prescription", "Implies a medical prescription. Reword to 'educational summary' or similar."),
     (r"Secured redirection link encrypted", "Fake security/clinical theater language with no real meaning."),
     (r"Compiling Neurochemical Survey Profiles", "Fake biomarker-processing language; this is a styled setTimeout, not real analysis."),
-    (r"circadianblueprint\.com", "Domain mismatch — site is hosted at dzikrifauzan-app.github.io."),
+    (r"dzikrifauzan-app\.github\.io", "Domain mismatch — legacy github pages domain detected."),
     (r"\bMark D,\s*Sleep Science Analyst\b", "Old author persona variant — unify to 'Mark, Sleep Research Writer'."),
     (r"Sleep Science Researcher", "Old author persona variant — unify to 'Mark, Sleep Research Writer'."),
     (r"Mark Sullivan", "Old author persona variant — unify to 'Mark, Sleep Research Writer'."),
