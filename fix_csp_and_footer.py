@@ -19,7 +19,7 @@ def fix_file(filepath):
 
     # Fix hardcoded footer text in about.html
     content = content.replace(
-        "© 2026 Sleep Science Hub (dzikrifauzan-app.github.io/Sleep-science-hub). All rights reserved. Built with precision and science.",
+        "© 2026 Sleep Science Hub (circadianblueprint.com). All rights reserved. Built with precision and science.",
         "© 2026 Sleep Science Hub (circadianblueprint.com). All rights reserved. Built with precision and science."
     )
 
