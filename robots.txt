@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dzikrifauzan-app.github.io/Sleep-science-hub/sitemap.xml
+Sitemap: https://circadianblueprint.com/sitemap.xml
