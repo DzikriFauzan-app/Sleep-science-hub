@@ -46,7 +46,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090f1e !important; color: #ffffff !important; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; } body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090f1e !important; color: #ffffff !important; margin: 0; padding: 0; }
     .bg-slate-950 { background-color: #090f1e !important; }
     .bg-slate-900 { background-color: #0f172a !important; }
     .bg-slate-800 { background-color: #1e293b !important; }
@@ -196,7 +196,7 @@
           <!-- Native Quiz Interface Card Layer -->
           <div class="w-full max-w-xl rounded-2xl bg-slate-900 border border-slate-800 p-6 sm:p-8 shadow-2xl text-left sleep-quiz-container">
             <div class="text-center sm:text-left sleep-quiz-intro">
-              <h2 class="text-lg font-bold text-white tracking-tight">Isolate Your Subcortical Sleep Blocker</h2>
+              <h2 class="text-lg font-bold text-white tracking-tight">Pinpoint Your Subcortical Sleep Blocker</h2>
               <p class="mt-2 text-slate-400 text-xs leading-relaxed">This algorithm is calibrated against peer-reviewed sleep science parameters to pinpoint whether your midnight waking is driven by cortisol surges, fluid stagnation, or adenosine backlog clearance.</p>
               
               <!-- PERBAIKAN 1: Penambahan Baris Social Proof Komersial di Atas Tombol Mulai -->
@@ -252,9 +252,7 @@
         <div class="mt-12 bg-emerald-950/20 border border-emerald-500/20 p-6 rounded-2xl text-center max-w-xl mx-auto shadow-xl">
           <h3 class="text-base font-bold text-white">Ready to uncover your specific 3 AM neurological trigger?</h3>
           <p class="mt-1 text-slate-400 text-xs leading-relaxed">Skip the complex guesswork and identify your primary sleep architecture disruptor right now.</p>
-          <button onclick="document.querySelector('.sleep-quiz-container').scrollIntoView({ behavior: 'smooth' })" class="mt-4 inline-block rounded-xl bg-emerald-600 px-6 py-3.5 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.98]" style="background-color: #10b981; border: none; cursor: pointer;">
-            Ready? Start Audit &rarr;
-          </button>
+          <a href="#sleep-quiz-container" class="mt-4 inline-block rounded-xl bg-emerald-600 px-6 py-3.5 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.98] text-center" style="background-color: #10b981; text-decoration: none;">Take the Assessment &rarr;</a>
         </div>
       </section>
 
