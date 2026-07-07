@@ -145,83 +145,121 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function calculateMatrixResults() {
-    counterText.textContent = "DIAGNOSTIC ANALYSIS COMPLETE";
-    questionText.textContent = "Your Custom Sleep Maintenance Breakdown Is Ready";
+    counterText.textContent = "RUNNING ALGORITHMIC EVALUATION...";
+    questionText.textContent = "Analyzing symptomatic physiological patterns...";
     optionsWrapper.textContent = "";
 
-    // Sort tracks to isolate Primary and Secondary factors for the 25-combination grid
-    let sortedTracks = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
-    let primaryFactor = sortedTracks[0];
-    let secondaryFactor = sortedTracks[1];
+    // PRE-RESULT VALUE LOOP: Mengunci psikologi konversi pasar US (Pola Seed/Noom)
+    let metrics = [
+      "Isolating autonomic nervous system baseline...",
+      "Evaluating nocturnal cortisol curve displacement...",
+      "Quantifying purinergic receptor saturation index...",
+      "Synthesizing customized 3 AM circadian blueprint..."
+    ];
 
-    // Safe Outcomes Matrix Configuration System
-    const outcomesMatrix = {
-      purinergic: {
-        metabolic: "Primary: Adenosine Receptor Up-regulation paired with Secondary: Nocturnal Glucose Drops. Your afternoon xanthine intake masks baseline sleep debt, creating a severe late-night chemical imbalance combined with a liver fuel drop.",
-        cortisol: "Primary: Adenosine Receptor Up-regulation combined with Secondary: Cortisol Hyper-activation. Late-day stimulants cause a massive overnight purinergic clearance, causing the HPA-axis to fire a defense wakeup signal.",
-        circadian: "Primary: Adenosine Blockade mixed with Secondary: Circadian Phase Advance. Your body fails to build sufficient sleep pressure, forcing an uncoordinated transition out of sleep during early REM windows.",
-        glymphatic: "Primary: Adenosine Accumulation with Secondary: Astroglial Fluid Stagnation. Localized waste clearance is slowed due to altered sleep stage transitions.",
-        default: "Primary: Purinergic Sleep Pressure Clearance Failure. Your sleep switch drops baseline hold metrics prematurely during lighter cycles due to late-afternoon stimulant chemical exposure."
-      },
-      metabolic: {
-        purinergic: "Primary: Hepatic Glycogen Depletion paired with Secondary: Caffeine Clearance Lag. Pre-bed high-glycemic snacks lock you into an insulin trap, associated with a blood sugar shift that can trigger a compensatory adrenaline response.",
-        cortisol: "Primary: Nocturnal Hypoglycemic Crisis combined with Secondary: HPA-Axis Stress Overdrive. Low liver energy stores cause an emergency sugar-rescue sequence, forcing adrenaline and cortisol to spike you wide awake.",
-        circadian: "Primary: Metabolic Insulin Shifts mixed with Secondary: Melatonin Phase Mismatch. Unstable glucose curves conflict with your core body temperature drop, destabilizing sleep gate maintenance parameters.",
-        glymphatic: "Primary: Glucose Curve Crashing with Secondary: Convective Glymphatic Stagnation. Overnight bioenergetic shifts frequently correlate with early arousal patterns, disrupting your brain's natural purification cycles.",
-        default: "Primary: Nocturnal Glycogen Starvation Crisis. Your liver backup energy battery runs dry mid-sleep, causing a counter-regulatory stress hormone surge that terminates deep rest instantly."
-      },
-      cortisol: {
-        metabolic: "Primary: Autonomic Sympathetic Overdrive paired with Secondary: Reactive Insulin Shifting. High baseline evening cortisol blocks deep delta sleep stages, making you hyper-reactive to normal midnight blood sugar changes.",
-        purinergic: "Primary: Elevated Evening Stress Axis combined with Secondary: Adenosine Desensitivity. Fight-or-flight signaling blocks standard calming loops, dropping your neurological arousal threshold at 3 AM.",
-        default: "Primary: Hyper-Active Cortisol Awakening Surge. Your subcortical emotional centers remain hyper-vigilant, forcing sudden alert awakenings where the conscious mind instantly tracks anxieties."
-      },
-      circadian: {
-        default: "Primary: Central Biological Clock Desynchronization. Your internal master circadian clock is out of alignment with your lifestyle routine, lifting the sleep lock prematurely before morning."
-      },
-      glymphatic: {
-        default: "Primary: Cranial Astroglial Fluid Clearance Retardation. Sluggish metabolic waste purification loops allow toxic byproducts to cluster, altering your night-time sensory processing limits."
+    let step = 0;
+    optionsWrapper.innerHTML = `
+      <div class="w-full py-6 text-center space-y-4">
+        <div class="mx-auto h-7 w-7 animate-spin rounded-full border-4 border-sky-500 border-t-transparent"></div>
+        <div id="cro-loading-text" class="text-[11px] font-mono tracking-wide text-slate-400">Initializing calculation grid...</div>
+        <div class="w-full bg-slate-950 h-1 rounded-full overflow-hidden border border-slate-800">
+          <div id="cro-progress-bar" class="bg-gradient-to-r from-sky-500 to-emerald-500 h-full w-0 transition-all duration-300 ease-out"></div>
+        </div>
+      </div>
+    `;
+
+    const interval = setInterval(() => {
+      if (step < metrics.length) {
+        const loadingEl = document.getElementById('cro-loading-text');
+        const progressEl = document.getElementById('cro-progress-bar');
+        if (loadingEl) loadingEl.innerText = metrics[step];
+        if (progressEl) progressEl.style.width = `${(step + 1) * 25}%`;
+        step++;
+      } else {
+        clearInterval(interval);
+        renderFinalMatrixOutput();
       }
-    };
+    }, 1100);
 
-    // Pull precise statement from combination layout, fall back to default if necessary
-    let customDiagnosis = "";
-    if (outcomesMatrix[primaryFactor] && outcomesMatrix[primaryFactor][secondaryFactor]) {
-      customDiagnosis = outcomesMatrix[primaryFactor][secondaryFactor];
-    } else if (outcomesMatrix[primaryFactor] && outcomesMatrix[primaryFactor].default) {
-      customDiagnosis = outcomesMatrix[primaryFactor].default;
-    } else {
-      customDiagnosis = "Your sleep pattern indicates an interaction between homeostatic sleep pressure parameters and subcortical arousal tracking networks.";
+    function renderFinalMatrixOutput() {
+      counterText.textContent = "BIOLOGICAL EVALUATION COMPLETE";
+      questionText.textContent = "Your Custom Sleep Maintenance Breakdown Is Ready";
+      optionsWrapper.textContent = "";
+
+      // Sort tracks to isolate Primary and Secondary factors for the 25-combination grid
+      let sortedTracks = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
+      let primaryFactor = sortedTracks[0];
+      let secondaryFactor = sortedTracks[1];
+
+      // Safe Outcomes Matrix Configuration System
+      const outcomesMatrix = {
+        purinergic: {
+          metabolic: "Primary: Adenosine Receptor Up-regulation paired with Secondary: Nocturnal Glucose Drops. Your afternoon xanthine intake masks baseline sleep debt, creating a severe late-night chemical imbalance combined with a liver fuel drop.",
+          cortisol: "Primary: Adenosine Receptor Up-regulation combined with Secondary: Cortisol Hyper-activation. Late-day stimulants cause a massive overnight purinergic clearance, causing the HPA-axis to fire a defense wakeup signal.",
+          circadian: "Primary: Adenosine Blockade mixed with Secondary: Circadian Phase Advance. Your body fails to build sufficient sleep pressure, forcing an uncoordinated transition out of sleep during early REM windows.",
+          glymphatic: "Primary: Adenosine Accumulation with Secondary: Astroglial Fluid Stagnation. Localized waste clearance is slowed due to altered sleep stage transitions.",
+          default: "Primary: Purinergic Sleep Pressure Clearance Failure. Your sleep switch drops baseline hold metrics prematurely during lighter cycles due to late-afternoon stimulant chemical exposure."
+        },
+        metabolic: {
+          purinergic: "Primary: Hepatic Glycogen Depletion paired with Secondary: Caffeine Clearance Lag. Pre-bed high-glycemic snacks lock you into an insulin trap, associated with a blood sugar shift that can trigger a compensatory adrenaline response.",
+          cortisol: "Primary: Nocturnal Hypoglycemic Crisis combined with Secondary: HPA-Axis Stress Overdrive. Low liver energy stores cause an emergency sugar-rescue sequence, forcing adrenaline and cortisol to spike you wide awake.",
+          circadian: "Primary: Metabolic Insulin Shifts mixed with Secondary: Melatonin Phase Mismatch. Unstable glucose curves conflict with your core body temperature drop, destabilizing sleep gate maintenance parameters.",
+          glymphatic: "Primary: Glucose Curve Crashing with Secondary: Convective Glymphatic Stagnation. Overnight bioenergetic shifts frequently correlate with early arousal patterns, disrupting your brain's natural purification cycles.",
+          default: "Primary: Nocturnal Glycogen Starvation Crisis. Your liver backup energy battery runs dry mid-sleep, causing a counter-regulatory stress hormone surge that terminates deep rest instantly."
+        },
+        cortisol: {
+          metabolic: "Primary: Autonomic Sympathetic Overdrive paired with Secondary: Reactive Insulin Shifting. High baseline evening cortisol blocks deep delta sleep stages, making you hyper-reactive to normal midnight blood sugar changes.",
+          purinergic: "Primary: Elevated Evening Stress Axis combined with Secondary: Adenosine Desensitivity. Fight-or-flight signaling blocks standard calming loops, dropping your neurological arousal threshold at 3 AM.",
+          default: "Primary: Hyper-Active Cortisol Awakening Surge. Your subcortical emotional centers remain hyper-vigilant, forcing sudden alert awakenings where the conscious mind instantly tracks anxieties."
+        },
+        circadian: {
+          default: "Primary: Central Biological Clock Desynchronization. Your internal master circadian clock is out of alignment with your lifestyle routine, lifting the sleep lock prematurely before morning."
+        },
+        glymphatic: {
+          default: "Primary: Cranial Astroglial Fluid Clearance Retardation. Sluggish metabolic waste purification loops allow toxic byproducts to cluster, altering your night-time sensory processing limits."
+        }
+      };
+
+      // Pull precise statement from combination layout, fall back to default if necessary
+      let customDiagnosis = "";
+      if (outcomesMatrix[primaryFactor] && outcomesMatrix[primaryFactor][secondaryFactor]) {
+        customDiagnosis = outcomesMatrix[primaryFactor][secondaryFactor];
+      } else if (outcomesMatrix[primaryFactor] && outcomesMatrix[primaryFactor].default) {
+        customDiagnosis = outcomesMatrix[primaryFactor].default;
+      } else {
+        customDiagnosis = "Your sleep pattern indicates an interaction between homeostatic sleep pressure parameters and subcortical arousal tracking networks.";
+      }
+
+      const infoBlock = document.createElement("p");
+      infoBlock.className = "text-xs text-slate-400 leading-relaxed bg-slate-950 p-4 rounded-xl border border-slate-800";
+      infoBlock.style.padding = "1rem";
+      infoBlock.style.backgroundColor = "#090f1e";
+      infoBlock.style.border = "1px solid #1e293b";
+      infoBlock.style.borderRadius = "0.75rem";
+      infoBlock.style.marginBottom = "1rem";
+      infoBlock.textContent = customDiagnosis;
+
+      // Dynamic channel categorization attribution based on primary failure phenotype
+      let targetChannelId = `quiz_${primaryFactor}_${secondaryFactor}`;
+
+      const affiliateCTA = document.createElement("a");
+      affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=${targetChannelId}`;
+      affiliateCTA.target = "_blank";
+      affiliateCTA.rel = "nofollow sponsored noopener noreferrer";
+      affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99]";
+      affiliateCTA.style.display = "block";
+      affiliateCTA.style.textDecoration = "none";
+      affiliateCTA.style.padding = "1rem";
+      affiliateCTA.style.backgroundColor = "#22c55e";
+      affiliateCTA.style.color = "#ffffff";
+      affiliateCTA.style.fontWeight = "700";
+      affiliateCTA.style.borderRadius = "0.75rem";
+      affiliateCTA.style.textAlign = "center";
+      affiliateCTA.style.boxShadow = "0 10px 15px -3px rgba(34,197,94,0.3)";
+      affiliateCTA.textContent = "Access Your Personalized Sleep Reset Protocol →";
+
+      optionsWrapper.appendChild(infoBlock);
+      optionsWrapper.appendChild(affiliateCTA);
     }
-
-    const infoBlock = document.createElement("p");
-    infoBlock.className = "text-xs text-slate-400 leading-relaxed bg-slate-950 p-4 rounded-xl border border-slate-800";
-    infoBlock.style.padding = "1rem";
-    infoBlock.style.backgroundColor = "#090f1e";
-    infoBlock.style.border = "1px solid #1e293b";
-    infoBlock.style.borderRadius = "0.75rem";
-    infoBlock.style.marginBottom = "1rem";
-    infoBlock.textContent = customDiagnosis;
-    
-    // Dynamic channel categorization attribution based on primary failure phenotype
-    let targetChannelId = `quiz_${primaryFactor}_${secondaryFactor}`;
-    
-    const affiliateCTA = document.createElement("a");
-    affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=${targetChannelId}`;
-    affiliateCTA.target = "_blank";
-    affiliateCTA.rel = "nofollow sponsored noopener noreferrer";
-    affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99]";
-    affiliateCTA.style.display = "block";
-    affiliateCTA.style.textDecoration = "none";
-    affiliateCTA.style.padding = "1rem";
-    affiliateCTA.style.backgroundColor = "#22c55e";
-    affiliateCTA.style.color = "#ffffff";
-    affiliateCTA.style.fontWeight = "700";
-    affiliateCTA.style.borderRadius = "0.75rem";
-    affiliateCTA.style.textAlign = "center";
-    affiliateCTA.style.boxShadow = "0 10px 15px -3px rgba(34,197,94,0.3)";
-    affiliateCTA.textContent = "Access Your Personalized Sleep Reset Protocol →";
-
-    optionsWrapper.appendChild(infoBlock);
-    optionsWrapper.appendChild(affiliateCTA);
   }
 });
