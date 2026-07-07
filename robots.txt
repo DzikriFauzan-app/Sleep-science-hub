@@ -1,4 +1,32 @@
+# ====================================================
+# DEFENSIVE CRAWL MATRIX - SLEEP SCIENCE HUB
+# ====================================================
+
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /assets/
+# Mematikan akses pemindaian ke seluruh skrip automasi internal
+Disallow: /*.sh$
+Disallow: /*.py$
+Disallow: /*.json$
+Disallow: /quiz.html   # Cegah kanibalisasi duplikasi dengan kuis homepage
 
-Sitemap: https://circadianblueprint.com/sitemap.xml
+# PROTEKSI KONTEN: Blokir Bot AI Scraper (Mencegah pencurian data tanpa konversi)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Deklarasi Jalur Peta Situs Absolut untuk Googlebot / Bingbot
+Sitemap: https://dzikrifauzan-app.github.io/Sleep-science-hub/sitemap.xml
