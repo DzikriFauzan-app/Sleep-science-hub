@@ -11,22 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const optionsWrapper = container.querySelector(".sleep-quiz-options");
   const auditCountElement = container.querySelector(".sleep-quiz-audit-count");
 
-  // FIX 1: Real-time Counter View Tracker (+1 on every single view/refresh)
-  if (auditCountElement) {
-    const baseAudits = 150;
-    const startDate = new Date("2026-06-20");
-    const today = new Date();
-    const timeDiff = Math.abs(today - startDate);
-    const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    
-    // Track unique local views via localStorage to ensure active ticking signal
-    let localViews = parseInt(localStorage.getItem("sleep_hub_quiz_views") || "0", 10);
-    localViews++;
-    localStorage.setItem("sleep_hub_quiz_views", localViews);
-
-    const totalAudits = baseAudits + (daysDiff * 50) + localViews;
-    auditCountElement.textContent = totalAudits.toLocaleString("en-US");
-  }
+  // FIX 1: Real-time Counter View Tracker removed to match updated HTML layout
 
   // FIX 2: 5x5 Professional Psychometric Biological Matrix Structure
   const questions = [
