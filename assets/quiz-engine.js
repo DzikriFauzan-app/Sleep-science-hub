@@ -244,9 +244,12 @@ document.addEventListener("DOMContentLoaded", function () {
       affiliateCTA.textContent = "Access Your Personalized Sleep Reset Protocol →";
 
       // Injeksi Grafik Hormonal untuk memperkuat bukti ilmiah sebelum teks diagnosis muncul
+      const isSubFolder = window.location.pathname.includes('/blog/');
+      const basePath = isSubFolder ? '../assets/' : 'assets/';
+
       const visualChart = document.createElement("div");
       visualChart.className = "my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[16/9] w-full shadow-md";
-      visualChart.innerHTML = `<img src="assets/quiz-hormone.webp" alt="Nocturnal Hormone Disruption Curve" width="800" height="450" loading="eager" decoding="async" class="w-full h-full object-cover">`;
+      visualChart.innerHTML = `<img src="${basePath}quiz-hormone.webp" alt="Nocturnal Hormone Disruption Curve" width="800" height="450" loading="eager" decoding="async" class="w-full h-full object-cover">`;
       
       optionsWrapper.appendChild(visualChart);
       optionsWrapper.appendChild(infoBlock);
