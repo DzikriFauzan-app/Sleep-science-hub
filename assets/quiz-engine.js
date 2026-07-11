@@ -167,36 +167,72 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 700);
 
     function renderFinalMatrixOutput() {
-      counterText.textContent = "BIOLOGICAL EVALUATION COMPLETE";
-      questionText.textContent = "Your Custom Sleep Maintenance Breakdown Is Ready";
+      counterText.textContent = "EVALUATION COMPLETE";
+      questionText.textContent = "Your Personalized Circadian Sleep Profile";
       optionsWrapper.textContent = "";
 
-      // Sort tracks to isolate Primary and Secondary factors for the 25-combination grid
       let sortedTracks = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
       let primaryFactor = sortedTracks[0];
       let secondaryFactor = sortedTracks[1];
 
-      // Safe Outcomes Matrix Configuration System
+      // Jaringan 25 Kombinasi Silang Empatik & Deskriptif (100% Beban Diagnosa Medis Dihapus)
       const outcomesMatrix = {
-        cortisol: {
-          default: "YOUR PATTERN: The Calming Wind-Down Profile (Cortisol & Racing Thoughts Focus). Your data points toward a shift where your morning cortisol curve begins its rise slightly earlier than average, lowering your sleep arousal threshold at 3 AM. When this happens, the analytical mind instantly turns on to process daily tasks. Many people with this pattern find significant relief by adopting a dedicated pre-sleep wind-down routine and introducing gentle botanical support like Lemon Balm and L-Trptophan to help quiet those sudden midnight racing thoughts naturally."
+        purinergic: {
+          purinergic: "The Reset Profile (Adenosine Dynamics Focus). Your pattern shows a high sensitivity to evening chemical compounds that mask natural sleep pressure. When this temporary block wears off around 3 AM, your nervous system experiences a quick return to alertness. Focus on shifting your beverage window earlier to help natural sleep factors stabilize before bed.",
+          metabolic: "The Balanced Intake Profile (Adenosine meets Nocturnal Glucose). Lingering late-day caffeine drops your sleep depth threshold, making you highly aware of the subtle blood sugar drops that occur naturally in the middle of the night. Transitioning to a lighter dinner can keep your micro-arousal limits stable.",
+          cortisol: "The Guided Calm Profile (Adenosine meets Natural Cortisol Rise). Evening active compounds are mixing with your early morning circadian rhythm, turning a normal cortisol shift into an abrupt waking state. Introducing non-stimulating routines before bed will help your brain anchor its sleep state smoothly.",
+          circadian: "The Rhythmic Sync Profile (Adenosine meets Internal Clock). An artificial shift in your baseline sleep pressure meets a slightly advanced core body temperature curve, leading to waking cycles during early morning REM windows. Getting bright daylight early tomorrow will help anchor this shift.",
+          glymphatic: "The Dynamic Cleanse Profile (Adenosine meets Physical Relaxation Focus). Minor structural or circulation limits slow down overnight physical recovery windows. Easing your evening mental workload allows your body to drop into deeper, uninterrupted phases of rest.",
+          default: "The Balanced Sleep Pressure Profile. A subtle sensitivity to late-day external inputs causes your internal sleep lock to open slightly ahead of schedule. Focusing on clean, unmedicated relaxation alternatives will help preserve your natural sleep architecture."
         },
         metabolic: {
-          default: "YOUR PATTERN: The Stable Fuel Profile (Nocturnal Glucose Focus). Your responses suggest your midnight awakening may be linked to natural variations in overnight energy storage. When glycogen availability drops mid-sleep, the body initiates a mild, compensatory counter-regulatory signal to stabilize blood sugar, which inadvertently triggers alertness. A helpful strategy is to pair your evening meals with healthy fats or proteins rather than simple sugars, and support your system with clean micronutrients that stabilize overnight metabolic balance without digestive strain."
+          purinergic: "The Sustained Energy Profile (Nocturnal Glucose meets Adenosine Dynamics). Overnight energy fluctuations are colliding with an active neural threshold from lingering evening choices. Ensuring your last meal is balanced with slow-burning fats can prevent your body from triggering an alertness alert.",
+          metabolic: "The Stable Fuel Profile (Nocturnal Glucose Balance Focus). Your profile suggests that minor drops in overnight glycogen stores trigger a natural, compensatory backup signal to stabilize energy levels, which inadvertently sparks sudden mid-night alertness. A small handful of complex proteins before bed works wonders to hold the gate.",
+          cortisol: "The Balanced Recovery Profile (Nocturnal Glucose meets Endocrine Shift). Natural mid-night blood sugar shifts are triggering a secondary stress response, waking you up with a racing thoughts loop. Supporting your system with raw micronutrients before sleep helps balance these internal energy indicators.",
+          circadian: "The Dynamic Clock Profile (Nocturnal Glucose meets Suprachiasmatic Shift). Unstable overnight fuel patterns are conflicting with your core body temperature drop, shortening the sleep cycle. Aligning your meal schedule cleanly with daylight hours will keep these organ systems tracking together.",
+          glymphatic: "The Cellular Balance Profile (Nocturnal Glucose meets Restorative Clearance). Minor metabolic energy drops are intercepting your body's natural nocturnal cellular purification phases. Prioritizing physical comfort and structural rest protocols allows this internal cycle to run without interruption.",
+          default: "The Overnight Fuel Stabilization Profile. Natural fluctuations in midnight energy levels trigger a sudden sugar-rescue sequence that disrupts deep rest. A small protein-based routine before bed will provide the slow-burning fuel your system needs."
+        },
+        cortisol: {
+          purinergic: "The Quiet Wind-Down Profile (Cortisol Management meets Adenosine Focus). Elevated evening stress indicators are lowering your sensory baseline, neutralizing standard sleep pressure and making you hyper-aware of environmental shifts at 3 AM. A dedicated wind-down routine helps ease this sensory boundary.",
+          metabolic: "The Endocrine Flow Profile (Cortisol Management meets Glucose Volatility). Chronic daytime stress signals carry over into the night, forcing early liver energy changes that result in a reactive midnight awakening. Gentle botanical assistance works best to ease this nervous system axis naturally.",
+          cortisol: "The Steady Mind Profile (Natural Cortisol Awakening Focus). Your analytical networks are waking up slightly ahead of schedule, shifting the morning cortisol peak into the 3 AM window and bringing immediate focus to daily tasks. Adopting an empathetic approach to your boundaries will allow the brain to feel safe.",
+          circadian: "The Internal Realignment Profile (Cortisol Management meets Circadian Mismatch). Extended stress spikes are desynchronizing your master internal clock, making it difficult to bridge the transition into early morning REM cycles. Focus on direct solar exposure early in the morning to fix this rhythm.",
+          glymphatic: "The Physical Release Profile (Cortisol Management meets Fluid Circulation). High physical and vascular tension prevents the deep, relaxed vasomotion required for optimal overnight physical recovery. Bypassing heavy capsule processing helps lower this baseline muscle tone cleanly.",
+          default: "The Calming Wind-Down Profile. Your morning cortisol curve begins its rise slightly earlier than average, lowering your sleep arousal threshold at 3 AM. Winding down with quiet, tech-free activities allows your brain to anchor its resting state."
         },
         circadian: {
-          default: "YOUR PATTERN: The Natural Rhythm Reset Profile (Circadian Alignment Focus). Your profile indicates a slight mismatch between environmental light cues and your master internal biological clock. This causes your core body temperature to rise prematurely during the night, opening the sleep gate ahead of schedule. Realignment is best achieved by getting 10-15 minutes of direct morning sunlight within an hour of waking to anchor your sircadian baseline, combined with gentle support like Chamomile and Magnesium to deepen your rest phases."
+          purinergic: "The Rhythm Synchronization Profile (Circadian Mismatch meets Adenosine Dynamics). A minor shift in your master internal pacemaker is amplified by late-day lifestyle habits, causing the sleep gate to release early. True realignment relies on anchoring your daytime habits with environmental light.",
+          metabolic: "The Internal Pacemaker Profile (Circadian Mismatch meets Glucose Focus). Your peripheral liver clock and central brain clock are tracking out of schedule with each other, triggering unexpected alertness alerts. Ensuring stable meal timing keeps your biological anchors locked.",
+          cortisol: "The Phase Shift Profile (Circadian Mismatch meets Cortisol Shift). Your internal biological master clock is sending morning wake signals to your adrenal pathways hours before sunrise. Using gentle, calming botanicals before sleep helps push this natural peak back to dawn.",
+          circadian: "The Natural Rhythm Reset Profile (SCN Alignment Focus). Your profile indicates a minor mismatch between environmental light cues and your master internal biological clock, causing your core temperature to rise prematurely. Getting 10 minutes of direct sunlight upon waking anchors this rhythm.",
+          glymphatic: "The Restorative Gateway Profile (Circadian Mismatch meets Restorative Clearance). A shifted core temperature nadir shortens the deep slow-wave rest windows needed for physical recovery. Maximizing early-night relaxation parameters extends this restorative window.",
+          default: "The Master Biological Clock Reset Profile. Your internal master biological pacemaker is operating out of rhythm with your modern daily routine. Anchoring your environment with consistent natural light shifts this balance back to normal."
+        },
+        glymphatic: {
+          purinergic: "The Cellular Cleanse Profile (Restorative Clearance meets Adenosine Focus). Sluggish overnight physical recovery parameters allow metabolic debris to accumulate, lowering your sensory arousal threshold and waking you up. Shifting to zero-digestion fluid support keeps this cycle clean.",
+          metabolic: "The Fluid Balance Profile (Restorative Clearance meets Glucose Volatility). Accumulations of physical byproduct cells interact with minor midnight glucose drops, leading to unrefreshed morning energy. Prioritizing systemic hydration assists this overnight balance.",
+          cortisol: "The Relaxed Core Profile (Restorative Clearance meets Cortisol Shift). Physical tension carried in the body acts as a midnight waking trigger, prompting an early adrenaline release. Easing muscle resistance before sleep breaks this circuit completely.",
+          circadian: "The Structural Rhythm Profile (Restorative Clearance meets Circadian Mismatch). Delayed overnight physical recovery sequences prompt minor micro-arousals that split sleep continuity. Adjusting your room environment parameters keeps these sleep cycles tight.",
+          default: "The Sluggish Restorative Clearance Profile. Reduced overnight physical recovery parameters cause physical tension to pool, shifting the brain out of deep rest cycles early. Support your system with targeted micro-nutrients to clear this path."
         }
       };
 
-      // Pull precise statement from combination layout, fall back to default if necessary
-      let customDiagnosis = "";
+      let customDiagnosis = "Your sleep pattern indicates an interaction between homeostatic sleep pressure parameters and subcortical arousal tracking networks.";
       if (outcomesMatrix[primaryFactor] && outcomesMatrix[primaryFactor][secondaryFactor]) {
         customDiagnosis = outcomesMatrix[primaryFactor][secondaryFactor];
       } else if (outcomesMatrix[primaryFactor] && outcomesMatrix[primaryFactor].default) {
         customDiagnosis = outcomesMatrix[primaryFactor].default;
+      }
+
+      // Suntikan Tips Praktis Gratis Sesuai Karakter Faktor Utama
+      let freeTip = "";
+      if (primaryFactor === "cortisol" || primaryFactor === "purinergic") {
+        freeTip = "💡 <strong>Free Actionable Tip for Tonight:</strong> Try the 4-7-8 breathing relaxation technique for 3 minutes right before bed to help lower early-morning sympathetic nervous system tone.";
+      } else if (primaryFactor === "metabolic") {
+        freeTip = "💡 <strong>Free Actionable Tip for Tonight:</strong> Consume a single spoonful of raw almond butter or a small handful of walnuts 30 minutes before sleep to supply a stable, slow-burning fuel source.";
       } else {
-        customDiagnosis = "Your sleep pattern indicates an interaction between homeostatic sleep pressure parameters and subcortical arousal tracking networks.";
+        freeTip = "💡 <strong>Free Actionable Tip for Tonight:</strong> Ensure your bedroom temperature is dropped between 65-68°F (18-20°C) to prevent an artificial core temperature spike from waking you early.";
       }
 
       const infoBlock = document.createElement("p");
@@ -206,42 +242,45 @@ document.addEventListener("DOMContentLoaded", function () {
       infoBlock.style.border = "1px solid #1e293b";
       infoBlock.style.borderRadius = "0.75rem";
       infoBlock.style.marginBottom = "1rem";
-      infoBlock.textContent = customDiagnosis;
+      infoBlock.innerHTML = `
+        <span class="block text-[10px] font-mono tracking-wider text-emerald-400 mb-2 font-bold">📋 COMPLETE EVALUATION ANALYSIS:</span>
+        \${customDiagnosis}
+        <span class="block text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-3 rounded-lg border border-slate-800 font-sans mt-3">\${freeTip}</span>
+        <span class="block text-[11px] text-sky-400 font-medium mt-3">🎁 Included Reward:</span>
+        <span class="block text-[11px] text-slate-500 leading-relaxed">Your evaluation path includes the complimentary <strong>Midnight Calm Protocol Bundle</strong> containing 11 science-backed bedtime stories added to your gateway below as a special reward.</span>
+      `;
 
-      // Dynamic channel categorization attribution based on primary failure phenotype
-      let targetChannelId = `quiz_${primaryFactor}_${secondaryFactor}`;
+      let targetChannelId = `compliant_\${primaryFactor}_\${secondaryFactor}`;
+
+      // Injeksi WAJIB Jembatan Halus (Soft-Bridge Disclosure) untuk Perlindungan Hukum FTC US
+      const disclaimerText = document.createElement("p");
+      disclaimerText.className = "text-[10px] text-slate-500 text-center leading-relaxed my-3 px-2 block w-full font-sans";
+      disclaimerText.innerHTML = "⚠️ <strong>Affiliate Disclosure:</strong> This educational tool references a recommended sublingual reset protocol. If you choose to purchase through our link, we may earn a small commission at no additional cost to you. This is for general educational purposes only and does not substitute for professional medical advice.";
 
       const affiliateCTA = document.createElement("a");
-      affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=${targetChannelId}`;
+      affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=\${targetChannelId}`;
       affiliateCTA.target = "_blank";
       affiliateCTA.rel = "nofollow sponsored noopener noreferrer";
-      affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99]";
+      affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99] block";
       affiliateCTA.style.display = "block";
       affiliateCTA.style.textDecoration = "none";
       affiliateCTA.style.padding = "1rem";
-      affiliateCTA.style.backgroundColor = "#22c55e";
+      affiliateCTA.style.backgroundColor = "#10b981";
       affiliateCTA.style.color = "#ffffff";
       affiliateCTA.style.fontWeight = "700";
       affiliateCTA.style.borderRadius = "0.75rem";
       affiliateCTA.style.textAlign = "center";
-      affiliateCTA.style.boxShadow = "0 10px 15px -3px rgba(34,197,94,0.3)";
-      affiliateCTA.textContent = "Access Your Personalized Sleep Reset Protocol →";
+      affiliateCTA.textContent = "Explore the Gentle Sublingual Reset & Claim Reward →";
 
-      // Injeksi Grafik Hormonal untuk memperkuat bukti ilmiah sebelum teks diagnosis muncul
       const isSubFolder = window.location.pathname.includes('/blog/');
       const basePath = isSubFolder ? '../assets/' : 'assets/';
-
       const visualChart = document.createElement("div");
       visualChart.className = "my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[16/9] w-full shadow-md";
-      visualChart.innerHTML = `<img src="${basePath}quiz-hormone.webp" alt="Nocturnal Hormone Disruption Curve" width="800" height="450" loading="eager" decoding="async" class="w-full h-full object-cover">`;
-      
+      visualChart.innerHTML = `<img src="\${basePath}3am_wake_clean.webp" alt="Circadian Clock Matrix Model" width="800" height="450" loading="eager" class="w-full h-full object-cover">`;
+
       optionsWrapper.appendChild(visualChart);
       optionsWrapper.appendChild(infoBlock);
-      
-      const trustText = document.createElement("p");
-      trustText.className = "text-[10px] text-slate-500 text-center font-mono my-2 block w-full";
-      trustText.textContent = "📋 Verified diagnostic report logged via team@circadianblueprint.com";
-      optionsWrapper.appendChild(trustText);
+      optionsWrapper.appendChild(disclaimerText);
       optionsWrapper.appendChild(affiliateCTA);
     }
   }
