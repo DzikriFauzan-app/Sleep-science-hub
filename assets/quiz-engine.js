@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const engineSection = container.querySelector(".sleep-quiz-engine");
   const startBtn = container.querySelector(".sleep-quiz-start-btn");
   const progressBar = container.querySelector(".sleep-quiz-progress");
-  const counterText = container.querySelector(".sleep-quiz-counter");
-  const questionText = container.querySelector(".sleep-quiz-question");
-  const optionsWrapper = container.querySelector(".sleep-quiz-options");
+  const counterText = container.querySelector(".sleep-quiz-counter,.quiz-counter");
+  const questionText = container.querySelector(".sleep-quiz-question,.quiz-question, h3");
+  const optionsWrapper = container.querySelector(".sleep-quiz-options,.quiz-options");
   const auditCountElement = container.querySelector(".sleep-quiz-audit-count");
 
   // FIX 1: Real-time Counter View Tracker removed to match updated HTML layout
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="block text-[11px] text-slate-500 leading-relaxed">Your evaluation path includes the complimentary <strong>Midnight Calm Protocol Bundle</strong> containing 11 science-backed bedtime stories added to your gateway below as a special reward.</span>
       `;
 
-      let targetChannelId = `compliant_\${primaryFactor}_\${secondaryFactor}`;
+      let targetChannelId = `compliant_${primaryFactor}_${secondaryFactor}`;
 
       // Injeksi WAJIB Jembatan Halus (Soft-Bridge Disclosure) untuk Perlindungan Hukum FTC US
       const disclaimerText = document.createElement("p");
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const basePath = isSubFolder ? '../assets/' : 'assets/';
       const visualChart = document.createElement("div");
       visualChart.className = "my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[16/9] w-full shadow-md";
-      visualChart.innerHTML = `<img src="${basePath}3am_wake_clean.webp" alt="Circadian Clock Matrix Model" width="800" height="450" loading="eager" class="w-full h-full object-cover">`;
+      visualChart.innerHTML = `<img src="${basePath}3am_wake_clean.webp" alt="Circadian Clock Matrix Model" width="800" height="450" loading="eager" class="w-full h-full object-cover" onerror="this.style.display='none'">`;
 
       optionsWrapper.appendChild(visualChart);
       optionsWrapper.appendChild(infoBlock);
