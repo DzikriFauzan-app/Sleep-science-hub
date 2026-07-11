@@ -244,8 +244,8 @@ document.addEventListener("DOMContentLoaded", function () {
       infoBlock.style.marginBottom = "1rem";
       infoBlock.innerHTML = `
         <span class="block text-[10px] font-mono tracking-wider text-emerald-400 mb-2 font-bold">📋 COMPLETE EVALUATION ANALYSIS:</span>
-        \${customDiagnosis}
-        <span class="block text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-3 rounded-lg border border-slate-800 font-sans mt-3">\${freeTip}</span>
+        ${customDiagnosis}
+        <span class="block text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-3 rounded-lg border border-slate-800 font-sans mt-3">${freeTip}</span>
         <span class="block text-[11px] text-sky-400 font-medium mt-3">🎁 Included Reward:</span>
         <span class="block text-[11px] text-slate-500 leading-relaxed">Your evaluation path includes the complimentary <strong>Midnight Calm Protocol Bundle</strong> containing 11 science-backed bedtime stories added to your gateway below as a special reward.</span>
       `;
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
       disclaimerText.innerHTML = "⚠️ <strong>Affiliate Disclosure:</strong> This educational tool references a recommended sublingual reset protocol. If you choose to purchase through our link, we may earn a small commission at no additional cost to you. This is for general educational purposes only and does not substitute for professional medical advice.";
 
       const affiliateCTA = document.createElement("a");
-      affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=\${targetChannelId}`;
+      affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=${targetChannelId}`;
       affiliateCTA.target = "_blank";
       affiliateCTA.rel = "nofollow sponsored noopener noreferrer";
       affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99] block";
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const basePath = isSubFolder ? '../assets/' : 'assets/';
       const visualChart = document.createElement("div");
       visualChart.className = "my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[16/9] w-full shadow-md";
-      visualChart.innerHTML = `<img src="\${basePath}3am_wake_clean.webp" alt="Circadian Clock Matrix Model" width="800" height="450" loading="eager" class="w-full h-full object-cover">`;
+      visualChart.innerHTML = `<img src="${basePath}3am_wake_clean.webp" alt="Circadian Clock Matrix Model" width="800" height="450" loading="eager" class="w-full h-full object-cover">`;
 
       optionsWrapper.appendChild(visualChart);
       optionsWrapper.appendChild(infoBlock);
