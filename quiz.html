@@ -27,7 +27,7 @@
     gtag('config', 'G-T1MFCM2SKH');
   </script>
 </head>
-<body class="bg-slate-950 font-sans antialiased text-slate-200 min-h-screen flex items-center justify-center px-4 py-12">
+<body class="font-sans antialiased text-slate-200 min-h-screen flex items-center justify-center px-4 py-12" style="background-color:#0f172a !important;">
 
 <div class="w-full max-w-2xl rounded-2xl bg-slate-900 border border-slate-800 p-8 shadow-2xl" id="quiz-container">
     <div id="quiz-intro" class="text-center space-y-4 py-6">
@@ -211,6 +211,33 @@
         `;
       }, 1500);
     }
+</script>
+
+<script>
+// Override engine-injected bg-white after render
+const _origCreate = document.createElement.bind(document);
+document.createElement = function(tag) {
+  const el = _origCreate(tag);
+  if (tag === 'div' || tag === 'p' || tag === 'a') {
+    const _origSet = Object.getOwnPropertyDescriptor(Element.prototype, 'className').set;
+    // Monitor className changes
+  }
+  return el;
+};
+
+// Simpler: just watch for bg-white and fix it
+const observer = new MutationObserver(() => {
+  document.querySelectorAll('[class*="bg-white"]').forEach(el => {
+    el.style.backgroundColor = '#1e293b';
+    el.style.color = '#e2e8f0';
+    el.className = el.className.replace(/bg-white/g, 'bg-slate-900');
+  });
+  document.querySelectorAll('[class*="text-slate-800"]').forEach(el => {
+    el.style.color = '#e2e8f0';
+    el.className = el.className.replace(/text-slate-800/g, 'text-slate-200');
+  });
+});
+observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
 </script>
 </body>
 </html>
