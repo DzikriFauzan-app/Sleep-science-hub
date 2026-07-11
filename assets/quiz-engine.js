@@ -178,11 +178,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // Jaringan 25 Kombinasi Silang Empatik & Deskriptif (100% Beban Diagnosa Medis Dihapus)
       const outcomesMatrix = {
         purinergic: {
-          purinergic: "The Reset Profile (Adenosine Dynamics Focus). Your pattern shows a high sensitivity to evening chemical compounds that mask natural sleep pressure. When this temporary block wears off around 3 AM, your nervous system experiences a quick return to alertness. Focus on shifting your beverage window earlier to help natural sleep factors stabilize before bed.",
-          metabolic: "The Balanced Intake Profile (Adenosine meets Nocturnal Glucose). Lingering late-day caffeine drops your sleep depth threshold, making you highly aware of the subtle blood sugar drops that occur naturally in the middle of the night. Transitioning to a lighter dinner can keep your micro-arousal limits stable.",
-          cortisol: "The Guided Calm Profile (Adenosine meets Natural Cortisol Rise). Evening active compounds are mixing with your early morning circadian rhythm, turning a normal cortisol shift into an abrupt waking state. Introducing non-stimulating routines before bed will help your brain anchor its sleep state smoothly.",
-          circadian: "The Rhythmic Sync Profile (Adenosine meets Internal Clock). An artificial shift in your baseline sleep pressure meets a slightly advanced core body temperature curve, leading to waking cycles during early morning REM windows. Getting bright daylight early tomorrow will help anchor this shift.",
-          glymphatic: "The Dynamic Cleanse Profile (Adenosine meets Physical Relaxation Focus). Minor structural or circulation limits slow down overnight physical recovery windows. Easing your evening mental workload allows your body to drop into deeper, uninterrupted phases of rest.",
+          purinergic: "Evening Wind Down Sensitivity. Your pattern shows a high sensitivity to evening chemical compounds that mask natural sleep pressure. When this temporary block wears off around 3 AM, your nervous system experiences a quick return to alertness. Focus on shifting your beverage window earlier to help natural sleep factors stabilize before bed.",
+          metabolic: "Nighttime Energy Dip Pattern (Adenosine meets Nocturnal Glucose). Lingering late-day caffeine drops your sleep depth threshold, making you highly aware of the subtle blood sugar drops that occur naturally in the middle of the night. Transitioning to a lighter dinner can keep your micro-arousal limits stable.",
+          cortisol: "Early Morning Alertness Pattern (Adenosine meets Natural Cortisol Rise). Evening active compounds are mixing with your early morning circadian rhythm, turning a normal cortisol shift into an abrupt waking state. Introducing non-stimulating routines before bed will help your brain anchor its sleep state smoothly.",
+          circadian: "Body Clock Shift Pattern (Adenosine meets Internal Clock). An artificial shift in your baseline sleep pressure meets a slightly advanced core body temperature curve, leading to waking cycles during early morning REM windows. Getting bright daylight early tomorrow will help anchor this shift.",
+          glymphatic: "Physical Tension Pattern (Adenosine meets Physical Relaxation Focus). Minor structural or circulation limits slow down overnight physical recovery windows. Easing your evening mental workload allows your body to drop into deeper, uninterrupted phases of rest.",
           default: "The Balanced Sleep Pressure Profile. A subtle sensitivity to late-day external inputs causes your internal sleep lock to open slightly ahead of schedule. Focusing on clean, unmedicated relaxation alternatives will help preserve your natural sleep architecture."
         },
         metabolic: {
@@ -213,7 +213,8 @@ document.addEventListener("DOMContentLoaded", function () {
           purinergic: "The Cellular Cleanse Profile (Restorative Clearance meets Adenosine Focus). Sluggish overnight physical recovery parameters allow metabolic debris to accumulate, lowering your sensory arousal threshold and waking you up. Shifting to zero-digestion fluid support keeps this cycle clean.",
           metabolic: "The Fluid Balance Profile (Restorative Clearance meets Glucose Volatility). Accumulations of physical byproduct cells interact with minor midnight glucose drops, leading to unrefreshed morning energy. Prioritizing systemic hydration assists this overnight balance.",
           cortisol: "The Relaxed Core Profile (Restorative Clearance meets Cortisol Shift). Physical tension carried in the body acts as a midnight waking trigger, prompting an early adrenaline release. Easing muscle resistance before sleep breaks this circuit completely.",
-          circadian: "The Structural Rhythm Profile (Restorative Clearance meets Circadian Mismatch). Delayed overnight physical recovery sequences prompt minor micro-arousals that split sleep continuity. Adjusting your room environment parameters keeps these sleep cycles tight.",
+          circadian: "The Full Body Reset Profile (Physical Recovery Focus). Your pattern shows accumulated physical tension from the day carrying into the night, making micro awakenings more likely. A gentle full body release routine before bed helps the system stay in deeper rest longer.",
+          glymphatic: "The Structural Rhythm Profile (Restorative Clearance meets Circadian Mismatch). Delayed overnight physical recovery sequences prompt minor micro-arousals that split sleep continuity. Adjusting your room environment parameters keeps these sleep cycles tight.",
           default: "The Sluggish Restorative Clearance Profile. Reduced overnight physical recovery parameters cause physical tension to pool, shifting the brain out of deep rest cycles early. Support your system with targeted micro-nutrients to clear this path."
         }
       };
@@ -282,6 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
       optionsWrapper.appendChild(infoBlock);
       optionsWrapper.appendChild(disclaimerText);
       optionsWrapper.appendChild(affiliateCTA);
+      if(typeof gtag!=="undefined"){gtag("event","quiz_completed",{primary_factor:primaryFactor,secondary_factor:secondaryFactor});}
     }
   }
 });
