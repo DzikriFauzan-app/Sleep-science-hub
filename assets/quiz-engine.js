@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(interval);
         renderFinalMatrixOutput();
       }
-    }, 1100);
+    }, 700);
 
     function renderFinalMatrixOutput() {
       counterText.textContent = "BIOLOGICAL EVALUATION COMPLETE";
@@ -253,6 +253,11 @@ document.addEventListener("DOMContentLoaded", function () {
       
       optionsWrapper.appendChild(visualChart);
       optionsWrapper.appendChild(infoBlock);
+      
+      const trustText = document.createElement("p");
+      trustText.className = "text-[10px] text-slate-500 text-center font-mono my-2 block w-full";
+      trustText.textContent = "📋 Verified diagnostic report logged via team@circadianblueprint.com";
+      optionsWrapper.appendChild(trustText);
       optionsWrapper.appendChild(affiliateCTA);
     }
   }
