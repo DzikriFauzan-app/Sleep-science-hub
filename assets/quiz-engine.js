@@ -273,13 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
       affiliateCTA.style.textAlign = "center";
       affiliateCTA.textContent = "Explore the Gentle Sublingual Reset & Claim Reward →";
 
-      const isSubFolder = window.location.pathname.includes('/blog/');
-      const basePath = isSubFolder ? '../assets/' : 'assets/';
-      const visualChart = document.createElement("div");
-      visualChart.className = "my-4 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[16/9] w-full shadow-md";
-      visualChart.innerHTML = `<img src="${basePath}3am_wake_clean.webp" alt="Circadian Clock Matrix Model" width="800" height="450" loading="eager" class="w-full h-full object-cover" onerror="this.style.display='none'">`;
-
-      optionsWrapper.appendChild(visualChart);
       optionsWrapper.appendChild(infoBlock);
       optionsWrapper.appendChild(disclaimerText);
       optionsWrapper.appendChild(affiliateCTA);
