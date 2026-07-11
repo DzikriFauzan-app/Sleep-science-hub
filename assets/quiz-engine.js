@@ -16,53 +16,53 @@ document.addEventListener("DOMContentLoaded", function () {
   // FIX 2: 5x5 Professional Psychometric Biological Matrix Structure
   const questions = [
     {
-      q: "What exact time windows characterize your nighttime sleep disruptions?",
+      q: "What exact physical sensation characterizes your middle-of-the-night awakening?",
       o: [
-        "Waking up within 3-4 hours after falling asleep, feeling a heavy energy crash",
-        "Snapping wide awake precisely between 2:30 AM and 3:30 AM with cold flashes",
-        "Spontaneous arousals near 4:00 AM to 4:30 AM with intense heart palpitations",
-        "Fragmented transitions shifting erratically between early and late night windows",
-        "Waking up continuously throughout the entire night with head stiffness"
+        "I wake up feeling an absolute physical emptiness, like my energy fuel tank is completely dry",
+        "I snap wide awake between 2:30 AM and 3:30 AM with a sudden hot flush, mild night sweats, or immediate hunger",
+        "I wake up with my heart pounding violently, mind racing over tomorrow's problems, and a surge of inner panic",
+        "I wake up feeling calm but fully alert, as if my internal clock is convinced it is already 7:00 AM",
+        "I wake up with noticeable physical stiffness in my jaw/neck, a dry throat, or a dull ache inside the skull"
       ]
     },
     {
-      q: "Which metabolic and neurological physical state describes you upon opening your eyes?",
+      q: "Select the dominant substance or dietary pattern of your late afternoon and evening:",
       o: [
-        "Mind instantly racing over tasks, accompanied by a sudden heat flush",
-        "Feeling noticeably shaky, slightly sweaty, or experiencing mild hunger cues",
-        "Feeling extreme brain fog, water retention, or a heavy dull ache in the skull",
-        "Completely alert but calm, as if your internal clock believes it is already morning",
-        "Dry throat, stiff jaw, or an instant feeling of physical oxygen starvation"
+        "Consuming caffeine, stimulant teas, or pre-workouts past 2:00 PM on standard working days",
+        "Eating high-glycemic carbohydrates, sweet desserts, or alcohol within 3 hours of your sleep window",
+        "Reviewing high-stress business files, emails, or scrolling high-intensity blue-light screens right before bed",
+        "Experiencing highly irregular meal times or erratic weekend sleep schedules compared to weekdays",
+        "Low overall clean fluid intake during the day combined with sleeping completely flat on your back"
       ]
     },
     {
-      q: "What primary lifestyle pattern dominates your late afternoon and evening routine?",
+      q: "How does your early evening sleep onset and early-stage transition look?",
       o: [
-        "Consuming coffee, energy drinks, or strong teas past 2:00 PM on working days",
-        "Eating simple carbohydrates, sugary desserts, or heavy snacks less than 3 hours before bed",
-        "Interacting with high-stress work files or bright blue-light screens right before sleep",
-        "Maintaining an irregular schedule (shift work or sleeping in late on weekends)",
-        "Low daily fluid intake combined with sleeping flat on your back all night"
+        "I crash heavily into unconsciousness due to sheer exhaustion, but my sleep hold breaks after 3-4 hours",
+        "I toss and turn around midnight, feeling like my core body temperature is too hot to drift off comfortably",
+        "I feel physically exhausted but my brain stays completely wired, requiring background audio to distract my thoughts",
+        "I fall asleep effortlessly early, but I absolutely cannot maintain the sleep gate past 2:30 AM",
+        "I experience immediate loud snoring, heavy mouth breathing, or a high rate of gasping micro-arousals"
       ]
     },
     {
-      q: "How does your early evening sleep architecture transition occur?",
+      q: "Which specific recovery deficit pattern describes your morning physical state?",
       o: [
-        "Crashing hard into unconsciousness out of sheer exhaustion but waking up alert later",
-        "Tossing and turning around midnight, feeling an uncomfortable inner core temperature",
-        "Feeling physically exhausted but mentally wired, requiring background noise to drift off",
-        "Falling asleep effortlessly early in the evening but failing to hold the sleep gate past 2 AM",
-        "Experiencing immediate loud snoring or a high rate of micro-arousals from minute one"
+        "Extreme morning grogginess that requires immediate caffeine or stimulants to clear the brain fog",
+        "Waking up feeling shaky, irritable, or dizzy until I consume a solid carbohydrate breakfast",
+        "Waking up already anticipating stress, with muscle tension carried over directly from the night",
+        "Feeling wide awake at dawn but experiencing a massive energy crash around 1:00 PM to 2:00 PM",
+        "Waking up with puffy eyes, facial water retention, or a heavy, toxic feeling localized in the brain"
       ]
     },
     {
-      q: "Which systemic biochemical vulnerability aligns closest with your history?",
+      q: "Which metabolic or nervous system vulnerability best describes your long-term history?",
       o: [
-        "High sensitivity to chemical stimulants (one morning coffee affects you for hours)",
-        "Rapid metabolic burnout (feeling dizzy or irritable if daytime meals are delayed)",
-        "Chronic neck tension, poor daily alignment, or sluggish morning fluid drainage",
-        "Frequent shifts in timezone or lack of direct natural morning sunlight exposure",
-        "A hyper-reactive nervous system that stays in a defensive fight-or-flight posture"
+        "High sensitivity to chemical compounds (a single cup of morning coffee limits my deep sleep architecture)",
+        "Rapid bioenergetic burnout (feeling faint, hangry, or cognitively sluggish if regular daytime meals are delayed)",
+        "Chronic hyper-vigilance (my nervous system constantly operates in a defensive, sympathetic fight-or-flight posture)",
+        "Frequent travel across timezones, shift work, or minimal exposure to direct natural morning sunlight",
+        "Sluggish circulation, structural neck/spine alignment issues, or a history of nocturnal airway resistance"
       ]
     }
   ];
@@ -179,29 +179,44 @@ document.addEventListener("DOMContentLoaded", function () {
       // Safe Outcomes Matrix Configuration System
       const outcomesMatrix = {
         purinergic: {
-          metabolic: "Primary: Adenosine Receptor Up-regulation paired with Secondary: Nocturnal Glucose Drops. Your afternoon xanthine intake masks baseline sleep debt, creating a severe late-night chemical imbalance combined with a liver fuel drop.",
-          cortisol: "Primary: Adenosine Receptor Up-regulation combined with Secondary: Cortisol Hyper-activation. Late-day stimulants cause a massive overnight purinergic clearance, causing the HPA-axis to fire a defense wakeup signal.",
-          circadian: "Primary: Adenosine Blockade mixed with Secondary: Circadian Phase Advance. Your body fails to build sufficient sleep pressure, forcing an uncoordinated transition out of sleep during early REM windows.",
-          glymphatic: "Primary: Adenosine Accumulation with Secondary: Astroglial Fluid Stagnation. Localized waste clearance is slowed due to altered sleep stage transitions.",
-          default: "Primary: Purinergic Sleep Pressure Clearance Failure. Your sleep switch drops baseline hold metrics prematurely during lighter cycles due to late-afternoon stimulant chemical exposure."
+          purinergic: "Primary: Adenosine Receptor Saturation. High late-afternoon stimulant occupancy blocks natural purinergic accumulation, causing a catastrophic collapse of homeostatic sleep pressure at 3 AM once early deep cycles end.",
+          metabolic: "Primary: Adenosine Blockade paired with Secondary: Nocturnal Hypoglycemia. Residual caffeine lowers your awakening threshold, making you hyper-vulnerable to the minor adrenaline spikes caused by normal midnight blood sugar drops.",
+          cortisol: "Primary: Purinergic Receptor Clearance Lag combined with Secondary: HPA-Axis Overdrive. Lingering xanthine compounds block calming neural loops, amplifying the nocturnal cortisol awakening cascade into a full fight-or-flight arousal.",
+          circadian: "Primary: Purinergic Pressure Failure mixed with Secondary: Circadian Phase Advance. An artificial delay in homeostatic sleep pressure meets an advanced core body temperature curve, breaking the neural sleep lock early.",
+          glymphatic: "Primary: Adenosine Desensitivity paired with Secondary: Astroglial Fluid Stagnation. Stimulant-induced disruption of slow-wave delta phases short-circuits the glymphatic convective waste clearance cycle overnight.",
+          default: "Primary: Purinergic Dynamic Instability. Your baseline sleep-promoting switch drops its hold parameters prematurely during early REM transitions due to incomplete late-day clearance of performance chemical blocks."
         },
         metabolic: {
-          purinergic: "Primary: Hepatic Glycogen Depletion paired with Secondary: Caffeine Clearance Lag. Pre-bed high-glycemic snacks lock you into an insulin trap, associated with a blood sugar shift that can trigger a compensatory adrenaline response.",
-          cortisol: "Primary: Nocturnal Hypoglycemic Crisis combined with Secondary: HPA-Axis Stress Overdrive. Low liver energy stores cause an emergency sugar-rescue sequence, forcing adrenaline and cortisol to spike you wide awake.",
-          circadian: "Primary: Metabolic Insulin Shifts mixed with Secondary: Melatonin Phase Mismatch. Unstable glucose curves conflict with your core body temperature drop, destabilizing sleep gate maintenance parameters.",
-          glymphatic: "Primary: Glucose Curve Crashing with Secondary: Convective Glymphatic Stagnation. Overnight bioenergetic shifts frequently correlate with early arousal patterns, disrupting your brain's natural purification cycles.",
-          default: "Primary: Nocturnal Glycogen Starvation Crisis. Your liver backup energy battery runs dry mid-sleep, causing a counter-regulatory stress hormone surge that terminates deep rest instantly."
+          purinergic: "Primary: Nocturnal Glycopenic Crisis paired with Secondary: Adenosine Receptor Inoccupancy. Pre-bed glucose/insulin volatility forces a midnight liver energy drop, crashing into an already weakened sleep pressure framework.",
+          metabolic: "Primary: Isolated Hepatic Glycogen Depletion. Your liver's bioenergetic battery runs completely dry mid-sleep, triggering an emergency counter-regulatory adrenaline surge to extract emergency sugar, waking you instantly.",
+          cortisol: "Primary: Hypoglycemia-Induced Adrenaline Spike combined with Secondary: Sympathetic Dominance. A steep drop in overnight glucose forces a secondary stress axis cascade, triggering sudden tachycardia and survival anxiety at 3 AM.",
+          circadian: "Primary: Metabolic Insulin Volatility mixed with Secondary: Core Temperature Mismatch. Nocturnal glucose crashes conflict with the circadian core body temperature nadir, destabilizing the master sircadian gate.",
+          glymphatic: "Primary: Bioenergetic Fuel Crashing paired with Secondary: Fluid Clearance Sluggishness. The systemic stress response triggered by low midnight glucose completely halts the quiet, parasympathetic glymphatic purification cycle.",
+          default: "Primary: Nocturnal Glycogen Starvation Crisis. Suboptimal glycogen storage capacity forces an emergency neuroglycopenia rescue sequence, executing a cortisol and adrenaline release that terminates rest."
         },
         cortisol: {
-          metabolic: "Primary: Autonomic Sympathetic Overdrive paired with Secondary: Reactive Insulin Shifting. High baseline evening cortisol blocks deep delta sleep stages, making you hyper-reactive to normal midnight blood sugar changes.",
-          purinergic: "Primary: Elevated Evening Stress Axis combined with Secondary: Adenosine Desensitivity. Fight-or-flight signaling blocks standard calming loops, dropping your neurological arousal threshold at 3 AM.",
-          default: "Primary: Hyper-Active Cortisol Awakening Surge. Your subcortical emotional centers remain hyper-vigilant, forcing sudden alert awakenings where the conscious mind instantly tracks anxieties."
+          purinergic: "Primary: Hyper-Active Cortisol Awakening Surge combined with Secondary: Purinergic Debt Deficit. Elevated baseline evening stress axis hormones lower the brain's sensory gating limits, neutralizing standard adenosine sleep pressure.",
+          metabolic: "Primary: Autonomic Sympathetic Overdrive paired with Secondary: Reactive Insulin Shifting. High nocturnal stress hormones trigger gluconeogenesis, causing an artificial blood sugar spike followed by an acute midnight crash.",
+          cortisol: "Primary: Advanced HPA-Axis Circadian Displacements. Your subcortical survival networks run an altered circadian clock, shifting the morning cortisol peak backward into the 3 AM window and waking the conscious mind.",
+          circadian: "Primary: Prolonged Neuroendocrine Stress mixed with Secondary: Melatonin Phase Mismatch. Chronic midnight cortisol elevation desynchronizes the suprachiasmatic nucleus, flattening natural melatonin secretion curves.",
+          glymphatic: "Primary: Elevated Nocturnal Sympathetic Tone paired with Secondary: Astroglial Waste Stagnation. Constant stress signaling maintains high vascular resistance, preventing the deep delta vasomotion needed for neural waste flush.",
+          default: "Primary: Subcortical Hyper-Vigilance Activation. Your autonomic nervous system stays locked in a protective posture, triggering a sudden, alert awakening where the prefrontal cortex immediately processes daily worries."
         },
         circadian: {
-          default: "Primary: Central Biological Clock Desynchronization. Your internal master circadian clock is out of alignment with your lifestyle routine, lifting the sleep lock prematurely before morning."
+          purinergic: "Primary: Central Biological Clock Desynchronization combined with Secondary: Purinergic Blockade. A fundamental misalignment between light cycles and lifestyle is compounded by poor natural adenosine buildup.",
+          metabolic: "Primary: Circadian Phase Mismatch paired with Secondary: Nocturnal Fuel Crashing. Peripheral liver and metabolic clocks operate out of sync with your sleep window, causing a midnight energy crash alert.",
+          cortisol: "Primary: Advanced Master Circadian Clock mixed with Secondary: Premature Cortisol Surge. The suprachiasmatic nucleus signals the adrenal glands to fire the morning awakening hormone cascade hours before actual sunrise.",
+          circadian: "Primary: Complete SCN Pacemaker Disalignment. Internal biological markers are desynchronized from the environmental schedule, forcing an involuntary transition into wakefulness during early morning REM.",
+          glymphatic: "Primary: Circadian Gate Failure combined with Secondary: Convective Glymphatic Stagnation. A mistimed core body temperature drop shortens the N3 slow-wave sleep windows required for deep metabolic waste drainage.",
+          default: "Primary: Central Master Clock Phase Shift. Your internal biological clock acts out of rhythm with your modern lifestyle schedule, lifting the neurological sleep lock way before dawn."
         },
         glymphatic: {
-          default: "Primary: Cranial Astroglial Fluid Clearance Retardation. Sluggish metabolic waste purification loops allow toxic byproducts to cluster, altering your night-time sensory processing limits."
+          purinergic: "Primary: Interstitial Waste Pooling combined with Secondary: Caffeine Clearance Lag. Sluggish cerebral fluid drainage allows toxic metabolic byproducts to pool, lowering your sensory arousal threshold at night.",
+          metabolic: "Primary: Sluggish Neuro-Lymphatic Waste Drainage paired with Secondary: Nocturnal Glycogen Drops. Accumulated cortical debris triggers localized micro-inflammations that destabilize overnight metabolic homeostatic limits.",
+          cortisol: "Primary: Astroglial Fluid Stagnation mixed with Secondary: Secondary HPA-Axis Activation. Accumulation of metabolic waste products acts as an internal physical stressor, forcing a midnight panic adrenaline release.",
+          circadian: "Primary: Delayed Cranial Purification Cycles paired with Secondary: Circadian Phase Shift. Uncleared neurochemical waste causes frequent, unexplained micro-arousals that break deep sleep continuity.",
+          glymphatic: "Primary: Cranial Astroglial Fluid Clearance Retardation. Reduced convective flow through the aquaporin-4 (AQP4) network allows overnight metabolite accumulation, shifting the brain out of deep rest early.",
+          default: "Primary: Sluggish Cranial Astroglial Fluid Clearance. Reduced convective flow in the glymphatic network causes overnight waste pooling, causing your brain to shift prematurely out of deep rest states."
         }
       };
 
