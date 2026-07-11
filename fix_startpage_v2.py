@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+import os
+
+GA4_ID = "G-T1MFCM2SKH"
+
+start_html = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,18 +13,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1MFCM2SKH"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={ga4}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
-    gtag('config', 'G-T1MFCM2SKH');
-    function trackEvent(action, label) {
-      gtag('event', action, { event_category: 'funnel', event_label: label });
-    }
+    gtag('config', '{ga4}');
+    function trackEvent(action, label) {{
+      gtag('event', action, {{ event_category: 'funnel', event_label: label }});
+    }}
   </script>
   <style>
-    html, body {
+    html, body {{
       margin: 0; padding: 0;
       min-height: 100vh;
       background-color: #0f172a;
@@ -30,9 +34,9 @@
       align-items: center;
       justify-content: center;
       padding: 24px 16px;
-    }
-    * { box-sizing: border-box; }
-    .card {
+    }}
+    * {{ box-sizing: border-box; }}
+    .card {{
       background: #1e293b;
       border: 1px solid #334155;
       border-radius: 24px;
@@ -41,8 +45,8 @@
       width: 100%;
       text-align: center;
       box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-    }
-    .tag {
+    }}
+    .tag {{
       display: inline-block;
       background: rgba(56,189,248,0.1);
       border: 1px solid rgba(56,189,248,0.2);
@@ -54,22 +58,22 @@
       padding: 4px 12px;
       border-radius: 999px;
       margin-bottom: 20px;
-    }
-    h1 {
+    }}
+    h1 {{
       font-size: 26px;
       font-weight: 800;
       color: #f1f5f9;
       line-height: 1.25;
       margin-bottom: 14px;
-    }
-    h1 span { color: #38bdf8; }
-    p {
+    }}
+    h1 span {{ color: #38bdf8; }}
+    p {{
       font-size: 14px;
       line-height: 1.65;
       color: #94a3b8;
       margin-bottom: 20px;
-    }
-    .checklist {
+    }}
+    .checklist {{
       text-align: left;
       background: rgba(15,23,42,0.6);
       border: 1px solid #1e293b;
@@ -77,17 +81,17 @@
       padding: 14px 16px;
       margin-bottom: 24px;
       list-style: none;
-    }
-    .checklist li {
+    }}
+    .checklist li {{
       font-size: 13px;
       color: #cbd5e1;
       padding: 5px 0;
       display: flex;
       align-items: flex-start;
       gap: 8px;
-    }
-    .checklist li::before { content: "\2192"; color: #38bdf8; flex-shrink: 0; }
-    .cta {
+    }}
+    .checklist li::before {{ content: "\\2192"; color: #38bdf8; flex-shrink: 0; }}
+    .cta {{
       display: block;
       background: #0284c7;
       color: #fff;
@@ -98,15 +102,15 @@
       text-decoration: none;
       transition: background 0.2s;
       margin-bottom: 12px;
-    }
-    .cta:hover { background: #0369a1; }
-    .meta { font-size: 11px; color: #475569; margin-bottom: 0; }
-    .disclosure {
+    }}
+    .cta:hover {{ background: #0369a1; }}
+    .meta {{ font-size: 11px; color: #475569; margin-bottom: 0; }}
+    .disclosure {{
       font-size: 10px;
       color: #475569;
       margin-top: 20px;
       line-height: 1.5;
-    }
+    }}
   </style>
 </head>
 <body onload="trackEvent('start_page_view', 'start.html')">
@@ -128,4 +132,28 @@
     <p class="disclosure">Educational content only. This site may earn a commission from purchases made through links on this page. Results are individual and not guaranteed.</p>
   </div>
 </body>
-</html>
+</html>""".format(ga4=GA4_ID)
+
+with open("start.html", "w", encoding="utf-8") as f:
+    f.write(start_html)
+print("OK start.html v2 created")
+
+# Inject GA4 ke quiz.html
+with open("quiz.html", "r", encoding="utf-8") as f:
+    quiz = f.read()
+
+if GA4_ID not in quiz:
+    ga4_block = """  <script async src="https://www.googletagmanager.com/gtag/js?id={ga4}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', '{ga4}');
+  </script>
+""".format(ga4=GA4_ID)
+    quiz = quiz.replace("</head>", ga4_block + "</head>")
+    with open("quiz.html", "w", encoding="utf-8") as f:
+        f.write(quiz)
+    print("OK quiz.html GA4 injected")
+else:
+    print("-- quiz.html GA4 already present")
