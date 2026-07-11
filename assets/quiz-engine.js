@@ -16,53 +16,53 @@ document.addEventListener("DOMContentLoaded", function () {
   // FIX 2: 5x5 Professional Psychometric Biological Matrix Structure
   const questions = [
     {
-      q: "What exact frightening physical state describes your sudden 3 AM awakening?",
+      q: "What do you most commonly feel when waking up in the middle of the night?",
       o: [
-        "I wake up feeling an absolute hollow emptiness, like my internal biological battery is completely dead",
-        "I snap wide awake between 2 AM and 3:30 AM with a sudden hot wave, cold sweats, or intense hunger",
-        "My heart pounds violently against my ribs, my mind races over anxieties, and I feel a surge of pure panic",
-        "I wake up completely alert and calm, as if my broken internal clock believes it is already morning",
-        "I wake up with intense jaw clenching, a painfully dry throat, or a toxic, heavy dull ache inside my skull"
+        "I feel completely drained, like my body's natural energy reserves are empty",
+        "I wake up feeling slightly warm, restless, or noticing mild midnight hunger cues",
+        "My mind instantly starts racing over tasks, accompanied by a sudden wave of alertness",
+        "I wake up feeling calm but fully awake, as if my body believes it is already morning",
+        "I notice physical tension in my shoulders/neck or a general feeling of restlessness"
       ]
     },
     {
-      q: "Select the dominant toxic environmental or dietary trigger of your late afternoon:",
+      q: "Which routine best describes your typical late afternoon or evening?",
       o: [
-        "Consuming coffee, energy drinks, sodas, or pre-workout stimulants past 2:00 PM",
-        "Eating simple carbohydrates, sugary desserts, high-sodium snacks, or alcohol within 3 hours of bed",
-        "Reviewing stressful work emails, checking dashboards, or scrolling high-intensity screens in the dark",
-        "Maintaining an irregular schedule (erratic weekend wake times or rotating work shifts)",
-        "Low daily hydration combined with sleeping flat on your back or under restrictive air circulation"
+        "Enjoying coffee, energy drinks, or strong teas past 2:00 PM",
+        "Having a carbohydrate-rich dinner, sweet desserts, or a relaxing drink before bed",
+        "Checking work dashboards, handling stressful files, or looking at bright screens in bed",
+        "Managing an irregular schedule, such as rotating shifts or sleeping in on weekends",
+        "Having a lower fluid intake during the day or sleeping in a warm, closed room"
       ]
     },
     {
-      q: "How does your early evening sleep onset and early-stage transition look?",
+      q: "How does drifting off to sleep usually feel for you early in the night?",
       o: [
-        "I crash into unconsciousness out of pure physical exhaustion, but my sleep hold breaks after 3-4 hours",
-        "I toss and turn for hours, feeling an uncomfortable, radiating inner core body temperature",
-        "I am physically exhausted but my brain stays completely wired, requiring background noise to drown out thoughts",
-        "I drift off effortlessly early in the evening, but I absolutely cannot hold the sleep gate past 2 AM",
-        "I experience immediate loud snoring, heavy mouth breathing, or frequent choking micro-arousals"
+        "I fall asleep very quickly out of sheer exhaustion, but wake up noticealby later",
+        "I tend to toss and turn, feeling like my body is holding onto too much day-time heat",
+        "My body feels tired but my mind stays active, often needing background sounds to drift off",
+        "I fall asleep naturally early but find it difficult to stay asleep past 2:00 AM",
+        "I experience shallow breathing patterns or frequent micro-awakenings from the first hour"
       ]
     },
     {
-      q: "Which debilitating recovery deficit describes your physical state the next morning?",
+      q: "Which pattern describes your physical energy the next morning?",
       o: [
-        "Severe, paralyzing morning grogginess that requires immediate stimulants to lift the brain fog",
-        "Waking up feeling shaky, profoundly irritable, or dizzy until I force a high-carb breakfast",
-        "Waking up already anticipating exhaustion, carrying physical muscle knots straight out of bed",
-        "Feeling strangely alert at dawn, only to suffer a catastrophic energy crash at 1:00 PM",
-        "Waking up with puffy eyes, facial fluid retention, and a heavy, uncleared toxic feeling in the brain"
+        "A heavy morning grogginess that takes a few hours and coffee to fully clear",
+        "Feeling slightly shaky or irritable until I can eat a balanced breakfast",
+        "Waking up already thinking about daily stressors, holding tightness in my muscles",
+        "Feeling completely awake at dawn but experiencing a sharp energy dip after lunch",
+        "Waking up feeling unrefreshed, as if the quality of my rest was shallow"
       ]
     },
     {
-      q: "Which systemic biochemical vulnerability closest matches your long-term history?",
+      q: "Which area represents your body's typical vulnerability or daily routine?",
       o: [
-        "Extreme sensitivity to stimulants (a single morning coffee noticeably ruins my deep sleep architecture)",
-        "Rapid metabolic burnout (feeling weak, lightheaded, or intensely 'hangry' if regular meals are delayed)",
-        "Chronic nervous system hyper-vigilance (my body constantly lives in a defensive sympathetic flight posture)",
-        "Frequent timezone changes, poor lifestyle routines, or minimal exposure to direct natural morning sunlight",
-        "Sluggish lymphatic circulation, chronic neck/spine tension, or anatomical airway resistance"
+        "High sensitivity to compounds like caffeine (a morning cup keeps me active for long)",
+        "Noticing changes in focus or mood if regular daytime meals are delayed",
+        "A tendency to hold stress physically, keeping the nervous system in a watchful state",
+        "Frequent travel, changing routines, or getting limited natural sunlight in the morning",
+        "Sluggish circulation or structural tension carried in the neck and upper back"
       ]
     }
   ];
@@ -178,45 +178,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Safe Outcomes Matrix Configuration System
       const outcomesMatrix = {
-        purinergic: {
-          purinergic: "CRITICAL ALERT: Your brain's sleep switch has suffered an acute Purinergic Collapse. Late-day caffeine has aggressively saturated your adenosine receptors. When this artificial block clears at 3 AM, your synapses experience a violent electrical rebound—flooding your brain with sudden wakefulness. Heavy chemical sleeping pills will only anesthetize your cortex while leaving these receptors unstable. Your only logical solution is a direct sublingual nano-delivery that bypasses the gut to stabilize neural pathways in 15 seconds.",
-          metabolic: "METABOLIC REBOUND GAP: Lingering afternoon stimulants are masking your true homeostatic sleep debt, while a midnight glucose crash triggers an emergency sugar-rescue response. This double-assault drops your sensory arousal threshold, forcing an alert state. Digesting solid capsules or tablets is too slow during a 3 AM crisis; you require immediate sublingual absorption to neutralize the emergency hormone surge instantly.",
-          cortisol: "HPA-AXIS RECEPTOR OVERLOAD: Residual stimulant compounds block your brain's parasympathetic pathways, transforming the normal early-morning cortisol rise into an intense panic surge. You snap awake with a racing heart and racing thoughts. Melatonin supplements will only worsen morning grogginess—you need immediate sublingual nano-nutrients to deactivate this subcortical alarm system on contact.",
-          circadian: "CIRCADIAN MISMATCH DISRUPTION: The artificial delay in your homeostatic sleep pressure meets an advanced core body temperature curve, shattering your sleep lock right as you enter early REM phases. Heavy chemical sedation won't realign these master clock frequencies; you need zero-lag sublingual nano-delivery to synchronize circadian receptor networks on impact.",
-          glymphatic: "GLYMPHATIC DEBRIS RETARDATION: Stimulant-induced reduction of slow-wave N3 cycles completely stalls your brain's metabolic waste flush, pooling toxic cellular byproducts. This accumulation acts as an internal physical irritant, triggering a micro-arousal loop at 3 AM. Pill-based supplements cannot repair this clearing mechanism; only zero-digestion sublingual nano-emulsions can restore vascular vasomotion.",
-          default: "HOMEOSATIS SWITCH COLLAPSE: Incomplete clearance of late-day performance chemical blocks causes your baseline sleep-promoting switch to drop hold metrics prematurely during lighter cycles. Do not rely on toxic sleeping pills that destroy natural architecture—switch to direct sublingual delivery to stabilize baseline purinergic holding parameters."
+        cortisol: {
+          default: "YOUR PATTERN: The Calming Wind-Down Profile (Cortisol & Racing Thoughts Focus). Your data points toward a shift where your morning cortisol curve begins its rise slightly earlier than average, lowering your sleep arousal threshold at 3 AM. When this happens, the analytical mind instantly turns on to process daily tasks. Many people with this pattern find significant relief by adopting a dedicated pre-sleep wind-down routine and introducing gentle botanical support like Lemon Balm and L-Trptophan to help quiet those sudden midnight racing thoughts naturally."
         },
         metabolic: {
-          purinergic: "BIOENERGETIC RECEPTOR CRASH: Pre-bed glucose volatility forces a sudden midnight liver energy drop, crashing straight into a purinergic framework weakened by lingering daytime chemical compounds. Your body is starved for cellular energy. Solid pills fail because your digestion slows down at night; you must deploy direct sublingual nano-nutrients to feed your nervous system without triggering insulin traps.",
-          metabolic: "CRITICAL GLYCOGEN STARVATION: Your liver's biological battery has run completely dry mid-sleep. Otak Anda mendeteksi neuroglikopenia dan memicu sinyal bahaya, memaksa lonjakan adrenalin dan kortisol secara masif untuk membongkar cadangan gula darurat. Ini adalah serangan panik biologis internal yang membuat Anda tidak bisa tidur lagi. Camilan malam hanya memperparah siklus insulin—penyerapan sublingual adalah satu-satunya cara menenangkan alarm ini dalam hitungan detik.",
-          cortisol: "NOCTURNAL HYPOGLYCEMIA PANIC: A steep drop in overnight glucose forces a secondary stress axis cascade, triggering sudden tachycardia and survival anxiety at 3 AM. Your body believes it is dying of starvation. Standard sleeping pills are highly dangerous here as they mask the warning signs. You need an immediate sublingual solution to balance the endocrine system directly through the oral mucosa.",
-          circadian: "METABOLIC CLOCK DESYNCHRONIZATION: Unstable overnight glucose curves conflict with your sircadian core body temperature drop, breaking sleep gate stability before morning REM. Your liver clock and brain clock are actively fighting each other. Resolving this requires rapid sublingual bio-nutrients that require zero digestive processing to instantly realign cellular metabolism.",
-          glymphatic: "METABOLIC WASTE STAGNATION: The systemic stress response triggered by low midnight glucose completely halts the quiet, parasympathetic glymphatic purification cycle. Your brain tissues are swimming in uncleared metabolic debris. To unlock deep sleep recovery, you must deploy direct sublingual anti-inflammatory nano-compounds to flush cortical toxins without delay.",
-          default: "SYSTEMIC BIOENERGETIC BURNOUT: Suboptimal glycogen storage capacity forces an emergency neuroglycopenia rescue sequence mid-sleep, executing a massive cortisol and adrenaline release that terminates rest. Break this exhausting cycle using direct sublingual delivery to supply instant stabilization to your neural circuits."
-        },
-        cortisol: {
-          purinergic: "SYMPATHETIC OVERDRIVE AXIS: High baseline evening cortisol blocks standard purinergic calming loops, dropping your sensory arousal threshold at 3 AM. Your brain is hyper-vigilant. Traditional sedative pills will only leave you hungover tomorrow because they do not reduce cortisol. Your only solution is sublingual nano-delivery to actively block stress receptors on impact.",
-          metabolic: "CORTISOL GLUCOSE DISPLACEMENT: Chronic overnight stress signaling forces immediate liver glucose releases, destabilizing your metabolic homeostasis mid-sleep and causing a reactive crash. You are trapped in an endocrine feedback loop. Break the circuit instantly by avoiding slow-acting pills and adopting direct sublingual delivery to inhibit HPA-axis hyper-activity.",
-          cortisol: "CRITICAL HPA-AXIS LEAKAGE: Your subcortical survival networks run an altered circadian clock, shifting the morning cortisol peak backward into the 3 AM window and waking the conscious mind into an immediate fight-or-flight posture. Melatonin cannot stop this adrenal leak. You require targeted sublingual adaptogens that target the hypothalamic pathways within 15 seconds.",
-          circadian: "NEUROENDOCRINE DISCOVERY BURNOUT: Elevated midnight cortisol actively desynchronizes your master sircadian clock, flattening natural melatonin secretion curves and creating a permanent state of biological jet-lag. Do not waste time with standard pills that cannot penetrate the blood-brain barrier effectively—deploy highly bioavailable sublingual nano-emulsions.",
-          glymphatic: "VASCULAR CORTISOL BLOCKADE: Constant sympathetic stress signaling maintains high vascular resistance, preventing the deep delta-wave vasomotion needed for neural waste flush. Your brain is suffocating in its own waste overnight, causing intense jaw/neck stiffness. You must bypass the digestive tract entirely with sublingual nutrients to lower sympathetic tone instantly.",
-          default: "SUBCORTICAL HYPER-VIGILANCE ACTIVATION: Your autonomic nervous system stays locked in a protective posture, triggering a sudden, alert awakening where the prefrontal cortex immediately processes daily worries. Stop drowning your liver in processing heavy sleep medications; use sublingual nano-drops to signal safety to your amygdala in seconds."
+          default: "YOUR PATTERN: The Stable Fuel Profile (Nocturnal Glucose Focus). Your responses suggest your midnight awakening may be linked to natural variations in overnight energy storage. When glycogen availability drops mid-sleep, the body initiates a mild, compensatory counter-regulatory signal to stabilize blood sugar, which inadvertently triggers alertness. A helpful strategy is to pair your evening meals with healthy fats or proteins rather than simple sugars, and support your system with clean micronutrients that stabilize overnight metabolic balance without digestive strain."
         },
         circadian: {
-          purinergic: "MASTER PACEMAKER MISALIGNMENT: A fundamental misalignment between light cycles and modern lifestyle is compounded by poor natural adenosine buildup, causing the sleep gate to burst open at 3 AM. Standard over-the-counter sleep aids only treat the symptoms. Real clock synchronization requires instant-acting sublingual compounds that adjust receptor sensitivity on impact.",
-          metabolic: "CIRCADIAN METABOLIC SPLIT: Peripheral liver and metabolic jam-clocks operate completely out of sync with your sleep window, causing a midnight energy crash alert. Your body doesn't know what time it is. Avoid heavy capsules that delay absorption—use direct sublingual delivery to provide zero-lag stabilization to your peripheral metabolic pathways.",
-          cortisol: "PHASE-ADVANCED HORMONAL CASCADE: The suprachiasmatic nucleus signals the adrenal glands to fire the morning awakening hormone cascade hours before actual sunrise, waking you with artificial alertness. Heavy chemical bius only mask the damage. True realignment requires sublingual nano-delivery to calm the master pacemaker instantly.",
-          circadian: "COMPLETE SCN DESYNCHRONIZATION: Internal biological markers are completely desynchronized from the environmental schedule, forcing an involuntary transition into wakefulness during early morning REM windows. You are living in a permanent internal time lag. Fix it at the cellular level with ultra-fast sublingual nano-drops designed to stabilize sircadian gates.",
-          glymphatic: "TIMED TEMPERATURE GATE COLLAPSE: A mistimed core body temperature drop shortens the N3 slow-wave sleep windows required for deep metabolic waste drainage, waking you with a heavy, toxic head. Pill supplements take too long to absorb to save a broken sleep gate. You need direct sublingual delivery to instantly lower core vascular temperature parameters.",
-          default: "CENTRAL BIOLOGICAL PACEMAKER SHIFT: Your internal master biological clock acts completely out of rhythm with your lifestyle schedule, lifting the overnight neural sleep lock way before dawn. Stop using heavy sleeping pills that compound circadian drift; transition to immediate sublingual absorption models now."
-        },
-        glymphatic: {
-          purinergic: "INTERSTITIAL WASTE POOLING: Sluggish cerebral fluid drainage allows toxic metabolic byproducts to pool, lowering your sensory arousal threshold and waking you up over the minor chemical changes. Pill-based supplements cannot flush this debris; only zero-digestion sublingual nano-emulsions can penetrate the neural matrix to restore nocturnal cleaning.",
-          metabolic: "GLYMPHATIC FACIAL STAGNATION: Accumulated cortical debris triggers localized micro-inflammations that compound overnight blood sugar stability failures, leading to puffy eyes and morning exhaustion. Break this toxic loop by using direct sublingual delivery to supply immediate anti-inflammatory bio-nutrients directly to your blood circulation.",
-          cortisol: "TOXIC WASTE PHYSICAL STRESSOR: Accumulation of metabolic waste products in cortical tissues acts as an internal physical stressor, forcing a midnight panic adrenaline release to escape the discomfort. Sleeping pills will only lock the toxins in deeper. You must use direct sublingual nano-delivery to restore convective fluid vasomotion instantly.",
-          circadian: "DELAYED CEREBRAL PURIFICATION LOOP: Uncleared neurochemical waste causes frequent, unexplained micro-arousals that break deep sleep continuity right as your body attempts to enter REM. Traditional tablets fail to survive stomach acid efficiently enough to fix this. Adopt direct sublingual nano-emulsions to clear the cellular path.",
-          glymphatic: "CRANIAL ASTROGLIAL RETARDATION: Reduced convective flow through the aquaporin-4 (AQP4) network allows overnight metabolite accumulation, shifting the brain out of deep rest early and leaving you with a morning skull ache. Stop overloading your system with solid pills—use direct sublingual delivery to clear neuro-lymphatic pathways on contact.",
-          default: "SLUGGISH CRANIAL ASTROGLIAL FLUID CLEARANCE: Reduced convective flow in the glymphatic network causes overnight waste pooling, causing your brain to shift prematurely out of deep rest states. Banish the morning brain fog forever by deploying zero-digestion sublingual delivery models immediately."
+          default: "YOUR PATTERN: The Natural Rhythm Reset Profile (Circadian Alignment Focus). Your profile indicates a slight mismatch between environmental light cues and your master internal biological clock. This causes your core body temperature to rise prematurely during the night, opening the sleep gate ahead of schedule. Realignment is best achieved by getting 10-15 minutes of direct morning sunlight within an hour of waking to anchor your sircadian baseline, combined with gentle support like Chamomile and Magnesium to deepen your rest phases."
         }
       };
 
