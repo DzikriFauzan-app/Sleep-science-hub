@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Injeksi WAJIB Jembatan Halus (Soft-Bridge Disclosure) untuk Perlindungan Hukum FTC US
       const disclaimerText = document.createElement("p");
       disclaimerText.className = "text-[10px] text-slate-500 text-center leading-relaxed my-3 px-2 block w-full font-sans";
-      disclaimerText.innerHTML = "⚠️ <strong>Affiliate Disclosure:</strong> This educational tool references a recommended sublingual reset protocol. If you choose to purchase through our link, we may earn a small commission at no additional cost to you. This is for general educational purposes only and does not substitute for professional medical advice.";
+      disclaimerText.innerHTML = "⚠️ <strong>Affiliate Disclosure:</strong> This educational tool references a recommended sleep support protocol. If you choose to purchase through our link, we may earn a small commission at no additional cost to you. This is for general educational purposes only and does not substitute for professional medical advice.";
 
       const affiliateCTA = document.createElement("a");
       affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=${targetChannelId}`;
@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
       affiliateCTA.style.fontWeight = "700";
       affiliateCTA.style.borderRadius = "0.75rem";
       affiliateCTA.style.textAlign = "center";
-      affiliateCTA.textContent = "Explore the Gentle Sublingual Reset & Claim Reward →";
+      affiliateCTA.textContent = "Access Your Personalized Sleep Reset Protocol →";
 
       optionsWrapper.appendChild(infoBlock);
       optionsWrapper.appendChild(disclaimerText);
