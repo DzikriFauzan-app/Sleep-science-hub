@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ${customDiagnosis}
         <span class="block text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-3 rounded-lg border border-slate-800 font-sans mt-3">${freeTip}</span>
         <span class="block text-[11px] text-sky-400 font-medium mt-3">🎁 Included Reward:</span>
-        <span class="block text-[11px] text-slate-500 leading-relaxed">Your evaluation path includes the complimentary <strong>Midnight Calm Protocol Bundle</strong> containing 11 science-backed bedtime stories added to your gateway below as a special reward.</span>
+        <span class="block text-[11px] text-slate-500 leading-relaxed">Based on your Adenosine & Glucose backlog, standard pills won't digest fast enough at 3 AM. Your profile matches the Sublingual Rapid-Stabilization Method—a specialized liquid routine designed to bypass the gut and calm nocturnal micro-arousals instantly.</span>
       `;
 
       let targetChannelId = `compliant_${primaryFactor}_${secondaryFactor}`;
@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
       affiliateCTA.style.fontWeight = "700";
       affiliateCTA.style.borderRadius = "0.75rem";
       affiliateCTA.style.textAlign = "center";
-      affiliateCTA.textContent = "Access Your Personalized Sleep Reset Protocol →";
+      affiliateCTA.textContent = "Explore the Science-Backed Evening Ritual →";
 
       optionsWrapper.appendChild(infoBlock);
       optionsWrapper.appendChild(disclaimerText);
