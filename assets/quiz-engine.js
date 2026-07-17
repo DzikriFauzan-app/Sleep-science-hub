@@ -248,14 +248,14 @@ document.addEventListener("DOMContentLoaded", function () {
         ${customDiagnosis}
         <span class="block text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-3 rounded-lg border border-slate-800 font-sans mt-3">${freeTip}</span>
         <span class="block text-[11px] text-sky-400 font-medium mt-3">🎁 Included Reward:</span>
-        <span class="block text-[11px] text-slate-500 leading-relaxed">Based on your Adenosine & Glucose profile, physical tracking shows that generic sleep advice won't stabilize your midnight waking cycle. Your system requires targeted nutritional support. The evening ritual recommended below utilizes a highly concentrated dark elderberry and botanical micro-nutrient matrix. In molecular literature, these specific antioxidants are shown to help support overnight metabolic stabilization and keep the HPA-axis from triggering early cortisol spikes, without the grogginess of standard pills. We personally integrate this liquid botanical drop into our nightly routine to keep our early-morning baseline completely calm and undisturbed.</span>
+        <span class="block text-xs text-slate-200 leading-relaxed">Based on your Adenosine & Glucose profile, physical tracking shows that generic sleep advice won't stabilize your midnight waking cycle. Your system requires targeted nutritional support. The evening ritual recommended below utilizes a highly concentrated dark elderberry and botanical micro-nutrient matrix. In molecular literature, these specific antioxidants are shown to help support overnight metabolic stabilization and keep the HPA-axis from triggering early cortisol spikes, without the grogginess of standard pills. We personally integrate this liquid botanical drop into our nightly routine to keep our early-morning baseline completely calm and undisturbed.</span>
       `;
 
       let targetChannelId = `compliant_${primaryFactor}_${secondaryFactor}`;
 
       // Injeksi WAJIB Jembatan Halus (Soft-Bridge Disclosure) untuk Perlindungan Hukum FTC US
       const disclaimerText = document.createElement("p");
-      disclaimerText.className = "text-[10px] text-slate-500 text-center leading-relaxed my-3 px-2 block w-full font-sans";
+      disclaimerText.className = "text-[11px] text-slate-400 text-center leading-relaxed my-3 px-2 block w-full font-sans";
       disclaimerText.innerHTML = "⚠️ <strong>Affiliate Disclosure:</strong> This educational tool references a recommended sleep support protocol. If you choose to purchase through our link, we may earn a small commission at no additional cost to you. This is for general educational purposes only and does not substitute for professional medical advice.";
 
       const affiliateCTA = document.createElement("a");
@@ -273,9 +273,10 @@ document.addEventListener("DOMContentLoaded", function () {
       affiliateCTA.style.textAlign = "center";
       affiliateCTA.textContent = "Explore the Science-Backed Evening Ritual →";
 
-      optionsWrapper.appendChild(infoBlock);
-      optionsWrapper.appendChild(disclaimerText);
-      optionsWrapper.appendChild(affiliateCTA);
+      container.scrollIntoView({ behavior: 'instant', block: 'start' });
+    optionsWrapper.appendChild(affiliateCTA);
+    optionsWrapper.appendChild(infoBlock);
+    optionsWrapper.appendChild(disclaimerText);
       if(typeof gtag!=="undefined"){gtag("event","quiz_completed",{primary_factor:primaryFactor,secondary_factor:secondaryFactor});}
     }
   }
