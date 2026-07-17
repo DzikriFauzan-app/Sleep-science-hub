@@ -180,13 +180,43 @@ document.addEventListener("DOMContentLoaded", function () {
   counterText.textContent = "EVALUATION COMPLETE";
   questionText.textContent = "Your Personalized Circadian Sleep Profile";
   optionsWrapper.textContent = "";
-  
+
   let sortedTracks = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
   let primaryFactor = sortedTracks[0];
   let secondaryFactor = sortedTracks[1];
-  let targetChannelId = `compliant_${primaryFactor}_${secondaryFactor}`;
+  let targetChannelId = "compliant_" + primaryFactor + "_" + secondaryFactor;
 
   container.scrollIntoView({ behavior: 'instant', block: 'start' });
+
+  const matrixContent = {
+    purinergic: {
+      title: "The Purinergic Adenosine Disruption",
+      desc: "This is why you fall asleep from sheer exhaustion but snap awake at 3 AM wide alert. Your purinergic pathways are failing to maintain deep sleep pressure due to lingering neurochemical clearance blocks. Generic teas and pills fail because they cannot reset cellular receptor thresholds.",
+      ingredients: "switching to a sublingual liquid delivery of L-Theanine and GABA to help quiet overactive brain activity, mixed with Tart Cherry to support fewer midnight micro-awakenings."
+    },
+    metabolic: {
+      title: "Nocturnal Glucose & Metabolic Drift",
+      desc: "This is why you wake up feeling slightly warm, restless, or noticing midnight hunger cues around 3 AM. Your body is experiencing a natural midnight glucose dip, triggering an early stress response to balance energy. Standard remedies fail because they treat the mind, not the metabolic baseline.",
+      ingredients: "utilizing an advanced sublingual nano-liquid blend of 5-HTP and Lemon Balm Extract to support nighttime equilibrium, alongside Tart Cherry to extend continuous rest quality."
+    },
+    cortisol: {
+      title: "The Midnight Cortisol Spike",
+      desc: "This is why you can fall asleep fine but jolt awake at 3 AM completely wired with a racing mind. Your system is triggering a premature cortisol surge, turning your analytical mind on maximum alert. Generic melatonin and teas don't target this specific hormonal pattern.",
+      ingredients: "switching to a nightly sublingual liquid ritual of Lemon Balm Extract to quiet the 3 AM wake surge, GABA to relax neural pathways, and Magnesium Glycinate for physical tension."
+    },
+    circadian: {
+      title: "Circadian Phase Clock Displacement",
+      desc: "This is why you find it almost impossible to maintain a continuous sleep lock past 2:00 or 3:00 AM. Your master internal clock is misaligned, dropping natural production cycles hours too early. Standard high-dose sleeping pills just leave you groggy without fixing the rhythm.",
+      ingredients: "a precise 2mL nano-liquid dose of 0.9mg Melatonin matched with structural Vitamin B6 & B2 co-factors to support your rhythm, paired with Tart Cherry to re-anchor your sleep-wake cycle."
+    },
+    glymphatic: {
+      title: "Glymphatic Depth & Physical Tension Arousal",
+      desc: "This is why you wake up feeling completely unrefreshed, often carrying tightness in your neck or shoulders. Your body is stuck in shallow cycles, failing to enter the deep restorative stages required for nightly physical recovery.",
+      ingredients: "integrating a rapid-absorption nano-liquid matrix of Magnesium Glycinate to support physical relaxation, blended with L-Theanine to promote calm alpha brain waves."
+    }
+  };
+
+  const profile = matrixContent[primaryFactor] || matrixContent['cortisol'];
 
   const infoBlock = document.createElement("div");
   infoBlock.className = "w-full space-y-3 bg-slate-950 p-4 rounded-xl border border-slate-800 text-left mb-4";
@@ -195,20 +225,14 @@ document.addEventListener("DOMContentLoaded", function () {
   infoBlock.style.border = "1px solid #1e293b";
   infoBlock.style.borderRadius = "0.75rem";
   infoBlock.style.marginBottom = "1rem";
-  infoBlock.innerHTML = `
-    <span class="block text-xs font-mono tracking-wider text-emerald-400 mb-2 font-bold">📋 EVALUATION COMPLETE: Your Profile = The Midnight Cortisol Spike</span>
-    <p class="text-xs text-slate-200 leading-relaxed font-sans mb-3">
-      This is why you can fall asleep fine but jolt awake at 3 AM wired. Your body is clear, but that midnight cortisol surge keeps your analytical mind on. Generic melatonin and teas don't target this pattern - that's why they failed before.
-    </p>
-    <span class="block text-xs font-semibold text-sky-400 mt-3 mb-1 font-sans">Why your system needs targeted support:</span>
-    <p class="text-xs text-slate-200 leading-relaxed font-sans mb-3">
-      I was stuck in this exact pattern before. What finally helped shift it wasn't another breathing trick. It was switching to a nightly liquid ritual designed for fast sublingual calm - lemon balm to help quiet that 3 AM wake, tart cherry to help anchor the cycle, and magnesium glycinate for the physical tension. No heavy morning grogginess like high-dose melatonin.
-    </p>
-    <p class="text-[11px] text-slate-400 leading-relaxed mt-2 font-sans">Below is the exact formula I mapped to this profile.</p>
-  `;
+  infoBlock.innerHTML = '<span class="block text-xs font-mono tracking-wider text-emerald-400 mb-2 font-bold">📋 EVALUATION COMPLETE: Profile = ' + profile.title + '</span>' +
+    '<p class="text-xs text-slate-200 leading-relaxed font-sans mb-3">' + profile.desc + '</p>' +
+    '<span class="block text-xs font-semibold text-sky-400 mt-3 mb-1 font-sans">Why your system needs targeted support:</span>' +
+    '<p class="text-xs text-slate-200 leading-relaxed font-sans mb-3">I was stuck in this exact pattern before. What finally helped shift it wasn't another breathing trick. It was ' + profile.ingredients + ' Utilizing an advanced 2mL sublingual delivery method designed for 99% direct absorption, it hits the system rapidly without heavy morning grogginess.</p>' +
+    '<p class="text-[11px] text-slate-400 leading-relaxed mt-2 font-sans">Below is the exact formula mapped to this profile.</p>';
 
   const affiliateCTA = document.createElement("a");
-  affiliateCTA.href = `https://getyusleep.com/glp/?affiliate=butetnadia&tid=${targetChannelId}`;
+  affiliateCTA.href = "https://getyusleep.com/glp/?affiliate=butetnadia&tid=" + targetChannelId;
   affiliateCTA.target = "_blank";
   affiliateCTA.rel = "nofollow sponsored noopener noreferrer";
   affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99] block mb-4";
