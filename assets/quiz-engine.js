@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ${customDiagnosis}
         <span class="block text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-3 rounded-lg border border-slate-800 font-sans mt-3">${freeTip}</span>
         <span class="block text-[11px] text-sky-400 font-medium mt-3">🎁 Included Reward:</span>
-        <span class="block text-[11px] text-slate-500 leading-relaxed">Based on your Adenosine & Glucose backlog, standard pills won't digest fast enough at 3 AM. Your profile matches the Sublingual Rapid-Stabilization Method—a specialized liquid routine designed to bypass the gut and calm nocturnal micro-arousals instantly.</span>
+        <span class="block text-[11px] text-slate-500 leading-relaxed">Based on your Adenosine & Glucose profile, physical tracking shows that generic sleep advice won't stabilize your midnight waking cycle. Your system requires targeted nutritional support. The evening ritual recommended below utilizes a highly concentrated dark elderberry and botanical micro-nutrient matrix. In molecular literature, these specific antioxidants are shown to help support overnight metabolic stabilization and keep the HPA-axis from triggering early cortisol spikes, without the grogginess of standard pills. We personally integrate this liquid botanical drop into our nightly routine to keep our early-morning baseline completely calm and undisturbed.</span>
       `;
 
       let targetChannelId = `compliant_${primaryFactor}_${secondaryFactor}`;
