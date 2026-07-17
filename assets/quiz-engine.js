@@ -64,6 +64,16 @@ document.addEventListener("DOMContentLoaded", function () {
         "Frequent travel, changing routines, or getting limited natural sunlight in the morning",
         "Sluggish circulation or structural tension carried in the neck and upper back"
       ]
+    },
+    {
+      q: "What has been your experience with generic sleep advice (breathing tricks, herbal teas, or basic melatonin)?",
+      o: [
+        "I've tried breathing tricks and free tips, but they completely failed to stop my 3 AM waking spike.",
+        "Generic supplements and teas don't touch my midnight racing mind or deep neurological alertness.",
+        "I am completely done with free advice—I need a targeted, biological solution that actually works.",
+        "Basic sleep hygiene protocols have done nothing to keep my early morning REM cycles anchored.",
+        "I still wake up wired and tense regardless of how many relaxation guidelines I follow."
+      ]
     }
   ];
 
