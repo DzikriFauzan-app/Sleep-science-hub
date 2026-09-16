@@ -1,260 +1,47 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const container = document.querySelector(".sleep-quiz-container");
-  if (!container) return;
-
-  const introSection = container.querySelector(".sleep-quiz-intro");
-  const engineSection = container.querySelector(".sleep-quiz-engine");
-  const startBtn = container.querySelector(".sleep-quiz-start-btn");
-  const progressBar = container.querySelector(".sleep-quiz-progress");
-  const counterText = container.querySelector(".sleep-quiz-counter,.quiz-counter");
-  const questionText = container.querySelector(".sleep-quiz-question,.quiz-question, h3");
-  const optionsWrapper = container.querySelector(".sleep-quiz-options,.quiz-options");
-  const auditCountElement = container.querySelector(".sleep-quiz-audit-count");
-
-  // FIX 1: Real-time Counter View Tracker removed to match updated HTML layout
-
-  // FIX 2: 5x5 Professional Psychometric Biological Matrix Structure
-  const questions = [
-    {
-      q: "What do you most commonly feel when waking up in the middle of the night?",
-      o: [
-        "I feel completely drained, like my body's natural energy reserves are empty",
-        "I wake up feeling slightly warm, restless, or noticing mild midnight hunger cues",
-        "My mind instantly starts racing over tasks, accompanied by a sudden wave of alertness",
-        "I wake up feeling calm but fully awake, as if my body believes it is already morning",
-        "I notice physical tension in my shoulders/neck or a general feeling of restlessness"
-      ]
-    },
-    {
-      q: "Which routine best describes your typical late afternoon or evening?",
-      o: [
-        "Enjoying coffee, energy drinks, or strong teas past 2:00 PM",
-        "Having a carbohydrate-rich dinner, sweet desserts, or a relaxing drink before bed",
-        "Checking work dashboards, handling stressful files, or looking at bright screens in bed",
-        "Managing an irregular schedule, such as rotating shifts or sleeping in on weekends",
-        "Having a lower fluid intake during the day or sleeping in a warm, closed room"
-      ]
-    },
-    {
-      q: "How does drifting off to sleep usually feel for you early in the night?",
-      o: [
-        "I fall asleep very quickly out of sheer exhaustion, but wake up noticealby later",
-        "I tend to toss and turn, feeling like my body is holding onto too much day-time heat",
-        "My body feels tired but my mind stays active, often needing background sounds to drift off",
-        "I fall asleep naturally early but find it difficult to stay asleep past 2:00 AM",
-        "I experience shallow breathing patterns or frequent micro-awakenings from the first hour"
-      ]
-    },
-    {
-      q: "Which pattern describes your physical energy the next morning?",
-      o: [
-        "A heavy morning grogginess that takes a few hours and coffee to fully clear",
-        "Feeling slightly shaky or irritable until I can eat a balanced breakfast",
-        "Waking up already thinking about daily stressors, holding tightness in my muscles",
-        "Feeling completely awake at dawn but experiencing a sharp energy dip after lunch",
-        "Waking up feeling unrefreshed, as if the quality of my rest was shallow"
-      ]
-    },
-    {
-      q: "Which area represents your body's typical vulnerability or daily routine?",
-      o: [
-        "High sensitivity to compounds like caffeine (a morning cup keeps me active for long)",
-        "Noticing changes in focus or mood if regular daytime meals are delayed",
-        "A tendency to hold stress physically, keeping the nervous system in a watchful state",
-        "Frequent travel, changing routines, or getting limited natural sunlight in the morning",
-        "Sluggish circulation or structural tension carried in the neck and upper back"
-      ]
-    },
-    {
-      q: "What has been your experience with generic sleep advice (breathing tricks, herbal teas, or basic melatonin)?",
-      o: [
-        "I've tried breathing tricks and free tips, but they completely failed to stop my 3 AM waking spike.",
-        "Generic supplements and teas don't touch my midnight racing mind or deep neurological alertness.",
-        "I am completely done with free advice—I need a targeted, biological solution that actually works.",
-        "Basic sleep hygiene protocols have done nothing to keep my early morning REM cycles anchored.",
-        "I still wake up wired and tense regardless of how many relaxation guidelines I follow."
-      ]
-    }
-  ];
-
-  // Tracking bins for calculation of the 25 cross-conditional outcomes
-  let scores = { purinergic: 0, metabolic: 0, cortisol: 0, circadian: 0, glymphatic: 0 };
-  let currentStep = 0;
-
-  if (startBtn) {
-    startBtn.addEventListener("click", function () {
-      introSection.classList.add("hidden");
-      engineSection.classList.remove("hidden");
-      renderQuestion();
-    });
-  }
-
-  function renderQuestion() {
-    if (currentStep >= questions.length) {
-      calculateMatrixResults();
-      return;
-    }
-
-    const currentData = questions[currentStep];
-    counterText.textContent = `QUESTION ${currentStep + 1} OF ${questions.length}`;
-    questionText.textContent = currentData.q;
-    
-    const progressPercent = ((currentStep + 1) / questions.length) * 100;
-    progressBar.style.width = `${progressPercent}%`;
-    optionsWrapper.textContent = "";
-
-    currentData.o.forEach((optionText, idx) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "w-full text-left rounded-xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-xs font-medium text-slate-300 transition hover:border-sky-500/50 hover:bg-slate-900 hover:text-white";
-      button.style.display = "block";
-      button.style.width = "100%";
-      button.style.marginBottom = "0.5rem";
-      button.style.padding = "0.75rem 1rem";
-      button.style.backgroundColor = "rgba(15, 23, 42, 0.8)";
-      button.style.border = "1px solid #1e293b";
-      button.style.borderRadius = "0.75rem";
-      button.style.color = "#94a3b8";
-      button.style.cursor = "pointer";
-      button.textContent = optionText;
-      button.setAttribute("data-index", idx);
-      optionsWrapper.appendChild(button);
-    });
-  }
-
-  optionsWrapper.addEventListener("click", function (e) {
-    const targetButton = e.target.closest("button");
-    if (!targetButton) return;
-
-    const chosenIdx = parseInt(targetButton.getAttribute("data-index"), 10);
-    
-    // Dynamically map selections to target biological tracks
-    if (chosenIdx === 0) scores.purinergic += 2;
-    if (chosenIdx === 1) scores.metabolic += 2;
-    if (chosenIdx === 2) scores.cortisol += 2;
-    if (chosenIdx === 3) scores.circadian += 2;
-    if (chosenIdx === 4) scores.glymphatic += 2;
-
-    currentStep++;
-    renderQuestion();
-  });
-
-  function calculateMatrixResults() {
-    counterText.textContent = "RUNNING ALGORITHMIC EVALUATION...";
-    questionText.textContent = "Analyzing symptomatic physiological patterns...";
-    optionsWrapper.textContent = "";
-
-    // PRE-RESULT VALUE LOOP: Mengunci psikologi konversi pasar US (Pola Seed/Noom)
-    let metrics = [
-      "Isolating autonomic nervous system baseline...",
-      "Evaluating nocturnal cortisol curve displacement...",
-      "Quantifying purinergic receptor saturation index...",
-      "Synthesizing customized 3 AM circadian blueprint..."
-    ];
-
-    let step = 0;
-    optionsWrapper.innerHTML = `
-      <div class="w-full py-6 text-center space-y-4">
-        <div class="mx-auto h-7 w-7 animate-spin rounded-full border-4 border-sky-500 border-t-transparent"></div>
-        <div id="cro-loading-text" class="text-[11px] font-mono tracking-wide text-slate-400">Initializing calculation grid...</div>
-        <div class="w-full bg-slate-950 h-1 rounded-full overflow-hidden border border-slate-800">
-          <div id="cro-progress-bar" class="bg-gradient-to-r from-sky-500 to-emerald-500 h-full w-0 transition-all duration-300 ease-out"></div>
-        </div>
-      </div>
-    `;
-
-    const interval = setInterval(() => {
-      if (step < metrics.length) {
-        const loadingEl = document.getElementById('cro-loading-text');
-        const progressEl = document.getElementById('cro-progress-bar');
-        if (loadingEl) loadingEl.innerText = metrics[step];
-        if (progressEl) progressEl.style.width = `${(step + 1) * 25}%`;
-        step++;
-      } else {
-        clearInterval(interval);
-        renderFinalMatrixOutput();
-      }
-    }, 700);
-
-    function renderFinalMatrixOutput() {
-  counterText.textContent = "EVALUATION COMPLETE";
-  questionText.textContent = "Your Personalized Circadian Sleep Profile";
-  optionsWrapper.textContent = "";
-
-  let sortedTracks = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
-  let primaryFactor = sortedTracks[0];
-  let secondaryFactor = sortedTracks[1];
-  let targetChannelId = "compliant_" + primaryFactor + "_" + secondaryFactor;
-
-  container.scrollIntoView({ behavior: 'instant', block: 'start' });
-
-  const matrixContent = {
-    purinergic: {
-      title: "The Purinergic Adenosine Disruption",
-      desc: "This is why you fall asleep from sheer exhaustion but snap awake at 3 AM wide alert. Your purinergic pathways are failing to maintain deep sleep pressure due to lingering neurochemical clearance blocks. Generic teas and pills fail because they cannot reset cellular receptor thresholds.",
-      ingredients: "switching to a sublingual liquid delivery of L-Theanine and GABA to help quiet overactive brain activity, mixed with Tart Cherry to support fewer midnight micro-awakenings."
-    },
-    metabolic: {
-      title: "Nocturnal Glucose & Metabolic Drift",
-      desc: "This is why you wake up feeling slightly warm, restless, or noticing midnight hunger cues around 3 AM. Your body is experiencing a natural midnight glucose dip, triggering an early stress response to balance energy. Standard remedies fail because they treat the mind, not the metabolic baseline.",
-      ingredients: "utilizing an advanced sublingual nano-liquid blend of 5-HTP and Lemon Balm Extract to support nighttime equilibrium, alongside Tart Cherry to extend continuous rest quality."
-    },
-    cortisol: {
-      title: "The Midnight Cortisol Spike",
-      desc: "This is why you can fall asleep fine but jolt awake at 3 AM completely wired with a racing mind. Your system is triggering a premature cortisol surge, turning your analytical mind on maximum alert. Generic melatonin and teas don't target this specific hormonal pattern.",
-      ingredients: "switching to a nightly sublingual liquid ritual of Lemon Balm Extract to quiet the 3 AM wake surge, GABA to relax neural pathways, and Magnesium Glycinate for physical tension."
-    },
-    circadian: {
-      title: "Circadian Phase Clock Displacement",
-      desc: "This is why you find it almost impossible to maintain a continuous sleep lock past 2:00 or 3:00 AM. Your master internal clock is misaligned, dropping natural production cycles hours too early. Standard high-dose sleeping pills just leave you groggy without fixing the rhythm.",
-      ingredients: "a precise 2mL nano-liquid dose of 0.9mg Melatonin matched with structural Vitamin B6 & B2 co-factors to support your rhythm, paired with Tart Cherry to re-anchor your sleep-wake cycle."
-    },
-    glymphatic: {
-      title: "Glymphatic Depth & Physical Tension Arousal",
-      desc: "This is why you wake up feeling completely unrefreshed, often carrying tightness in your neck or shoulders. Your body is stuck in shallow cycles, failing to enter the deep restorative stages required for nightly physical recovery.",
-      ingredients: "integrating a rapid-absorption nano-liquid matrix of Magnesium Glycinate to support physical relaxation, blended with L-Theanine to promote calm alpha brain waves."
-    }
-  };
-
-  const profile = matrixContent[primaryFactor] || matrixContent['cortisol'];
-
-  const infoBlock = document.createElement("div");
-  infoBlock.className = "w-full space-y-3 bg-slate-950 p-4 rounded-xl border border-slate-800 text-left mb-4";
-  infoBlock.style.padding = "1rem";
-  infoBlock.style.backgroundColor = "#090f1e";
-  infoBlock.style.border = "1px solid #1e293b";
-  infoBlock.style.borderRadius = "0.75rem";
-  infoBlock.style.marginBottom = "1rem";
-  infoBlock.innerHTML = '<span class="block text-xs font-mono tracking-wider text-emerald-400 mb-2 font-bold">📋 EVALUATION COMPLETE: Profile = ' + profile.title + '</span>' +
-    '<p class="text-xs text-slate-200 leading-relaxed font-sans mb-3">' + profile.desc + '</p>' +
-    '<span class="block text-xs font-semibold text-sky-400 mt-3 mb-1 font-sans">Why your system needs targeted support:</span>' +
-    '<p class="text-xs text-slate-200 leading-relaxed font-sans mb-3">I was stuck in this exact pattern before. What finally helped shift it wasn't another breathing trick. It was ' + profile.ingredients + ' Utilizing an advanced 2mL sublingual delivery method designed for 99% direct absorption, it hits the system rapidly without heavy morning grogginess.</p>' +
-    '<p class="text-[11px] text-slate-400 leading-relaxed mt-2 font-sans">Below is the exact formula mapped to this profile.</p>';
-
-  const affiliateCTA = document.createElement("a");
-  affiliateCTA.href = "https://getyusleep.com/glp/?affiliate=butetnadia&tid=" + targetChannelId;
-  affiliateCTA.target = "_blank";
-  affiliateCTA.rel = "nofollow sponsored noopener noreferrer";
-  affiliateCTA.className = "w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99] block mb-4";
-  affiliateCTA.style.display = "block";
-  affiliateCTA.style.textDecoration = "none";
-  affiliateCTA.style.padding = "1rem";
-  affiliateCTA.style.backgroundColor = "#10b981";
-  affiliateCTA.style.color = "#ffffff";
-  affiliateCTA.style.fontWeight = "700";
-  affiliateCTA.style.borderRadius = "0.75rem";
-  affiliateCTA.style.textAlign = "center";
-  affiliateCTA.textContent = "Check the ritual for your profile - 60-day guarantee →";
-
-  const disclaimerText = document.createElement("p");
-  disclaimerText.className = "text-[11px] text-slate-400 text-center leading-relaxed my-3 px-2 block w-full font-sans";
-  disclaimerText.innerHTML = "⚠️ <strong>Affiliate Disclosure:</strong> This educational tool references a recommended sleep support protocol. If you choose to purchase through our link, we may earn a small commission at no additional cost to you. This is for general educational purposes only and does not substitute for professional medical advice.";
-
-  optionsWrapper.appendChild(infoBlock);
-  optionsWrapper.appendChild(affiliateCTA);
-  optionsWrapper.appendChild(disclaimerText);
-
-  if(typeof gtag!=="undefined"){gtag("event","quiz_completed",{primary_factor:primaryFactor,secondary_factor:secondaryFactor});}
+document.addEventListener("DOMContentLoaded",function(){
+const c=document.querySelector(".sleep-quiz-container");if(!c)return;
+const intro=c.querySelector(".sleep-quiz-intro"),engine=c.querySelector(".sleep-quiz-engine"),start=c.querySelector(".sleep-quiz-start-btn"),bar=c.querySelector(".sleep-quiz-progress"),counter=c.querySelector(".sleep-quiz-counter"),question=c.querySelector(".sleep-quiz-question"),opts=c.querySelector(".sleep-quiz-options");
+const questions=[
+["When you wake during the night, what happens first?",["My mind becomes suddenly alert or starts racing.","I feel physically restless, tense, hot, or uncomfortable.","I feel calm but fully awake, as if it were morning.","Something around me wakes me: light, noise, temperature, or another disturbance.","I am not sure."]],
+["How consistent is your sleep and wake schedule?",["Very consistent, including weekends.","Mostly consistent, with occasional changes.","It changes substantially from day to day.","I work shifts or have an irregular schedule.","My schedule is consistent, but I still wake repeatedly."]],
+["Which is most common in your afternoon or evening?",["Caffeine later in the day.","Alcohol close to bedtime.","A large or late meal.","Usually none of these.","It varies a lot from night to night."]],
+["What happens when you try to fall back asleep?",["My thoughts keep me awake.","I feel physically alert or tense.","I am sleepy but my schedule feels out of sync.","I usually fall back asleep quickly.","It depends on the night."]],
+["Which factor is most likely to interrupt your sleep?",["Stress, worry, or mental activity.","Light, noise, temperature, pets, or another environmental factor.","Caffeine, alcohol, food, or an irregular routine.","An inconsistent bedtime or wake time.","I cannot identify one."]],
+["How often does the same pattern happen?",["Almost every night.","Several nights a week.","Mostly during stressful periods.","Mostly when my schedule changes.","Only occasionally."]],
+["What would you most like to understand?",["Why I wake up feeling mentally switched on.","Whether my sleep timing may be part of the pattern.","Whether daily habits could affect sleep continuity.","Whether my bedroom or surroundings may contribute.","Why the pattern changes from night to night."]]
+];
+const tracks=["arousal","timing","habits","environment","mixed"];
+const names={arousal:"Nighttime Arousal Pattern",timing:"Sleep Timing Pattern",habits:"Sleep Pressure & Habit Pattern",environment:"Environmental Disruption Pattern",mixed:"Mixed / Variable Sleep Pattern"};
+const descriptions={
+arousal:"Your answers most closely match a pattern in which mental or physical alertness may make it harder to return to sleep after an awakening.",
+timing:"Your answers most closely match a pattern in which sleep timing, schedule consistency, or circadian alignment may be worth investigating.",
+habits:"Your answers point toward daily habits that can influence sleep continuity, including caffeine, alcohol, meals, naps, or changing routines.",
+environment:"Your answers suggest that the sleep environment or an external disturbance may be worth checking before assuming a biological explanation.",
+mixed:"Your answers do not point strongly to one pattern. Nighttime waking can have several contributors and the pattern can change from night to night."
+};
+const actions={
+arousal:["Keep a consistent wake time for several days.","Create a low-stimulation wind-down period before bed.","If you wake, avoid turning the moment into a stressful test of whether you can sleep."],
+timing:["Keep bedtime and wake time as consistent as practical.","Get regular daytime light exposure, especially in the morning.","Track whether late nights or schedule changes precede awakenings."],
+habits:["Track caffeine timing for one week.","Notice whether alcohol or late, heavy meals precede fragmented nights.","Review naps and irregular sleep timing in the same log."],
+environment:["Check bedroom temperature, noise, light, and device notifications.","Notice whether pets, partners, or external sounds coincide with awakenings.","Change one environmental variable at a time."],
+mixed:["Keep a simple seven-day sleep log.","Record bedtime, wake time, awakenings, caffeine, alcohol, and major stressors.","Look for repeated patterns rather than assuming one cause from one night."]
+};
+let i=0,scores={arousal:0,timing:0,habits:0,environment:0,mixed:0};
+function track(n,p){if(typeof gtag==="function")gtag("event",n,Object.assign({event_category:"sleep_funnel"},p||{}))}
+function render(){
+ if(i>=questions.length){finish();return}
+ const q=questions[i];counter.textContent="QUESTION "+(i+1)+" OF "+questions.length;question.textContent=q[0];bar.style.width=((i+1)/questions.length*100)+"%";opts.innerHTML="";
+ q[1].forEach((label,index)=>{const b=document.createElement("button");b.type="button";b.className="w-full text-left rounded-xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-xs font-medium text-slate-300 transition";b.textContent=label;b.dataset.index=index;opts.appendChild(b)})
 }
+function finish(){
+ let primary="mixed";tracks.forEach(k=>{if(scores[k]>scores[primary])primary=k});
+ track("quiz_completed",{result_pattern:primary});
+ engine.classList.add("hidden");
+ const list=actions[primary].map(x=>"<li>"+x+"</li>").join("");
+ opts.innerHTML='<div class="w-full space-y-4"><div class="rounded-xl border border-slate-800 bg-slate-950 p-5"><span class="block text-[10px] uppercase tracking-widest text-emerald-400 font-bold">Your educational result</span><h3 class="mt-2 text-xl font-extrabold text-white">'+names[primary]+'</h3><p class="mt-3 text-xs leading-relaxed text-slate-300">'+descriptions[primary]+'</p><h4 class="mt-5 text-xs font-bold uppercase tracking-wider text-sky-400">What to explore next</h4><ul class="mt-2 space-y-2 text-xs leading-relaxed text-slate-300">'+list+'</ul></div><div class="rounded-xl border border-slate-800 bg-slate-900 p-5"><h4 class="text-base font-bold text-white">Want to review a sleep-support product?</h4><p class="mt-2 text-xs leading-relaxed text-slate-400">Yu Sleep is a third-party product. We do not present it as a diagnosis or guaranteed treatment. Review its ingredients, directions, price, guarantee, and available evidence before deciding.</p><a id="affiliate-link" href="https://getyusleep.com/glp/?affiliate=butetnadia&tid=assessment_'+primary+'" target="_blank" rel="nofollow sponsored noopener noreferrer" class="mt-4 block w-full rounded-xl bg-emerald-600 px-5 py-4 text-center text-xs font-bold text-white">Read the Yu Sleep Review →</a><p class="mt-3 text-[10px] leading-relaxed text-slate-500">Affiliate disclosure: Sleep Science Hub may receive a commission if you purchase through this link, at no additional cost to you.</p></div></div>';
+ const a=document.getElementById("affiliate-link");a.addEventListener("click",()=>track("affiliate_click",{result_pattern:primary,affiliate_partner:"Yu Sleep"}));
+ counter.textContent="ASSESSMENT COMPLETE";question.textContent="Your sleep pattern is a starting point, not a diagnosis.";track("result_view",{result_pattern:primary});
 }
+start&&start.addEventListener("click",function(){intro.classList.add("hidden");engine.classList.remove("hidden");track("quiz_start",{question_count:7});render()});
+opts&&opts.addEventListener("click",function(e){const b=e.target.closest("button");if(!b)return;const n=Number(b.dataset.index);const map=[["arousal","arousal"],["arousal","arousal"],["timing","timing"],["environment","environment"],["mixed","mixed"]];const q=i;if(q===2&&n===0||q===2&&n===1||q===2&&n===2)scores.habits++;else if(q===0)scores[map[n][0]]++;else if(q===1)scores.timing++;else if(q===3)scores[["arousal","arousal","timing","environment","mixed"][n]]++;else if(q===4)scores[["arousal","environment","habits","timing","mixed"][n]]++;else if(q===5)scores[["mixed","mixed","arousal","timing","environment"][n]]++;else if(q===6)scores[["arousal","timing","habits","environment","mixed"][n]]++;i++;track("quiz_answer",{question_number:q+1,answer_index:n+1});render()});
 });
