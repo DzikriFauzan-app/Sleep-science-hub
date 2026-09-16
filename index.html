@@ -196,7 +196,7 @@
           
           
           <!-- Native Quiz Interface Card Layer -->
-          <div class="w-full max-w-xl rounded-b-2xl bg-slate-900 border-x border-b border-slate-800 p-4 sm:p-8 shadow-2xl text-left sleep-quiz-container">
+          <div class="w-full max-w-xl rounded-b-2xl bg-slate-900 border-x border-b border-slate-800 p-4 sm:p-8 shadow-2xl text-left sleep-quiz-container overflow-visible">
             <div class="text-center sm:text-left sleep-quiz-intro">
               <h2 class="text-lg font-bold text-white tracking-tight">Find the Sleep Pattern Behind Your Wakeups</h2>
               <p class="mt-2 text-slate-400 text-xs leading-relaxed">Answer seven questions about your sleep experience, schedule, habits, and environment. Your result is a useful starting point for what to explore next — not a diagnosis.</p>
@@ -208,7 +208,7 @@
               <button type="button" class="sleep-quiz-start-btn w-full text-center rounded-xl bg-emerald-600 px-6 py-4 text-xs font-bold text-white shadow-lg hover:bg-emerald-500 transition-all active:scale-[0.99]" style="background-color: #10b981;">Take the Free 60-Second Assessment &rarr;</button>
           <p class="text-[11px] text-slate-500 mt-2.5 text-center tracking-wide font-mono">7 Questions • Immediate Educational Result • No Email Required</p>
             </div>
-            <div class="hidden sleep-quiz-engine">
+            <div class="hidden sleep-quiz-engine w-full">
               <div class="w-full bg-slate-800 h-1.5 rounded-full mb-6">
                 <div class="h-1.5 rounded-full transition-all duration-300 sleep-quiz-progress" style="width: 20%; background-color: #0284c7;"></div>
               </div>
@@ -216,6 +216,8 @@
               <h3 class="text-base font-bold text-white mb-6 sleep-quiz-question">Loading question...</h3>
               <div class="space-y-3 sleep-quiz-options"></div>
             </div>
+          <div class="hidden sleep-quiz-result w-full mt-6 rounded-2xl border border-sky-500/40 bg-slate-950 p-5 sm:p-7 text-left shadow-2xl"></div>
+
           </div>
 
           <!-- PERBAIKAN 3: Mengaktifkan Tautan Navigasi Mesh Bawah secara Valid -->
